@@ -34,7 +34,6 @@ namespace CourseWork
                 user_split.Panel2.Size.Width,
                 user_split.Panel2.Size.Height
                 );
-            menu_btn.BackColor = SystemColors.Control;
             profile = new Profile();
             calendar = new Shedule();
 
@@ -44,18 +43,16 @@ namespace CourseWork
 
         private void loadIntoPanel2(Form form)
         {
-            user_split.Panel2.Size = panel2Size;
-            menu_btn.BackColor = SystemColors.ActiveCaption;
-            user_split.Panel2.Controls.Remove(currForm);
-            currForm = form;
             form.TopLevel = false;
-            user_split.Panel2.Controls.Add(form);
             form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            form.Width = user_split.Panel2.Width;
-            form.Height = user_split.Panel2.Height;
-            user_split.Panel2.AutoScrollMinSize = new Size(form.Width - 20, form.Height);
             form.Dock = System.Windows.Forms.DockStyle.Fill;
+            user_split.Panel2.Controls.Remove(currForm);
+            user_split.Panel2.Controls.Add(form);
+            user_split.Panel2.AutoScrollMinSize = new Size(form.Width - 20, form.Height);
+            form.Width = user_split.Panel2.Width;
             form.Show();
+            currForm = form;
+            menu_btn.BackColor = SystemColors.ActiveCaption;
         }
 
         private void menu_btn_MouseHover(object sender, EventArgs e)
@@ -98,22 +95,13 @@ namespace CourseWork
         {
             if (currForm != null)
             {
-                currForm.Width = user_split.Panel2.Width;
-                currForm.Height = user_split.Panel2.Height;
+                currForm.Width = panel2Size.Width;
+                currForm.Height = panel2Size.Height;
             }
-
-            //int margin = (user_split.Panel1.Width - actionsMenu_table.Width) / 2;
-            //actionsMenu_table.Margin = new Padding(margin, 0, 0, 0);
-
-            //foreach (Control control in this.actionsMenu_table.Controls)
-            //{
-            //    int margin = (actionsMenu_table.Width - 130) / 2; 
-            //    control.Margin = new Padding(margin, 0, 0, 0);
-            //}
-
+            
         }
 
-        private void profile_lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void profile_lbl_LinkClicked(object sender, EventArgs e)
         {
             if (currLinkLabel != profile_lbl)
             {
@@ -122,13 +110,79 @@ namespace CourseWork
             }
         }
 
-        private void shedule_lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void shedule_lbl_LinkClicked(object sender, EventArgs e)
         {
             if (currLinkLabel != shedule_lbl)
             {
                 loadIntoPanel2(calendar);
                 currLinkLabel = shedule_lbl;
             }
+        }
+
+        private void mouseEnterAction(Control control)
+        {
+            control.BackColor = SystemColors.GradientActiveCaption;
+        }
+
+        private void mouseLeaveAction(Control control)
+        {
+            control.BackColor = SystemColors.ControlLight;
+        }
+
+        private void profile_lbl_MouseEnter(object sender, EventArgs e)
+        {
+            mouseEnterAction(profile_lbl);
+        }
+
+        private void profile_lbl_MouseLeave(object sender, EventArgs e)
+        {
+            mouseLeaveAction(profile_lbl);
+        }
+
+        private void shedule_lbl_MouseEnter(object sender, EventArgs e)
+        {
+            mouseEnterAction(shedule_lbl);
+        }
+
+        private void shedule_lbl_MouseLeave(object sender, EventArgs e)
+        {
+            mouseLeaveAction(shedule_lbl);
+        }
+
+        private void homework_lbl_MouseEnter(object sender, EventArgs e)
+        {
+            mouseEnterAction(homework_lbl);
+        }
+
+        private void homework_lbl_MouseLeave(object sender, EventArgs e)
+        {
+            mouseLeaveAction(homework_lbl);
+        }
+
+        private void acadPerform_lbl_MouseEnter(object sender, EventArgs e)
+        {
+            mouseEnterAction(acadPerform_lbl);
+        }
+
+        private void acadPerform_lbl_MouseLeave(object sender, EventArgs e)
+        {
+            mouseLeaveAction(acadPerform_lbl);
+        }
+
+        private void exit_lbl_MouseEnter(object sender, EventArgs e)
+        {
+            mouseEnterAction(exit_lbl);
+        }
+
+        private void exit_lbl_MouseLeave(object sender, EventArgs e)
+        {
+            mouseLeaveAction(exit_lbl);
+        }
+
+        private void profile_lbl_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("link click event raised");
+            //profile_lbl.LinkClicked += new LinkLabelLinkClickedEventHandler(this.profile_lbl_LinkClicked);
         }
     }
 }
