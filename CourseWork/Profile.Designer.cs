@@ -38,6 +38,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.title_lbl = new System.Windows.Forms.Label();
             this.personalInfo_gb = new System.Windows.Forms.GroupBox();
             this.user_info_table = new System.Windows.Forms.TableLayoutPanel();
             this.name_lbl = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.birthYear_cb = new System.Windows.Forms.ComboBox();
             this.class_tb = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.title_lbl = new System.Windows.Forms.Label();
             this.wrapper.SuspendLayout();
             this.password_gb.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -66,8 +66,8 @@
             this.wrapper.ColumnCount = 1;
             this.wrapper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.wrapper.Controls.Add(this.password_gb, 0, 2);
-            this.wrapper.Controls.Add(this.personalInfo_gb, 0, 1);
             this.wrapper.Controls.Add(this.title_lbl, 0, 0);
+            this.wrapper.Controls.Add(this.personalInfo_gb, 0, 1);
             this.wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wrapper.Location = new System.Drawing.Point(0, 0);
             this.wrapper.MaximumSize = new System.Drawing.Size(0, 520);
@@ -194,9 +194,22 @@
             this.textBox3.TabIndex = 11;
             this.textBox3.UseSystemPasswordChar = true;
             // 
+            // title_lbl
+            // 
+            this.title_lbl.AutoSize = true;
+            this.title_lbl.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.title_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.title_lbl.Font = new System.Drawing.Font("Comic Sans MS", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.title_lbl.Location = new System.Drawing.Point(0, 0);
+            this.title_lbl.Margin = new System.Windows.Forms.Padding(0);
+            this.title_lbl.Name = "title_lbl";
+            this.title_lbl.Size = new System.Drawing.Size(564, 70);
+            this.title_lbl.TabIndex = 2;
+            this.title_lbl.Text = "Профиль";
+            this.title_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // personalInfo_gb
             // 
-            this.personalInfo_gb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.personalInfo_gb.Controls.Add(this.user_info_table);
             this.personalInfo_gb.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.personalInfo_gb.Location = new System.Drawing.Point(20, 70);
@@ -417,20 +430,6 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Изменить";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // title_lbl
-            // 
-            this.title_lbl.AutoSize = true;
-            this.title_lbl.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.title_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.title_lbl.Font = new System.Drawing.Font("Comic Sans MS", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.title_lbl.Location = new System.Drawing.Point(0, 0);
-            this.title_lbl.Margin = new System.Windows.Forms.Padding(0);
-            this.title_lbl.Name = "title_lbl";
-            this.title_lbl.Size = new System.Drawing.Size(564, 70);
-            this.title_lbl.TabIndex = 2;
-            this.title_lbl.Text = "Профиль";
-            this.title_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Profile
             // 

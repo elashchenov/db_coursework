@@ -20,7 +20,7 @@ namespace CourseWork
             //shedule_table.GetControlFromPosition(1, 1);
             //shedule_table.Controls.Add();
             //List<ReadOnlyTextBox> sheduleArray = new List<ReadOnlyTextBox>();
-            OleDbConnection connection = new OleDbConnection("Provider=SQLNCLI11; Data Source=localhost;Persist Security Info=True;User ID=sa;Password=1234;Initial Catalog=school");
+            OleDbConnection connection = new OleDbConnection("Provider=SQLNCLI11; Data Source=localhost;Persist Security Info=True;User ID=sa;Password=sa;Initial Catalog=school");
 
             OleDbDataAdapter adapter = new OleDbDataAdapter();
 
