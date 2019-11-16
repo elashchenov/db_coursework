@@ -26,7 +26,7 @@ namespace CourseWork
             String passUser = pass_tb.Text;
 
 
-            OleDbConnection connection = new OleDbConnection("Provider = SQLNCLI11; Data Source = localhost; Persist Security Info = True; Password = 1234; User ID = sa; Initial Catalog = school");
+            OleDbConnection connection = new OleDbConnection("Provider = SQLNCLI11; Data Source = localhost; Persist Security Info = True; Password = sa; User ID = sa; Initial Catalog = school");
             OleDbDataAdapter adapter = new OleDbDataAdapter();
             DataTable table = new DataTable();
             //DataSet dataset = new DataSet();
