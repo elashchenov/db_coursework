@@ -15,8 +15,6 @@ namespace CourseWork
         private SignInForm parentForm;
         private Form currForm;
         private LinkLabel currLinkLabel = null;
-        private Profile profile;
-        private Shedule calendar;
         private Size panel2Size;
 
         public MainForm()
@@ -34,8 +32,6 @@ namespace CourseWork
                 user_split.Panel2.Size.Width,
                 user_split.Panel2.Size.Height
                 );
-            profile = new Profile();
-            calendar = new Shedule();
 
             parentForm = f;
             f.Hide();
@@ -48,11 +44,11 @@ namespace CourseWork
             form.Dock = System.Windows.Forms.DockStyle.Fill;
             user_split.Panel2.Controls.Remove(currForm);
             user_split.Panel2.Controls.Add(form);
-            user_split.Panel2.AutoScrollMinSize = new Size(form.Width - 20, form.Height);
-            form.Width = user_split.Panel2.Width;
+            user_split.Panel2.AutoScrollMinSize = new Size(form.Width, form.Height);
             form.Show();
             currForm = form;
             menu_btn.BackColor = SystemColors.ActiveCaption;
+            //MessageBox.Show("Panel2 size is " + user_split.Panel2.Size + "; Form size is " + form.Size);
         }
 
         private void menu_btn_MouseHover(object sender, EventArgs e)
@@ -95,6 +91,7 @@ namespace CourseWork
         {
             if (currForm != null)
             {
+                //MessageBox.Show("Panel2 size is " + user_split.Panel2.Size + "; Form size is " + currForm.Size);
                 currForm.Width = panel2Size.Width;
                 currForm.Height = panel2Size.Height;
             }
@@ -105,7 +102,7 @@ namespace CourseWork
         {
             if (currLinkLabel != profile_lbl)
             {
-                loadIntoPanel2(profile);
+                loadIntoPanel2(new Profile());
                 currLinkLabel = profile_lbl;
             }
         }
@@ -114,7 +111,7 @@ namespace CourseWork
         {
             if (currLinkLabel != shedule_lbl)
             {
-                loadIntoPanel2(calendar);
+                loadIntoPanel2(new Shedule());
                 currLinkLabel = shedule_lbl;
             }
         }
@@ -179,10 +176,14 @@ namespace CourseWork
             mouseLeaveAction(exit_lbl);
         }
 
-        private void profile_lbl_Click(object sender, EventArgs e)
+        private void MainForm_ResizeBegin(object sender, EventArgs e)
         {
-            MessageBox.Show("link click event raised");
-            //profile_lbl.LinkClicked += new LinkLabelLinkClickedEventHandler(this.profile_lbl_LinkClicked);
+            currForm.SuspendLayout();
+        }
+
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
+        {
+            currForm.ResumeLayout();
         }
     }
 }

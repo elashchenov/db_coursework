@@ -39,54 +39,56 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.personalInfo_gb = new System.Windows.Forms.GroupBox();
-            this.user_info_table = new System.Windows.Forms.TableLayoutPanel();
+            this.userInfo_table = new System.Windows.Forms.TableLayoutPanel();
             this.name_lbl = new System.Windows.Forms.Label();
             this.gender_lbl = new System.Windows.Forms.Label();
             this.birthday_lbl = new System.Windows.Forms.Label();
-            this.class_lbl = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.gender_comboBox = new System.Windows.Forms.ComboBox();
             this.birthday_flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.birthDay_cb = new System.Windows.Forms.ComboBox();
             this.birthMonth_cb = new System.Windows.Forms.ComboBox();
             this.birthYear_cb = new System.Windows.Forms.ComboBox();
-            this.class_tb = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.email_lbl = new System.Windows.Forms.Label();
+            this.class_lbl = new System.Windows.Forms.Label();
+            this.class_tb = new System.Windows.Forms.TextBox();
+            this.email_tb = new System.Windows.Forms.TextBox();
             this.title_lbl = new System.Windows.Forms.Label();
             this.wrapper.SuspendLayout();
             this.password_gb.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.personalInfo_gb.SuspendLayout();
-            this.user_info_table.SuspendLayout();
+            this.userInfo_table.SuspendLayout();
             this.birthday_flowPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // wrapper
             // 
+            this.wrapper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.wrapper.ColumnCount = 1;
             this.wrapper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.wrapper.Controls.Add(this.password_gb, 0, 2);
             this.wrapper.Controls.Add(this.personalInfo_gb, 0, 1);
             this.wrapper.Controls.Add(this.title_lbl, 0, 0);
-            this.wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wrapper.Location = new System.Drawing.Point(0, 0);
-            this.wrapper.MaximumSize = new System.Drawing.Size(0, 520);
             this.wrapper.Name = "wrapper";
             this.wrapper.RowCount = 3;
             this.wrapper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.wrapper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 230F));
-            this.wrapper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 230F));
-            this.wrapper.Size = new System.Drawing.Size(564, 511);
+            this.wrapper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.wrapper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 210F));
+            this.wrapper.Size = new System.Drawing.Size(564, 550);
             this.wrapper.TabIndex = 1;
-            this.wrapper.Paint += new System.Windows.Forms.PaintEventHandler(this.wrapper_Paint);
             // 
             // password_gb
             // 
             this.password_gb.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.password_gb.Controls.Add(this.tableLayoutPanel1);
+            this.password_gb.Cursor = System.Windows.Forms.Cursors.Default;
             this.password_gb.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.password_gb.Location = new System.Drawing.Point(20, 325);
-            this.password_gb.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
+            this.password_gb.Location = new System.Drawing.Point(20, 353);
+            this.password_gb.Margin = new System.Windows.Forms.Padding(20, 20, 20, 3);
             this.password_gb.MaximumSize = new System.Drawing.Size(530, 180);
             this.password_gb.MinimumSize = new System.Drawing.Size(530, 180);
             this.password_gb.Name = "password_gb";
@@ -196,52 +198,54 @@
             // 
             // personalInfo_gb
             // 
-            this.personalInfo_gb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.personalInfo_gb.Controls.Add(this.user_info_table);
+            this.personalInfo_gb.Controls.Add(this.userInfo_table);
             this.personalInfo_gb.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.personalInfo_gb.Location = new System.Drawing.Point(20, 70);
-            this.personalInfo_gb.Margin = new System.Windows.Forms.Padding(20, 0, 20, 3);
-            this.personalInfo_gb.MaximumSize = new System.Drawing.Size(530, 200);
-            this.personalInfo_gb.MinimumSize = new System.Drawing.Size(530, 200);
+            this.personalInfo_gb.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.personalInfo_gb.MaximumSize = new System.Drawing.Size(530, 220);
+            this.personalInfo_gb.MinimumSize = new System.Drawing.Size(530, 220);
             this.personalInfo_gb.Name = "personalInfo_gb";
             this.personalInfo_gb.Padding = new System.Windows.Forms.Padding(10, 3, 10, 5);
-            this.personalInfo_gb.Size = new System.Drawing.Size(530, 200);
+            this.personalInfo_gb.Size = new System.Drawing.Size(530, 220);
             this.personalInfo_gb.TabIndex = 0;
             this.personalInfo_gb.TabStop = false;
             this.personalInfo_gb.Text = "Сведения о пользователе:";
             // 
-            // user_info_table
+            // userInfo_table
             // 
-            this.user_info_table.ColumnCount = 2;
-            this.user_info_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.user_info_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.user_info_table.Controls.Add(this.name_lbl, 0, 0);
-            this.user_info_table.Controls.Add(this.gender_lbl, 0, 1);
-            this.user_info_table.Controls.Add(this.birthday_lbl, 0, 2);
-            this.user_info_table.Controls.Add(this.class_lbl, 0, 3);
-            this.user_info_table.Controls.Add(this.textBox1, 1, 0);
-            this.user_info_table.Controls.Add(this.gender_comboBox, 1, 1);
-            this.user_info_table.Controls.Add(this.birthday_flowPanel, 1, 2);
-            this.user_info_table.Controls.Add(this.class_tb, 1, 3);
-            this.user_info_table.Controls.Add(this.button1, 1, 4);
-            this.user_info_table.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.user_info_table.Location = new System.Drawing.Point(10, 26);
-            this.user_info_table.Name = "user_info_table";
-            this.user_info_table.RowCount = 5;
-            this.user_info_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.user_info_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.user_info_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.user_info_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.user_info_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.user_info_table.Size = new System.Drawing.Size(510, 169);
-            this.user_info_table.TabIndex = 1;
+            this.userInfo_table.ColumnCount = 2;
+            this.userInfo_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.userInfo_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.userInfo_table.Controls.Add(this.name_lbl, 0, 0);
+            this.userInfo_table.Controls.Add(this.gender_lbl, 0, 1);
+            this.userInfo_table.Controls.Add(this.birthday_lbl, 0, 2);
+            this.userInfo_table.Controls.Add(this.textBox1, 1, 0);
+            this.userInfo_table.Controls.Add(this.gender_comboBox, 1, 1);
+            this.userInfo_table.Controls.Add(this.birthday_flowPanel, 1, 2);
+            this.userInfo_table.Controls.Add(this.button1, 1, 5);
+            this.userInfo_table.Controls.Add(this.email_lbl, 0, 3);
+            this.userInfo_table.Controls.Add(this.class_lbl, 0, 4);
+            this.userInfo_table.Controls.Add(this.class_tb, 1, 4);
+            this.userInfo_table.Controls.Add(this.email_tb, 1, 3);
+            this.userInfo_table.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userInfo_table.Location = new System.Drawing.Point(10, 26);
+            this.userInfo_table.Name = "userInfo_table";
+            this.userInfo_table.RowCount = 6;
+            this.userInfo_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.userInfo_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.userInfo_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.userInfo_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.userInfo_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.userInfo_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.userInfo_table.Size = new System.Drawing.Size(510, 189);
+            this.userInfo_table.TabIndex = 2;
             // 
             // name_lbl
             // 
             this.name_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.name_lbl.AutoSize = true;
             this.name_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.name_lbl.Location = new System.Drawing.Point(110, 7);
+            this.name_lbl.Location = new System.Drawing.Point(110, 6);
             this.name_lbl.Name = "name_lbl";
             this.name_lbl.Size = new System.Drawing.Size(40, 18);
             this.name_lbl.TabIndex = 0;
@@ -252,7 +256,7 @@
             this.gender_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.gender_lbl.AutoSize = true;
             this.gender_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gender_lbl.Location = new System.Drawing.Point(110, 40);
+            this.gender_lbl.Location = new System.Drawing.Point(110, 37);
             this.gender_lbl.Name = "gender_lbl";
             this.gender_lbl.Size = new System.Drawing.Size(40, 18);
             this.gender_lbl.TabIndex = 1;
@@ -263,28 +267,17 @@
             this.birthday_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.birthday_lbl.AutoSize = true;
             this.birthday_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.birthday_lbl.Location = new System.Drawing.Point(43, 73);
+            this.birthday_lbl.Location = new System.Drawing.Point(43, 68);
             this.birthday_lbl.Name = "birthday_lbl";
             this.birthday_lbl.Size = new System.Drawing.Size(107, 18);
             this.birthday_lbl.TabIndex = 2;
             this.birthday_lbl.Text = "Дата рождения:";
             // 
-            // class_lbl
-            // 
-            this.class_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.class_lbl.AutoSize = true;
-            this.class_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.class_lbl.Location = new System.Drawing.Point(101, 106);
-            this.class_lbl.Name = "class_lbl";
-            this.class_lbl.Size = new System.Drawing.Size(49, 18);
-            this.class_lbl.TabIndex = 3;
-            this.class_lbl.Text = "Класс:";
-            // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(156, 5);
+            this.textBox1.Location = new System.Drawing.Point(156, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(320, 22);
             this.textBox1.TabIndex = 4;
@@ -297,7 +290,7 @@
             this.gender_comboBox.Items.AddRange(new object[] {
             "Мужской",
             "Женский"});
-            this.gender_comboBox.Location = new System.Drawing.Point(156, 36);
+            this.gender_comboBox.Location = new System.Drawing.Point(156, 34);
             this.gender_comboBox.Name = "gender_comboBox";
             this.gender_comboBox.Size = new System.Drawing.Size(320, 26);
             this.gender_comboBox.TabIndex = 5;
@@ -308,10 +301,10 @@
             this.birthday_flowPanel.Controls.Add(this.birthMonth_cb);
             this.birthday_flowPanel.Controls.Add(this.birthYear_cb);
             this.birthday_flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.birthday_flowPanel.Location = new System.Drawing.Point(153, 66);
+            this.birthday_flowPanel.Location = new System.Drawing.Point(153, 62);
             this.birthday_flowPanel.Margin = new System.Windows.Forms.Padding(0);
             this.birthday_flowPanel.Name = "birthday_flowPanel";
-            this.birthday_flowPanel.Size = new System.Drawing.Size(357, 33);
+            this.birthday_flowPanel.Size = new System.Drawing.Size(357, 31);
             this.birthday_flowPanel.TabIndex = 7;
             // 
             // birthDay_cb
@@ -395,28 +388,60 @@
             this.birthYear_cb.Size = new System.Drawing.Size(85, 26);
             this.birthYear_cb.TabIndex = 8;
             // 
-            // class_tb
-            // 
-            this.class_tb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.class_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.class_tb.Location = new System.Drawing.Point(156, 104);
-            this.class_tb.Name = "class_tb";
-            this.class_tb.ReadOnly = true;
-            this.class_tb.Size = new System.Drawing.Size(320, 22);
-            this.class_tb.TabIndex = 8;
-            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(364, 135);
-            this.button1.Margin = new System.Windows.Forms.Padding(0, 3, 33, 5);
+            this.button1.Location = new System.Drawing.Point(364, 155);
+            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 33, 0);
+            this.button1.MaximumSize = new System.Drawing.Size(113, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 29);
             this.button1.TabIndex = 9;
             this.button1.Text = "Изменить";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // email_lbl
+            // 
+            this.email_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.email_lbl.AutoSize = true;
+            this.email_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_lbl.Location = new System.Drawing.Point(28, 99);
+            this.email_lbl.Name = "email_lbl";
+            this.email_lbl.Size = new System.Drawing.Size(122, 18);
+            this.email_lbl.TabIndex = 10;
+            this.email_lbl.Text = "Внутренняя почта:";
+            // 
+            // class_lbl
+            // 
+            this.class_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.class_lbl.AutoSize = true;
+            this.class_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.class_lbl.Location = new System.Drawing.Point(101, 130);
+            this.class_lbl.Name = "class_lbl";
+            this.class_lbl.Size = new System.Drawing.Size(49, 18);
+            this.class_lbl.TabIndex = 3;
+            this.class_lbl.Text = "Класс:";
+            // 
+            // class_tb
+            // 
+            this.class_tb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.class_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.class_tb.Location = new System.Drawing.Point(156, 128);
+            this.class_tb.Name = "class_tb";
+            this.class_tb.ReadOnly = true;
+            this.class_tb.Size = new System.Drawing.Size(320, 22);
+            this.class_tb.TabIndex = 8;
+            // 
+            // email_tb
+            // 
+            this.email_tb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.email_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.email_tb.Location = new System.Drawing.Point(156, 97);
+            this.email_tb.Name = "email_tb";
+            this.email_tb.Size = new System.Drawing.Size(320, 22);
+            this.email_tb.TabIndex = 11;
             // 
             // title_lbl
             // 
@@ -436,9 +461,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 511);
+            this.ClientSize = new System.Drawing.Size(564, 561);
             this.Controls.Add(this.wrapper);
-            this.MinimumSize = new System.Drawing.Size(580, 550);
             this.Name = "Profile";
             this.Text = "Профиль пользователя";
             this.Resize += new System.EventHandler(this.Profile_Resize);
@@ -448,8 +472,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.personalInfo_gb.ResumeLayout(false);
-            this.user_info_table.ResumeLayout(false);
-            this.user_info_table.PerformLayout();
+            this.userInfo_table.ResumeLayout(false);
+            this.userInfo_table.PerformLayout();
             this.birthday_flowPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -459,7 +483,17 @@
 
         private System.Windows.Forms.TableLayoutPanel wrapper;
         private System.Windows.Forms.GroupBox personalInfo_gb;
-        private System.Windows.Forms.TableLayoutPanel user_info_table;
+        private System.Windows.Forms.GroupBox password_gb;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label oldPassword_lbl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label newPasswordConfirm_lbl;
+        private System.Windows.Forms.TextBox oldPassword_tb;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label title_lbl;
+        private System.Windows.Forms.TableLayoutPanel userInfo_table;
         private System.Windows.Forms.Label name_lbl;
         private System.Windows.Forms.Label gender_lbl;
         private System.Windows.Forms.Label birthday_lbl;
@@ -472,15 +506,7 @@
         private System.Windows.Forms.ComboBox birthYear_cb;
         private System.Windows.Forms.TextBox class_tb;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox password_gb;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label oldPassword_lbl;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label newPasswordConfirm_lbl;
-        private System.Windows.Forms.TextBox oldPassword_tb;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label title_lbl;
+        private System.Windows.Forms.Label email_lbl;
+        private System.Windows.Forms.TextBox email_tb;
     }
 }

@@ -124,7 +124,7 @@
             this.daySat_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.daySat_lbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.daySat_lbl.Location = new System.Drawing.Point(1, 322);
-            this.daySat_lbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.daySat_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.daySat_lbl.Name = "daySat_lbl";
             this.daySat_lbl.Size = new System.Drawing.Size(120, 57);
             this.daySat_lbl.TabIndex = 14;
@@ -138,7 +138,7 @@
             this.dayFri_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dayFri_lbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dayFri_lbl.Location = new System.Drawing.Point(1, 264);
-            this.dayFri_lbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.dayFri_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.dayFri_lbl.Name = "dayFri_lbl";
             this.dayFri_lbl.Size = new System.Drawing.Size(120, 57);
             this.dayFri_lbl.TabIndex = 13;
@@ -152,7 +152,7 @@
             this.dayThu_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dayThu_lbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dayThu_lbl.Location = new System.Drawing.Point(1, 206);
-            this.dayThu_lbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.dayThu_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.dayThu_lbl.Name = "dayThu_lbl";
             this.dayThu_lbl.Size = new System.Drawing.Size(120, 57);
             this.dayThu_lbl.TabIndex = 12;
@@ -166,7 +166,7 @@
             this.dayWed_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dayWed_lbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dayWed_lbl.Location = new System.Drawing.Point(1, 148);
-            this.dayWed_lbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.dayWed_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.dayWed_lbl.Name = "dayWed_lbl";
             this.dayWed_lbl.Size = new System.Drawing.Size(120, 57);
             this.dayWed_lbl.TabIndex = 11;
@@ -180,7 +180,7 @@
             this.dayTue_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dayTue_lbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dayTue_lbl.Location = new System.Drawing.Point(1, 90);
-            this.dayTue_lbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.dayTue_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.dayTue_lbl.Name = "dayTue_lbl";
             this.dayTue_lbl.Size = new System.Drawing.Size(120, 57);
             this.dayTue_lbl.TabIndex = 10;
@@ -277,7 +277,6 @@
             this.lesson1_lbl.TabIndex = 0;
             this.lesson1_lbl.Text = "1 урок";
             this.lesson1_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lesson1_lbl.Click += new System.EventHandler(this.lesson1_lbl_Click);
             // 
             // dayMon_lbl
             // 
@@ -286,21 +285,20 @@
             this.dayMon_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dayMon_lbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dayMon_lbl.Location = new System.Drawing.Point(1, 32);
-            this.dayMon_lbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.dayMon_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.dayMon_lbl.Name = "dayMon_lbl";
             this.dayMon_lbl.Size = new System.Drawing.Size(120, 57);
             this.dayMon_lbl.TabIndex = 9;
             this.dayMon_lbl.Text = "Понедельник";
             this.dayMon_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Calendar
+            // Shedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 450);
             this.Controls.Add(this.mainLayout_tbl);
-            this.MinimumSize = new System.Drawing.Size(900, 480);
-            this.Name = "Calendar";
+            this.Name = "Shedule";
             this.Text = "Calendar";
             this.mainLayout_tbl.ResumeLayout(false);
             this.shedule_table.ResumeLayout(false);

@@ -20,17 +20,10 @@ namespace CourseWork
             {
                 birthYear_cb.Items.Add(i);
             }
+            //class_lbl.Visible = false;
+            //class_tb.Visible = false;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void wrapper_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void Profile_Resize(object sender, EventArgs e)
         {

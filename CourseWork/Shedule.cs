@@ -90,10 +90,5 @@ namespace CourseWork
             connection.Close();
 
         }
-
-        private void lesson1_lbl_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
