@@ -55,6 +55,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.18\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -142,6 +143,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\close_btn.png" />
+    <None Include="Resources\close_btn_hover.png" />
     <Content Include="Resources\Hamburger_icon.png" />
     <Content Include="Resources\Hamburger_icon_hover.png" />
     <Content Include="Resources\Hamburger_icon_pressed.png" />

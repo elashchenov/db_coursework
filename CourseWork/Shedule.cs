@@ -90,5 +90,9 @@ namespace CourseWork
             connection.Close();
 
         }
+        public TableLayoutPanel getContainer()
+        {
+            return mainLayout_tbl;
+        }
     }
 }

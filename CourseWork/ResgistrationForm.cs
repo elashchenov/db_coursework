@@ -54,8 +54,7 @@ namespace CourseWork
 
 
             //connection.Close();
-
-            PupilForm pupilForm = new PupilForm();
+            
 
             String a = comboBox1.Text;
             tableLayoutPanel2.ColumnStyles[0].SizeType = SizeType.Percent;

@@ -13,9 +13,8 @@ namespace CourseWork
     public partial class MainForm : Form
     {
         private SignInForm parentForm;
-        private Form currForm;
+        private Panel currForm;
         private LinkLabel currLinkLabel = null;
-        private Size panel2Size;
 
         public MainForm()
         {
@@ -28,23 +27,26 @@ namespace CourseWork
             //user_split.Panel2.BackColor = Color.FromArgb(0, Color.Black);
             //user_split.BackColor = Color.FromArgb(0, Color.Black);
 
-            panel2Size = new Size(
-                user_split.Panel2.Size.Width,
-                user_split.Panel2.Size.Height
-                );
+            //panel2Size = new Size(
+            //    user_split.Panel2.Size.Width,
+            //    user_split.Panel2.Size.Height
+            //    );
 
             parentForm = f;
             f.Hide();
         }
 
-        private void loadIntoPanel2(Form form)
+        private void loadIntoPanel2(Panel form)
         {
-            form.TopLevel = false;
-            form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            form.Dock = System.Windows.Forms.DockStyle.Fill;
+            //form.TopLevel = false;
+            //form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //form.Dock = System.Windows.Forms.DockStyle.Fill;
             user_split.Panel2.Controls.Remove(currForm);
-            user_split.Panel2.Controls.Add(form);
             user_split.Panel2.AutoScrollMinSize = new Size(form.Width, form.Height);
+            user_split.Panel2.Controls.Add(form);
+            form.Width = user_split.Panel2.Width;
+            form.Height = user_split.Panel2.Height;
+            //MessageBox.Show("Panel2 size is " + user_split.Panel2.Size + "; Form size is " + form.Size);
             form.Show();
             currForm = form;
             menu_btn.BackColor = SystemColors.ActiveCaption;
@@ -86,23 +88,13 @@ namespace CourseWork
             Application.Exit();
 
         }
-
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-            if (currForm != null)
-            {
-                //MessageBox.Show("Panel2 size is " + user_split.Panel2.Size + "; Form size is " + currForm.Size);
-                currForm.Width = panel2Size.Width;
-                currForm.Height = panel2Size.Height;
-            }
-            
-        }
+        
 
         private void profile_lbl_LinkClicked(object sender, EventArgs e)
         {
             if (currLinkLabel != profile_lbl)
             {
-                loadIntoPanel2(new Profile());
+                loadIntoPanel2(new Profile(user_split.Panel2).getContainer());
                 currLinkLabel = profile_lbl;
             }
         }
@@ -111,19 +103,21 @@ namespace CourseWork
         {
             if (currLinkLabel != shedule_lbl)
             {
-                loadIntoPanel2(new Shedule());
+                loadIntoPanel2(new Shedule().getContainer());
                 currLinkLabel = shedule_lbl;
             }
         }
 
-        private void mouseEnterAction(Control control)
+        private void mouseEnterAction(LinkLabel label)
         {
-            control.BackColor = SystemColors.GradientActiveCaption;
+            label.BackColor = SystemColors.GradientActiveCaption;
+            label.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
         }
 
-        private void mouseLeaveAction(Control control)
+        private void mouseLeaveAction(LinkLabel label)
         {
-            control.BackColor = SystemColors.ControlLight;
+            label.BackColor = SystemColors.ControlLight;
+            label.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
         }
 
         private void profile_lbl_MouseEnter(object sender, EventArgs e)

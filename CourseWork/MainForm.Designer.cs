@@ -117,6 +117,7 @@
             this.exit_lbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exit_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.exit_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exit_lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.exit_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.exit_lbl.Location = new System.Drawing.Point(0, 120);
             this.exit_lbl.Margin = new System.Windows.Forms.Padding(0);
@@ -138,6 +139,7 @@
             this.acadPerform_lbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.acadPerform_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acadPerform_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.acadPerform_lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.acadPerform_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.acadPerform_lbl.Location = new System.Drawing.Point(0, 90);
             this.acadPerform_lbl.Margin = new System.Windows.Forms.Padding(0);
@@ -159,6 +161,7 @@
             this.profile_lbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.profile_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.profile_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.profile_lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.profile_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.profile_lbl.Location = new System.Drawing.Point(0, 0);
             this.profile_lbl.Margin = new System.Windows.Forms.Padding(0);
@@ -182,6 +185,7 @@
             this.shedule_lbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.shedule_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.shedule_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shedule_lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.shedule_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.shedule_lbl.Location = new System.Drawing.Point(0, 30);
             this.shedule_lbl.Margin = new System.Windows.Forms.Padding(0);
@@ -205,6 +209,7 @@
             this.homework_lbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homework_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.homework_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.homework_lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.homework_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.homework_lbl.Location = new System.Drawing.Point(0, 60);
             this.homework_lbl.Margin = new System.Windows.Forms.Padding(0);
@@ -249,7 +254,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.ResizeBegin += new System.EventHandler(this.MainForm_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.user_split.Panel1.ResumeLayout(false);
             this.user_split.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.user_split)).EndInit();

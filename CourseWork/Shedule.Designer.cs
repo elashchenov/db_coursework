@@ -56,6 +56,7 @@
             this.mainLayout_tbl.Controls.Add(this.shedule_table, 0, 1);
             this.mainLayout_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainLayout_tbl.Location = new System.Drawing.Point(0, 0);
+            this.mainLayout_tbl.MinimumSize = new System.Drawing.Size(880, 450);
             this.mainLayout_tbl.Name = "mainLayout_tbl";
             this.mainLayout_tbl.RowCount = 2;
             this.mainLayout_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
