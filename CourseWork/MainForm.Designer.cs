@@ -221,6 +221,8 @@
             this.homework_lbl.Text = "Домашнее задание";
             this.homework_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homework_lbl.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.homework_lbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.homework_lbl_LinkClicked);
+            this.homework_lbl.Click += new System.EventHandler(this.homework_lbl_LinkClicked);
             this.homework_lbl.MouseEnter += new System.EventHandler(this.homework_lbl_MouseEnter);
             this.homework_lbl.MouseLeave += new System.EventHandler(this.homework_lbl_MouseLeave);
             // 

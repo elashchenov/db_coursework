@@ -108,6 +108,15 @@ namespace CourseWork
             }
         }
 
+        private void homework_lbl_LinkClicked(object sender, EventArgs e)
+        {
+            if (currLinkLabel != homework_lbl)
+            {
+                loadIntoPanel2(new HomeworkPuple(user_split.Panel2).getContainer());
+                currLinkLabel = homework_lbl;
+            }
+        }
+
         private void mouseEnterAction(LinkLabel label)
         {
             label.BackColor = SystemColors.GradientActiveCaption;

@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HomeworkPuple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeworkPuple.Designer.cs">
+      <DependentUpon>HomeworkPuple.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="HomeworkPuple.resx">
+      <DependentUpon>HomeworkPuple.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shedule.resx">
       <DependentUpon>Shedule.cs</DependentUpon>
     </EmbeddedResource>

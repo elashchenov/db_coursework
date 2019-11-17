@@ -15,6 +15,8 @@ namespace CourseWork
         private Panel parentPanel_;
         private List<FlowLayoutPanel> personDataList_flp = new List<FlowLayoutPanel>();
         private List<ComboBox> personDataList_cb = new List<ComboBox>();
+        private string personDataPrevVal;
+
         public TableLayoutPanel getContainer()
         {
             return userProfile_tbl;
@@ -55,8 +57,11 @@ namespace CourseWork
             flowLayoutRow.Dispose();
 
             if (idxRowForDelete == 5)
+            {
+                //MessageBox.Show("here");
                 idxRowForDelete++;
                 userInfo_table.SetRow(personDataAdd_lbl, userInfo_table.GetRow(personDataAdd_lbl) - 1);
+            }
 
             for (int i = idxRowForDelete + 1; i < userInfo_table.RowCount; i++)
             {
@@ -82,8 +87,6 @@ namespace CourseWork
 
         private void addPersonDataRow()
         {
-            this.SuspendLayout();
-
             RowStyle newRow = new RowStyle(SizeType.Absolute, 40);
             userInfo_table.RowStyles.Add(newRow);
             userInfo_table.RowCount += 1;
@@ -92,7 +95,7 @@ namespace CourseWork
             resizePersonalInfoTableHeight(40);
 
             ComboBox comboBox = new ComboBox();
-            comboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox.DropDownHeight = 200;
             comboBox.Width = 320;
@@ -100,6 +103,9 @@ namespace CourseWork
             comboBox.Items.AddRange(items);
             comboBox.Font = new Font("Comic Sans MS", 10);
             comboBox.TextUpdate += new EventHandler(personData_cb_TextUpdate);
+            comboBox.Enter += new EventHandler(personData_cb_Enter);
+            comboBox.SelectedValueChanged += new EventHandler(personData_cb_SelectedValueChanged);
+            comboBox.Validating += new CancelEventHandler(personData_cb_Validating);
 
             PictureBox closeBtn = new PictureBox();
             closeBtn.Cursor = Cursors.Hand;
@@ -123,8 +129,6 @@ namespace CourseWork
             userInfo_table.Controls.Add(flowLayout, 1, 5 + personDataList_flp.Count);
             personDataList_cb.Add(comboBox);
             personDataList_flp.Add(flowLayout);
-
-            this.ResumeLayout();
         }
 
         private void resizePersonalInfoTableHeight(int onHeight)
@@ -132,8 +136,15 @@ namespace CourseWork
             personalInfo_gb.MinimumSize = new Size(personalInfo_gb.Width, personalInfo_gb.Height + onHeight);
             personalInfo_gb.MaximumSize = new Size(personalInfo_gb.Width, personalInfo_gb.Height + onHeight);
             userProfile_tbl.RowStyles[1].Height += onHeight;
+            userProfile_tbl.Height += onHeight;
             userInfo_table.Height += onHeight;
-            parentPanel_.AutoScrollMinSize = new Size(0, userProfile_tbl.GetRowHeights().Sum());
+
+            int sum = 0;
+            for(int i = 0; i < userProfile_tbl.RowCount; i++)
+            {
+                sum += (int) userProfile_tbl.RowStyles[i].Height;
+            }
+            parentPanel_.AutoScrollMinSize = new Size(0, sum);
         }
 
         void personData_cb_TextUpdate(object sender, EventArgs e)
@@ -146,6 +157,39 @@ namespace CourseWork
                 comboBox.Select(comboBox.Text.Length, 0);
                 comboBox.TextUpdate += new EventHandler(personData_cb_TextUpdate);
             }
+        }
+
+        void personData_cb_Enter(object sender, EventArgs e)
+        {
+            ComboBox focusedComboBox = (ComboBox)sender;
+            personDataPrevVal = (string)focusedComboBox.SelectedItem;
+            //MessageBox.Show("selected text is " + personDataPrevVal);
+        }
+
+        private void personData_cb_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show("selected idx is " + ((ComboBox)sender).SelectedIndex);
+            //ComboBox comboBox = (ComboBox)sender;
+            //if (comboBox.FindStringExact(comboBox.Text) == -1)
+            //{
+            //    comboBox.TextUpdate -= new EventHandler(personData_cb_TextUpdate);
+            //    comboBox.SelectedValue = personDataPrevVal;
+            //    comboBox.TextUpdate += new EventHandler(personData_cb_TextUpdate);
+            //}
+        }
+
+        private void personData_cb_Validating(object sender, CancelEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            if (comboBox.FindStringExact(comboBox.Text) == -1)
+            {
+                comboBox.TextUpdate -= new EventHandler(personData_cb_TextUpdate);
+                comboBox.SelectedItem = personDataPrevVal;
+                comboBox.Text = personDataPrevVal;
+                comboBox.TextUpdate += new EventHandler(personData_cb_TextUpdate);
+                //MessageBox.Show("here akjda " + comboBox.SelectedItem + comboBox.SelectedIndex);
+            }
+
         }
 
         private void personDataAdd_lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
