@@ -121,7 +121,9 @@ namespace CourseWork
 
         private void acadPerform_lbl_LinkClicked(object sender, EventArgs e)
         {
-            loadIntoPanel2(new AcademicPerformance(wrapper).getContainer());
+            //loadIntoPanel2(new AcademicPerformance(wrapper).getContainer());
+            //currLinkLabel = acadPerform_lbl;
+            loadIntoPanel2(new GradingTeacher(wrapper).getContainer());
             currLinkLabel = acadPerform_lbl;
         }
 

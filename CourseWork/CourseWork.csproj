@@ -93,6 +93,18 @@
     <Compile Include="CustomRichTextBox.Designer.cs">
       <DependentUpon>CustomRichTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="GradeCreating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GradeCreating.Designer.cs">
+      <DependentUpon>GradeCreating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GradingTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GradingTeacher.Designer.cs">
+      <DependentUpon>GradingTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeworkPuple.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     </Compile>
     <EmbeddedResource Include="AcademicPerformance.resx">
       <DependentUpon>AcademicPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradeCreating.resx">
+      <DependentUpon>GradeCreating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradingTeacher.resx">
+      <DependentUpon>GradingTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeworkPuple.resx">
       <DependentUpon>HomeworkPuple.cs</DependentUpon>

@@ -17,10 +17,11 @@ namespace CourseWork
         [Browsable(true)]
         public Color _BackColor { get; set; }
         private char mark_;
+        private string teacherNote_;
         private Panel parentLayout_;
         private int changeMode_;
 
-        Dictionary<char, Color> markColors = new Dictionary<char, Color>
+        private Dictionary<char, Color> markColors = new Dictionary<char, Color>
         {
             { '2', Color.FromArgb(255, 34, 0) },
             { '3', Color.FromArgb(255, 187, 0) },
@@ -39,14 +40,9 @@ namespace CourseWork
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
             contextMenuStrip.Opening += new CancelEventHandler(myContextMenuStrip_Opening);
             ToolStripMenuItem changeMenuItem = new ToolStripMenuItem("Изменить оценку");
+            changeMenuItem.Click += new EventHandler(myContextMenuStrip_Click);
             ToolStripMenuItem deleteMenuItem = new ToolStripMenuItem("Удалить оценку");
             deleteMenuItem.Click += new EventHandler(deleteMark);
-            ToolStripMenuItem[] mark = new ToolStripMenuItem[4];
-            for (int i = 2; i <= 5; i++) {
-                mark[i - 2] = new ToolStripMenuItem(i.ToString());
-                mark[i - 2].Click += new EventHandler(myContextMenuStrip_Click);
-            }
-            changeMenuItem.DropDownItems.AddRange(mark);
             contextMenuStrip.Items.AddRange(new ToolStripItem[] { changeMenuItem, deleteMenuItem });
 
             return contextMenuStrip;
@@ -55,10 +51,13 @@ namespace CourseWork
 
         private void myContextMenuStrip_Click(object sender, EventArgs e)
         {
-            ToolStripItem item = (ToolStripMenuItem) sender;
-            _BackColor = markColors[item.Text[0]];
-            mark_ = item.Text[0];
-            Text = item.Text;
+            GradeCreating gradeCreating = new GradeCreating();
+            gradeCreating.ShowDialog();
+            if (gradeCreating.getMark().Count() != 0) {
+                _BackColor = markColors[gradeCreating.getMark()[0]];
+                mark_ = gradeCreating.getMark()[0];
+                Text = gradeCreating.getMark();
+            }
             Refresh();
         }
 
@@ -68,15 +67,28 @@ namespace CourseWork
             this.Dispose();
         }
 
-        public MarkLabel(char mark, Panel parentLayout, int changeMode = 1)
+        public MarkLabel() : this('3', null, 0)
         {
+        }
+
+        public MarkLabel(char mark, Panel parentLayout, int changeMode)
+        {
+            InitializeComponent();
             mark_ = mark;
             changeMode_ = changeMode;
             parentLayout_ = parentLayout;
             this.DoubleBuffered = true;
             ForeColor = SystemColors.Window;
+            _BackColor = markColors[mark];
+            Text = mark.ToString();
+            Size = new Size(20, 20);
             ContextMenuStrip = getContextMenu();
-            //Validating += new CancelEventHandler(MarkLabel_Validating);
+            Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            Anchor = System.Windows.Forms.AnchorStyles.Left;
+            Margin = new Padding(4, 5, 0, 0);
+            ToolTip ToolTip1 = new ToolTip();
+            ToolTip1.SetToolTip(this, "Hello");
+            ToolTip1.ToolTipTitle = "Title";
         }
 
 

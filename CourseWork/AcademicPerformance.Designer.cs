@@ -35,10 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.puple_cb = new CourseWork.CustomComboBox();
-            this.markLabel1 = new CourseWork.MarkLabel('2', flowLayoutPanel1);
-            this.markLabel2 = new CourseWork.MarkLabel('3', flowLayoutPanel1);
-            this.markLabel3 = new CourseWork.MarkLabel('4', flowLayoutPanel1);
-            this.markLabel4 = new CourseWork.MarkLabel('5', flowLayoutPanel1);
+            this.markLabel1 = new CourseWork.MarkLabel('2', flowLayoutPanel1, 1);
+            this.markLabel2 = new CourseWork.MarkLabel('3', flowLayoutPanel1, 1);
+            this.markLabel3 = new CourseWork.MarkLabel('4', flowLayoutPanel1, 1);
+            this.markLabel4 = new CourseWork.MarkLabel('5', flowLayoutPanel1, 1);
             this.mainContainer_tbl.SuspendLayout();
             this.pupleSelection_flp.SuspendLayout();
             this.marks_tbl.SuspendLayout();
