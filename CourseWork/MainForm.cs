@@ -116,70 +116,33 @@ namespace CourseWork
                 //currLinkLabel = homework_lbl;                
                 loadIntoPanel2(new HomeworkTeacher(wrapper).getContainer());
                 currLinkLabel = homework_lbl;
-                menu_btn.Focus();
             }
         }
 
-        private void mouseEnterAction(LinkLabel label)
+        private void acadPerform_lbl_LinkClicked(object sender, EventArgs e)
         {
-            label.BackColor = SystemColors.GradientActiveCaption;
-            label.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            loadIntoPanel2(new AcademicPerformance(wrapper).getContainer());
+            currLinkLabel = acadPerform_lbl;
         }
 
-        private void mouseLeaveAction(LinkLabel label)
+        private void logOut_lbl_LinkClicked(object sender, EventArgs e)
         {
-            label.BackColor = SystemColors.ControlLight;
-            label.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            parentForm.Show();
+            this.Dispose();
         }
 
-        private void profile_lbl_MouseEnter(object sender, EventArgs e)
+        private void mainMenuLable_MouseEnter(object sender, EventArgs e)
         {
-            mouseEnterAction(profile_lbl);
+            LinkLabel linkLabel = (LinkLabel)sender;
+            linkLabel.BackColor = SystemColors.GradientActiveCaption;
+            linkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
         }
 
-        private void profile_lbl_MouseLeave(object sender, EventArgs e)
+        private void mainMenuLable_MouseLeave(object sender, EventArgs e)
         {
-            mouseLeaveAction(profile_lbl);
-        }
-
-        private void shedule_lbl_MouseEnter(object sender, EventArgs e)
-        {
-            mouseEnterAction(shedule_lbl);
-        }
-
-        private void shedule_lbl_MouseLeave(object sender, EventArgs e)
-        {
-            mouseLeaveAction(shedule_lbl);
-        }
-
-        private void homework_lbl_MouseEnter(object sender, EventArgs e)
-        {
-            mouseEnterAction(homework_lbl);
-        }
-
-        private void homework_lbl_MouseLeave(object sender, EventArgs e)
-        {
-            mouseLeaveAction(homework_lbl);
-        }
-
-        private void acadPerform_lbl_MouseEnter(object sender, EventArgs e)
-        {
-            mouseEnterAction(acadPerform_lbl);
-        }
-
-        private void acadPerform_lbl_MouseLeave(object sender, EventArgs e)
-        {
-            mouseLeaveAction(acadPerform_lbl);
-        }
-
-        private void exit_lbl_MouseEnter(object sender, EventArgs e)
-        {
-            mouseEnterAction(exit_lbl);
-        }
-
-        private void exit_lbl_MouseLeave(object sender, EventArgs e)
-        {
-            mouseLeaveAction(exit_lbl);
+            LinkLabel linkLabel = (LinkLabel)sender;
+            linkLabel.BackColor = SystemColors.ControlLight;
+            linkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
@@ -191,5 +154,6 @@ namespace CourseWork
         {
             currForm.ResumeLayout();
         }
+        
     }
 }

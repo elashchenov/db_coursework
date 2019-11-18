@@ -52,5 +52,10 @@ namespace CourseWork
         {
             homeworkList_lb.Items.RemoveAt(homeworkList_lb.SelectedIndex);
         }
+
+        private void homeworkList_cm_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
