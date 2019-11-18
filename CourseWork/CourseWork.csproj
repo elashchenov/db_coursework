@@ -69,11 +69,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomComboBox.Designer.cs">
+      <DependentUpon>CustomComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomListBox.Designer.cs">
+      <DependentUpon>CustomListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomRichTextBox.Designer.cs">
+      <DependentUpon>CustomRichTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeworkPuple.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HomeworkPuple.Designer.cs">
       <DependentUpon>HomeworkPuple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeworkTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeworkTeacher.Designer.cs">
+      <DependentUpon>HomeworkTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Shedule.cs">
       <SubType>Form</SubType>
@@ -110,8 +134,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomPanel.Designer.cs">
+      <DependentUpon>CustomPanel.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HomeworkPuple.resx">
       <DependentUpon>HomeworkPuple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeworkTeacher.resx">
+      <DependentUpon>HomeworkTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shedule.resx">
       <DependentUpon>Shedule.cs</DependentUpon>

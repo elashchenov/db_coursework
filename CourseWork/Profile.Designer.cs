@@ -46,11 +46,7 @@
             this.gender_lbl = new System.Windows.Forms.Label();
             this.birthday_lbl = new System.Windows.Forms.Label();
             this.fio_tb = new System.Windows.Forms.TextBox();
-            this.gender_comboBox = new System.Windows.Forms.ComboBox();
             this.birthday_flowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.birthDay_cb = new System.Windows.Forms.ComboBox();
-            this.birthMonth_cb = new System.Windows.Forms.ComboBox();
-            this.birthYear_cb = new System.Windows.Forms.ComboBox();
             this.personalInfoOk_btn = new System.Windows.Forms.Button();
             this.email_lbl = new System.Windows.Forms.Label();
             this.class_lbl = new System.Windows.Forms.Label();
@@ -59,6 +55,10 @@
             this.personData_lbl = new System.Windows.Forms.Label();
             this.personDataAdd_lbl = new System.Windows.Forms.LinkLabel();
             this.title_lbl = new System.Windows.Forms.Label();
+            this.gender_comboBox = new CourseWork.CustomComboBox();
+            this.birthDay_cb = new CourseWork.CustomComboBox();
+            this.birthMonth_cb = new CourseWork.CustomComboBox();
+            this.birthYear_cb = new CourseWork.CustomComboBox();
             this.userProfile_tbl.SuspendLayout();
             this.loginSettings_gb.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -250,7 +250,6 @@
             this.userInfo_table.Controls.Add(this.gender_lbl, 0, 1);
             this.userInfo_table.Controls.Add(this.birthday_lbl, 0, 2);
             this.userInfo_table.Controls.Add(this.fio_tb, 1, 0);
-            this.userInfo_table.Controls.Add(this.gender_comboBox, 1, 1);
             this.userInfo_table.Controls.Add(this.birthday_flowPanel, 1, 2);
             this.userInfo_table.Controls.Add(this.personalInfoOk_btn, 1, 6);
             this.userInfo_table.Controls.Add(this.email_lbl, 0, 3);
@@ -259,6 +258,7 @@
             this.userInfo_table.Controls.Add(this.email_tb, 1, 3);
             this.userInfo_table.Controls.Add(this.personData_lbl, 0, 5);
             this.userInfo_table.Controls.Add(this.personDataAdd_lbl, 1, 5);
+            this.userInfo_table.Controls.Add(this.gender_comboBox, 1, 1);
             this.userInfo_table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userInfo_table.Location = new System.Drawing.Point(10, 26);
             this.userInfo_table.Name = "userInfo_table";
@@ -315,19 +315,6 @@
             this.fio_tb.Size = new System.Drawing.Size(320, 22);
             this.fio_tb.TabIndex = 4;
             // 
-            // gender_comboBox
-            // 
-            this.gender_comboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.gender_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gender_comboBox.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gender_comboBox.Items.AddRange(new object[] {
-            "Мужской",
-            "Женский"});
-            this.gender_comboBox.Location = new System.Drawing.Point(156, 47);
-            this.gender_comboBox.Name = "gender_comboBox";
-            this.gender_comboBox.Size = new System.Drawing.Size(320, 26);
-            this.gender_comboBox.TabIndex = 5;
-            // 
             // birthday_flowPanel
             // 
             this.birthday_flowPanel.Controls.Add(this.birthDay_cb);
@@ -340,90 +327,6 @@
             this.birthday_flowPanel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.birthday_flowPanel.Size = new System.Drawing.Size(357, 40);
             this.birthday_flowPanel.TabIndex = 7;
-            // 
-            // birthDay_cb
-            // 
-            this.birthDay_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.birthDay_cb.DropDownHeight = 200;
-            this.birthDay_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.birthDay_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.birthDay_cb.FormattingEnabled = true;
-            this.birthDay_cb.IntegralHeight = false;
-            this.birthDay_cb.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31"});
-            this.birthDay_cb.Location = new System.Drawing.Point(3, 6);
-            this.birthDay_cb.Name = "birthDay_cb";
-            this.birthDay_cb.Size = new System.Drawing.Size(85, 26);
-            this.birthDay_cb.TabIndex = 6;
-            // 
-            // birthMonth_cb
-            // 
-            this.birthMonth_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.birthMonth_cb.DropDownHeight = 200;
-            this.birthMonth_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.birthMonth_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.birthMonth_cb.FormattingEnabled = true;
-            this.birthMonth_cb.IntegralHeight = false;
-            this.birthMonth_cb.Items.AddRange(new object[] {
-            "Январь",
-            "Февраль",
-            "Март",
-            "Апрель",
-            "Май",
-            "Июнь",
-            "Июль",
-            "Август",
-            "Сентябрь",
-            "Октябрь",
-            "Ноябрь",
-            "Декабрь"});
-            this.birthMonth_cb.Location = new System.Drawing.Point(94, 6);
-            this.birthMonth_cb.Name = "birthMonth_cb";
-            this.birthMonth_cb.Size = new System.Drawing.Size(138, 26);
-            this.birthMonth_cb.TabIndex = 7;
-            // 
-            // birthYear_cb
-            // 
-            this.birthYear_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.birthYear_cb.DropDownHeight = 200;
-            this.birthYear_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.birthYear_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.birthYear_cb.FormattingEnabled = true;
-            this.birthYear_cb.IntegralHeight = false;
-            this.birthYear_cb.Location = new System.Drawing.Point(238, 6);
-            this.birthYear_cb.Name = "birthYear_cb";
-            this.birthYear_cb.Size = new System.Drawing.Size(85, 26);
-            this.birthYear_cb.TabIndex = 8;
             // 
             // personalInfoOk_btn
             // 
@@ -520,6 +423,82 @@
             this.title_lbl.Text = "Профиль";
             this.title_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // gender_comboBox
+            // 
+            this.gender_comboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.gender_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gender_comboBox.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gender_comboBox.FormattingEnabled = true;
+            this.gender_comboBox.Items.AddRange(new object[] {
+            "Мужской",
+            "Женский"});
+            this.gender_comboBox.Location = new System.Drawing.Point(156, 47);
+            this.gender_comboBox.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.gender_comboBox.Name = "gender_comboBox";
+            this.gender_comboBox.Size = new System.Drawing.Size(320, 26);
+            this.gender_comboBox.TabIndex = 14;
+            // 
+            // birthDay_cb
+            // 
+            this.birthDay_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.birthDay_cb.DropDownHeight = 200;
+            this.birthDay_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.birthDay_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.birthDay_cb.FormattingEnabled = true;
+            this.birthDay_cb.IntegralHeight = false;
+            this.birthDay_cb.Items.AddRange(new object[] {
+            "Мужской",
+            "Женский"});
+            this.birthDay_cb.Location = new System.Drawing.Point(3, 7);
+            this.birthDay_cb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.birthDay_cb.Name = "birthDay_cb";
+            this.birthDay_cb.Size = new System.Drawing.Size(85, 26);
+            this.birthDay_cb.TabIndex = 15;
+            // 
+            // birthMonth_cb
+            // 
+            this.birthMonth_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.birthMonth_cb.DropDownHeight = 200;
+            this.birthMonth_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.birthMonth_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.birthMonth_cb.FormattingEnabled = true;
+            this.birthMonth_cb.IntegralHeight = false;
+            this.birthMonth_cb.Items.AddRange(new object[] {
+            "Январь",
+            "Февраль",
+            "Март",
+            "Апрель",
+            "Май",
+            "Июнь",
+            "Июль",
+            "Август",
+            "Сентябрь",
+            "Октябрь",
+            "Ноябрь",
+            "Декабрь"});
+            this.birthMonth_cb.Location = new System.Drawing.Point(94, 7);
+            this.birthMonth_cb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.birthMonth_cb.Name = "birthMonth_cb";
+            this.birthMonth_cb.Size = new System.Drawing.Size(138, 26);
+            this.birthMonth_cb.TabIndex = 16;
+            // 
+            // birthYear_cb
+            // 
+            this.birthYear_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.birthYear_cb.DropDownHeight = 200;
+            this.birthYear_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.birthYear_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.birthYear_cb.FormattingEnabled = true;
+            this.birthYear_cb.IntegralHeight = false;
+            this.birthYear_cb.Items.AddRange(new object[] {
+            "Мужской",
+            "Женский"});
+            this.birthYear_cb.Location = new System.Drawing.Point(238, 7);
+            this.birthYear_cb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.birthYear_cb.Name = "birthYear_cb";
+            this.birthYear_cb.Size = new System.Drawing.Size(85, 26);
+            this.birthYear_cb.TabIndex = 17;
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,11 +540,7 @@
         private System.Windows.Forms.Label gender_lbl;
         private System.Windows.Forms.Label birthday_lbl;
         private System.Windows.Forms.TextBox fio_tb;
-        private System.Windows.Forms.ComboBox gender_comboBox;
         private System.Windows.Forms.FlowLayoutPanel birthday_flowPanel;
-        private System.Windows.Forms.ComboBox birthDay_cb;
-        private System.Windows.Forms.ComboBox birthMonth_cb;
-        private System.Windows.Forms.ComboBox birthYear_cb;
         private System.Windows.Forms.Button personalInfoOk_btn;
         private System.Windows.Forms.Label email_lbl;
         private System.Windows.Forms.Label class_lbl;
@@ -574,5 +549,9 @@
         private System.Windows.Forms.Label title_lbl;
         private System.Windows.Forms.Label personData_lbl;
         private System.Windows.Forms.LinkLabel personDataAdd_lbl;
+        private CustomComboBox birthDay_cb;
+        private CustomComboBox birthMonth_cb;
+        private CustomComboBox birthYear_cb;
+        private CustomComboBox gender_comboBox;
     }
 }

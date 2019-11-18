@@ -24,12 +24,12 @@ namespace CourseWork
         public MainForm(SignInForm f)
         {
             InitializeComponent();
-            //user_split.Panel2.BackColor = Color.FromArgb(0, Color.Black);
+            //wrapper.BackColor = Color.FromArgb(0, Color.Black);
             //user_split.BackColor = Color.FromArgb(0, Color.Black);
 
             //panel2Size = new Size(
-            //    user_split.Panel2.Size.Width,
-            //    user_split.Panel2.Size.Height
+            //    wrapper.Size.Width,
+            //    wrapper.Size.Height
             //    );
 
             parentForm = f;
@@ -41,16 +41,16 @@ namespace CourseWork
             //form.TopLevel = false;
             //form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             //form.Dock = System.Windows.Forms.DockStyle.Fill;
-            user_split.Panel2.Controls.Remove(currForm);
-            user_split.Panel2.AutoScrollMinSize = new Size(form.Width, form.Height);
-            user_split.Panel2.Controls.Add(form);
-            form.Width = user_split.Panel2.Width;
-            form.Height = user_split.Panel2.Height;
-            //MessageBox.Show("Panel2 size is " + user_split.Panel2.Size + "; Form size is " + form.Size);
+            wrapper.Controls.Remove(currForm);
+            wrapper.AutoScrollMinSize = new Size(form.Width, form.Height);
+            wrapper.Controls.Add(form);
+            form.Width = wrapper.Width;
+            form.Height = wrapper.Height;
+            //MessageBox.Show("Panel2 size is " + wrapper.Size + "; Form size is " + form.Size);
             form.Show();
             currForm = form;
             menu_btn.BackColor = SystemColors.ActiveCaption;
-            //MessageBox.Show("Panel2 size is " + user_split.Panel2.Size + "; Form size is " + form.Size);
+            //MessageBox.Show("Panel2 size is " + wrapper.Size + "; Form size is " + form.Size);
         }
 
         private void menu_btn_MouseHover(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace CourseWork
         {
             if (currLinkLabel != profile_lbl)
             {
-                loadIntoPanel2(new Profile(user_split.Panel2).getContainer());
+                loadIntoPanel2(new Profile(wrapper).getContainer());
                 currLinkLabel = profile_lbl;
             }
         }
@@ -112,8 +112,11 @@ namespace CourseWork
         {
             if (currLinkLabel != homework_lbl)
             {
-                loadIntoPanel2(new HomeworkPuple(user_split.Panel2).getContainer());
+                //loadIntoPanel2(new HomeworkPuple(wrapper).getContainer());
+                //currLinkLabel = homework_lbl;                
+                loadIntoPanel2(new HomeworkTeacher(wrapper).getContainer());
                 currLinkLabel = homework_lbl;
+                menu_btn.Focus();
             }
         }
 

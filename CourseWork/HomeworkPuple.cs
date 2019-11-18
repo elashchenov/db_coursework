@@ -173,7 +173,7 @@ namespace CourseWork
         private void attachLink_lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "TextFile|*.txt|Word|*.doc*|All|*.*";//your filter
+            open.Filter = "Word|*.doc*|";//your filter
             open.FilterIndex = 1;
             DialogResult result = open.ShowDialog();
             if (result == DialogResult.OK)

@@ -35,18 +35,18 @@
             this.attachLink_lbl = new System.Windows.Forms.LinkLabel();
             this.note_lbl = new System.Windows.Forms.Label();
             this.attachment_lbl = new System.Windows.Forms.Label();
-            this.note_rtb = new System.Windows.Forms.RichTextBox();
             this.title_lbl = new System.Windows.Forms.Label();
             this.selectHomework_gb = new System.Windows.Forms.GroupBox();
             this.selectHomework_tbl = new System.Windows.Forms.TableLayoutPanel();
             this.homeworkDescr_lbl = new System.Windows.Forms.Label();
-            this.homework_cb = new System.Windows.Forms.ComboBox();
             this.homework_lbl = new System.Windows.Forms.Label();
-            this.teacher_cb = new System.Windows.Forms.ComboBox();
             this.teacher_lbl = new System.Windows.Forms.Label();
-            this.subject_cb = new System.Windows.Forms.ComboBox();
             this.subject_lbl = new System.Windows.Forms.Label();
-            this.homeworkDescr_rtb = new System.Windows.Forms.RichTextBox();
+            this.subject_cb = new CourseWork.CustomComboBox();
+            this.teacher_cb = new CourseWork.CustomComboBox();
+            this.homework_cb = new CourseWork.CustomComboBox();
+            this.homeworkDescr_rtb = new CourseWork.CustomRichTextBox();
+            this.note_rtb = new CourseWork.CustomRichTextBox();
             this.mainContainer_tbl.SuspendLayout();
             this.sendHomework_gb.SuspendLayout();
             this.sendHomework_tbl.SuspendLayout();
@@ -64,6 +64,7 @@
             this.mainContainer_tbl.Controls.Add(this.selectHomework_gb, 0, 1);
             this.mainContainer_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer_tbl.Location = new System.Drawing.Point(0, 0);
+            this.mainContainer_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.mainContainer_tbl.Name = "mainContainer_tbl";
             this.mainContainer_tbl.RowCount = 3;
             this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
@@ -129,7 +130,8 @@
             this.attachLink_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.attachLink_lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.attachLink_lbl.LinkColor = System.Drawing.SystemColors.Highlight;
-            this.attachLink_lbl.Location = new System.Drawing.Point(160, 11);
+            this.attachLink_lbl.Location = new System.Drawing.Point(160, 13);
+            this.attachLink_lbl.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.attachLink_lbl.Name = "attachLink_lbl";
             this.attachLink_lbl.Size = new System.Drawing.Size(79, 17);
             this.attachLink_lbl.TabIndex = 14;
@@ -143,8 +145,7 @@
             this.note_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.note_lbl.AutoSize = true;
             this.note_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.note_lbl.Location = new System.Drawing.Point(56, 51);
-            this.note_lbl.Margin = new System.Windows.Forms.Padding(3, 11, 3, 0);
+            this.note_lbl.Location = new System.Drawing.Point(56, 40);
             this.note_lbl.Name = "note_lbl";
             this.note_lbl.Size = new System.Drawing.Size(98, 18);
             this.note_lbl.TabIndex = 11;
@@ -160,17 +161,6 @@
             this.attachment_lbl.Size = new System.Drawing.Size(135, 18);
             this.attachment_lbl.TabIndex = 9;
             this.attachment_lbl.Text = "Прикрепить файлы:";
-            // 
-            // note_rtb
-            // 
-            this.note_rtb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.note_rtb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.note_rtb.Location = new System.Drawing.Point(160, 43);
-            this.note_rtb.Name = "note_rtb";
-            this.note_rtb.Size = new System.Drawing.Size(320, 114);
-            this.note_rtb.TabIndex = 12;
-            this.note_rtb.Text = "";
             // 
             // title_lbl
             // 
@@ -206,14 +196,14 @@
             this.selectHomework_tbl.ColumnCount = 2;
             this.selectHomework_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.selectHomework_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.selectHomework_tbl.Controls.Add(this.homeworkDescr_lbl, 0, 3);
-            this.selectHomework_tbl.Controls.Add(this.homework_cb, 1, 2);
-            this.selectHomework_tbl.Controls.Add(this.homework_lbl, 0, 2);
-            this.selectHomework_tbl.Controls.Add(this.teacher_cb, 1, 1);
-            this.selectHomework_tbl.Controls.Add(this.teacher_lbl, 0, 1);
-            this.selectHomework_tbl.Controls.Add(this.subject_cb, 1, 0);
-            this.selectHomework_tbl.Controls.Add(this.subject_lbl, 0, 0);
             this.selectHomework_tbl.Controls.Add(this.homeworkDescr_rtb, 1, 3);
+            this.selectHomework_tbl.Controls.Add(this.homework_cb, 1, 2);
+            this.selectHomework_tbl.Controls.Add(this.teacher_cb, 1, 1);
+            this.selectHomework_tbl.Controls.Add(this.homeworkDescr_lbl, 0, 3);
+            this.selectHomework_tbl.Controls.Add(this.homework_lbl, 0, 2);
+            this.selectHomework_tbl.Controls.Add(this.teacher_lbl, 0, 1);
+            this.selectHomework_tbl.Controls.Add(this.subject_lbl, 0, 0);
+            this.selectHomework_tbl.Controls.Add(this.subject_cb, 1, 0);
             this.selectHomework_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectHomework_tbl.Location = new System.Drawing.Point(3, 26);
             this.selectHomework_tbl.Margin = new System.Windows.Forms.Padding(0);
@@ -238,18 +228,6 @@
             this.homeworkDescr_lbl.TabIndex = 11;
             this.homeworkDescr_lbl.Text = "Описание:";
             // 
-            // homework_cb
-            // 
-            this.homework_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.homework_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.homework_cb.Location = new System.Drawing.Point(160, 87);
-            this.homework_cb.Name = "homework_cb";
-            this.homework_cb.Size = new System.Drawing.Size(320, 26);
-            this.homework_cb.TabIndex = 10;
-            this.homework_cb.TextUpdate += new System.EventHandler(this.comboBox_TextUpdate);
-            this.homework_cb.Enter += new System.EventHandler(this.comboBox_Enter);
-            this.homework_cb.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
-            // 
             // homework_lbl
             // 
             this.homework_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -260,18 +238,6 @@
             this.homework_lbl.Size = new System.Drawing.Size(132, 18);
             this.homework_lbl.TabIndex = 9;
             this.homework_lbl.Text = "Домашнее задание:";
-            // 
-            // teacher_cb
-            // 
-            this.teacher_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.teacher_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.teacher_cb.Location = new System.Drawing.Point(160, 47);
-            this.teacher_cb.Name = "teacher_cb";
-            this.teacher_cb.Size = new System.Drawing.Size(320, 26);
-            this.teacher_cb.TabIndex = 8;
-            this.teacher_cb.TextUpdate += new System.EventHandler(this.comboBox_TextUpdate);
-            this.teacher_cb.Enter += new System.EventHandler(this.comboBox_Enter);
-            this.teacher_cb.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // teacher_lbl
             // 
@@ -284,18 +250,6 @@
             this.teacher_lbl.TabIndex = 7;
             this.teacher_lbl.Text = "Учитель:";
             // 
-            // subject_cb
-            // 
-            this.subject_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.subject_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.subject_cb.Location = new System.Drawing.Point(160, 7);
-            this.subject_cb.Name = "subject_cb";
-            this.subject_cb.Size = new System.Drawing.Size(320, 26);
-            this.subject_cb.TabIndex = 6;
-            this.subject_cb.TextUpdate += new System.EventHandler(this.comboBox_TextUpdate);
-            this.subject_cb.Enter += new System.EventHandler(this.comboBox_Enter);
-            this.subject_cb.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
-            // 
             // subject_lbl
             // 
             this.subject_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -307,17 +261,66 @@
             this.subject_lbl.TabIndex = 3;
             this.subject_lbl.Text = "Предмет:";
             // 
+            // subject_cb
+            // 
+            this.subject_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.subject_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.subject_cb.FormattingEnabled = true;
+            this.subject_cb.Location = new System.Drawing.Point(160, 7);
+            this.subject_cb.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.subject_cb.Name = "subject_cb";
+            this.subject_cb.Size = new System.Drawing.Size(320, 26);
+            this.subject_cb.TabIndex = 13;
+            this.subject_cb.TextUpdate += new System.EventHandler(this.comboBox_TextUpdate);
+            this.subject_cb.Enter += new System.EventHandler(this.comboBox_Enter);
+            this.subject_cb.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
+            // 
+            // teacher_cb
+            // 
+            this.teacher_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.teacher_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.teacher_cb.FormattingEnabled = true;
+            this.teacher_cb.Location = new System.Drawing.Point(160, 47);
+            this.teacher_cb.Name = "teacher_cb";
+            this.teacher_cb.Size = new System.Drawing.Size(320, 26);
+            this.teacher_cb.TabIndex = 14;
+            this.teacher_cb.TextUpdate += new System.EventHandler(this.comboBox_TextUpdate);
+            this.teacher_cb.Enter += new System.EventHandler(this.comboBox_Enter);
+            this.teacher_cb.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
+            // 
+            // homework_cb
+            // 
+            this.homework_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.homework_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.homework_cb.FormattingEnabled = true;
+            this.homework_cb.Location = new System.Drawing.Point(160, 87);
+            this.homework_cb.Name = "homework_cb";
+            this.homework_cb.Size = new System.Drawing.Size(320, 26);
+            this.homework_cb.TabIndex = 15;
+            this.homework_cb.TextUpdate += new System.EventHandler(this.comboBox_TextUpdate);
+            this.homework_cb.Enter += new System.EventHandler(this.comboBox_Enter);
+            this.homework_cb.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
+            // 
             // homeworkDescr_rtb
             // 
             this.homeworkDescr_rtb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.homeworkDescr_rtb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.homeworkDescr_rtb.Location = new System.Drawing.Point(160, 123);
             this.homeworkDescr_rtb.Name = "homeworkDescr_rtb";
             this.homeworkDescr_rtb.ReadOnly = true;
             this.homeworkDescr_rtb.Size = new System.Drawing.Size(320, 115);
-            this.homeworkDescr_rtb.TabIndex = 12;
+            this.homeworkDescr_rtb.TabIndex = 17;
             this.homeworkDescr_rtb.Text = "";
+            // 
+            // note_rtb
+            // 
+            this.note_rtb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.note_rtb.Location = new System.Drawing.Point(160, 43);
+            this.note_rtb.Name = "note_rtb";
+            this.note_rtb.Size = new System.Drawing.Size(320, 114);
+            this.note_rtb.TabIndex = 18;
+            this.note_rtb.Text = "";
             // 
             // HomeworkPuple
             // 
@@ -345,20 +348,20 @@
         private System.Windows.Forms.GroupBox selectHomework_gb;
         private System.Windows.Forms.TableLayoutPanel selectHomework_tbl;
         private System.Windows.Forms.Label subject_lbl;
-        private System.Windows.Forms.ComboBox subject_cb;
-        private System.Windows.Forms.ComboBox teacher_cb;
         private System.Windows.Forms.Label teacher_lbl;
-        private System.Windows.Forms.ComboBox homework_cb;
         private System.Windows.Forms.Label homework_lbl;
         private System.Windows.Forms.Label homeworkDescr_lbl;
         private System.Windows.Forms.Label title_lbl;
-        private System.Windows.Forms.RichTextBox homeworkDescr_rtb;
         private System.Windows.Forms.GroupBox sendHomework_gb;
         private System.Windows.Forms.TableLayoutPanel sendHomework_tbl;
         private System.Windows.Forms.Label note_lbl;
         private System.Windows.Forms.Label attachment_lbl;
-        private System.Windows.Forms.RichTextBox note_rtb;
         private System.Windows.Forms.LinkLabel attachLink_lbl;
         private System.Windows.Forms.Button send_btn;
+        private CustomComboBox subject_cb;
+        private CustomComboBox homework_cb;
+        private CustomComboBox teacher_cb;
+        private CustomRichTextBox note_rtb;
+        private CustomRichTextBox homeworkDescr_rtb;
     }
 }

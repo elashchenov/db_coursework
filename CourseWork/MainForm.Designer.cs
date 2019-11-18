@@ -37,6 +37,7 @@
             this.profile_lbl = new System.Windows.Forms.LinkLabel();
             this.shedule_lbl = new System.Windows.Forms.LinkLabel();
             this.homework_lbl = new System.Windows.Forms.LinkLabel();
+            this.wrapper = new CourseWork.CustomPanel();
             this.menu_btn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.user_split)).BeginInit();
             this.user_split.Panel1.SuspendLayout();
@@ -44,6 +45,7 @@
             this.user_split.SuspendLayout();
             this.userMenu_wrapper.SuspendLayout();
             this.actionsMenu_table.SuspendLayout();
+            this.wrapper.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menu_btn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,9 +65,8 @@
             // 
             // user_split.Panel2
             // 
-            this.user_split.Panel2.AutoScroll = true;
             this.user_split.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.user_split.Panel2.Controls.Add(this.menu_btn);
+            this.user_split.Panel2.Controls.Add(this.wrapper);
             this.user_split.Size = new System.Drawing.Size(824, 441);
             this.user_split.SplitterDistance = 169;
             this.user_split.SplitterWidth = 1;
@@ -226,6 +227,16 @@
             this.homework_lbl.MouseEnter += new System.EventHandler(this.homework_lbl_MouseEnter);
             this.homework_lbl.MouseLeave += new System.EventHandler(this.homework_lbl_MouseLeave);
             // 
+            // wrapper
+            // 
+            this.wrapper.AutoScroll = true;
+            this.wrapper.Controls.Add(this.menu_btn);
+            this.wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wrapper.Location = new System.Drawing.Point(0, 0);
+            this.wrapper.Name = "wrapper";
+            this.wrapper.Size = new System.Drawing.Size(654, 441);
+            this.wrapper.TabIndex = 1;
+            // 
             // menu_btn
             // 
             this.menu_btn.BackColor = System.Drawing.SystemColors.Control;
@@ -235,12 +246,8 @@
             this.menu_btn.Name = "menu_btn";
             this.menu_btn.Size = new System.Drawing.Size(35, 30);
             this.menu_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.menu_btn.TabIndex = 0;
+            this.menu_btn.TabIndex = 2;
             this.menu_btn.TabStop = false;
-            this.menu_btn.Click += new System.EventHandler(this.menu_btn_Click);
-            this.menu_btn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menu_btn_MouseDown);
-            this.menu_btn.MouseLeave += new System.EventHandler(this.menu_btn_MouseLeave);
-            this.menu_btn.MouseHover += new System.EventHandler(this.menu_btn_MouseHover);
             // 
             // MainForm
             // 
@@ -263,6 +270,7 @@
             this.userMenu_wrapper.ResumeLayout(false);
             this.actionsMenu_table.ResumeLayout(false);
             this.actionsMenu_table.PerformLayout();
+            this.wrapper.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.menu_btn)).EndInit();
             this.ResumeLayout(false);
 
@@ -271,7 +279,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer user_split;
-        private System.Windows.Forms.PictureBox menu_btn;
         private System.Windows.Forms.TableLayoutPanel userMenu_wrapper;
         private System.Windows.Forms.TableLayoutPanel actionsMenu_table;
         private System.Windows.Forms.LinkLabel exit_lbl;
@@ -279,5 +286,7 @@
         private System.Windows.Forms.LinkLabel profile_lbl;
         private System.Windows.Forms.LinkLabel shedule_lbl;
         private System.Windows.Forms.LinkLabel homework_lbl;
+        private System.Windows.Forms.PictureBox menu_btn;
+        private CustomPanel wrapper;
     }
 }
