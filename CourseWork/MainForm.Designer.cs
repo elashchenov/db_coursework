@@ -134,6 +134,8 @@
             this.messages_lbl.Text = "Сообщения";
             this.messages_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.messages_lbl.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.messages_lbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.messages_lbl_LinkClicked);
+            this.messages_lbl.Click += new System.EventHandler(this.messages_lbl_LinkClicked);
             this.messages_lbl.MouseEnter += new System.EventHandler(this.mainMenuLable_MouseEnter);
             this.messages_lbl.MouseLeave += new System.EventHandler(this.mainMenuLable_MouseLeave);
             // 
@@ -260,6 +262,7 @@
             // wrapper
             // 
             this.wrapper.AutoScroll = true;
+            this.wrapper.AutoSize = true;
             this.wrapper.Controls.Add(this.menu_btn);
             this.wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wrapper.Location = new System.Drawing.Point(0, 0);
@@ -278,6 +281,7 @@
             this.menu_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.menu_btn.TabIndex = 2;
             this.menu_btn.TabStop = false;
+            this.menu_btn.Click += new System.EventHandler(this.menu_btn_Click);
             // 
             // MainForm
             // 
@@ -295,6 +299,7 @@
             this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
             this.user_split.Panel1.ResumeLayout(false);
             this.user_split.Panel2.ResumeLayout(false);
+            this.user_split.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.user_split)).EndInit();
             this.user_split.ResumeLayout(false);
             this.userMenu_wrapper.ResumeLayout(false);

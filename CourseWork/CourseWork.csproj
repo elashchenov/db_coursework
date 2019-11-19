@@ -58,6 +58,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,23 +76,35 @@
     <Compile Include="AcademicPerformance.Designer.cs">
       <DependentUpon>AcademicPerformance.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomComboBox.cs">
+    <Compile Include="CustomControls\ChatButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ChatButton.Designer.cs">
+      <DependentUpon>ChatButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\CustomComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomComboBox.Designer.cs">
+    <Compile Include="CustomControls\CustomComboBox.Designer.cs">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomListBox.cs">
+    <Compile Include="CustomControls\CustomListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomListBox.Designer.cs">
+    <Compile Include="CustomControls\CustomListBox.Designer.cs">
       <DependentUpon>CustomListBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomRichTextBox.cs">
+    <Compile Include="CustomControls\CustomRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomRichTextBox.Designer.cs">
+    <Compile Include="CustomControls\CustomRichTextBox.Designer.cs">
       <DependentUpon>CustomRichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\UnreadIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\UnreadIcon.Designer.cs">
+      <DependentUpon>UnreadIcon.cs</DependentUpon>
     </Compile>
     <Compile Include="GradeCreating.cs">
       <SubType>Form</SubType>
@@ -117,11 +130,17 @@
     <Compile Include="HomeworkTeacher.Designer.cs">
       <DependentUpon>HomeworkTeacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="MarkLabel.cs">
+    <Compile Include="CustomControls\MarkLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MarkLabel.Designer.cs">
+    <Compile Include="CustomControls\MarkLabel.Designer.cs">
       <DependentUpon>MarkLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Messages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Messages.Designer.cs">
+      <DependentUpon>Messages.cs</DependentUpon>
     </Compile>
     <Compile Include="Shedule.cs">
       <SubType>Form</SubType>
@@ -129,7 +148,7 @@
     <Compile Include="Shedule.Designer.cs">
       <DependentUpon>Shedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReadOnlyTextBox.cs">
+    <Compile Include="CustomControls\ReadOnlyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ResgistrationForm.cs">
@@ -158,14 +177,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CustomPanel.cs">
+    <Compile Include="CustomControls\CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomPanel.Designer.cs">
+    <Compile Include="CustomControls\CustomPanel.Designer.cs">
       <DependentUpon>CustomPanel.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AcademicPerformance.resx">
       <DependentUpon>AcademicPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ChatButton.resx">
+      <DependentUpon>ChatButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GradeCreating.resx">
       <DependentUpon>GradeCreating.cs</DependentUpon>
@@ -178,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomeworkTeacher.resx">
       <DependentUpon>HomeworkTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messages.resx">
+      <DependentUpon>Messages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shedule.resx">
       <DependentUpon>Shedule.cs</DependentUpon>

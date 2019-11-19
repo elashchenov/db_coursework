@@ -127,6 +127,12 @@ namespace CourseWork
             currLinkLabel = acadPerform_lbl;
         }
 
+        private void messages_lbl_LinkClicked(object sender, EventArgs e)
+        {
+            loadIntoPanel2(new Messages(wrapper).getContainer());
+            currLinkLabel = messages_lbl;
+        }
+
         private void logOut_lbl_LinkClicked(object sender, EventArgs e)
         {
             parentForm.Show();
@@ -156,6 +162,7 @@ namespace CourseWork
         {
             currForm.ResumeLayout();
         }
+
         
     }
 }
