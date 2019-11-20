@@ -14,8 +14,8 @@ namespace CourseWork.CustomControls
     public partial class UnreadMsgIcon : Label
     {
         [Browsable(true)]
-        private int unreadMsgCnt_;
         public Color _BackColor { get; set; }
+        private int unreadMsgCnt_;
         public UnreadMsgIcon()
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace CourseWork.CustomControls
 
         private GraphicsPath _getRoundRectangle(Rectangle rectangle)
         {
-            int cornerRadius = 15; // change this value according to your needs
+            int cornerRadius = 14; // change this value according to your needs
             int diminisher = 1;
             GraphicsPath path = new GraphicsPath();
             path.AddArc(rectangle.X, rectangle.Y, cornerRadius, cornerRadius, 180, 90);

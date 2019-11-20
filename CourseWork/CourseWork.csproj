@@ -82,6 +82,12 @@
     <Compile Include="CustomControls\ChatButton.Designer.cs">
       <DependentUpon>ChatButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ChatMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ChatMessage.Designer.cs">
+      <DependentUpon>ChatMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CustomComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     <EmbeddedResource Include="CustomControls\ChatButton.resx">
       <DependentUpon>ChatButton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ChatMessage.resx">
+      <DependentUpon>ChatMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GradeCreating.resx">
       <DependentUpon>GradeCreating.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +252,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\send_msg.png" />
     <None Include="Resources\close_btn.png" />
     <None Include="Resources\close_btn_hover.png" />
     <Content Include="Resources\Hamburger_icon.png" />

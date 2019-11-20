@@ -55,19 +55,19 @@ namespace CourseWork
 
         private void menu_btn_MouseHover(object sender, EventArgs e)
         {
-            Image myImage = CourseWork.Properties.Resources.Hamburger_icon_hover;
+            Image myImage = Properties.Resources.Hamburger_icon_hover;
             menu_btn.Image = myImage;
         }
 
         private void menu_btn_MouseLeave(object sender, EventArgs e)
         {
-            Image myImage = CourseWork.Properties.Resources.Hamburger_icon;
+            Image myImage = Properties.Resources.Hamburger_icon;
             menu_btn.Image = myImage;
         }
 
         private void menu_btn_MouseDown(object sender, MouseEventArgs e)
         {
-            Image myImage = CourseWork.Properties.Resources.Hamburger_icon_pressed;
+            Image myImage = Properties.Resources.Hamburger_icon_pressed;
             menu_btn.Image = myImage;
         }
 
@@ -94,6 +94,7 @@ namespace CourseWork
         {
             if (currLinkLabel != profile_lbl)
             {
+                wrapper.AutoScroll = true;
                 loadIntoPanel2(new Profile(wrapper).getContainer());
                 currLinkLabel = profile_lbl;
             }
@@ -103,6 +104,7 @@ namespace CourseWork
         {
             if (currLinkLabel != shedule_lbl)
             {
+                wrapper.AutoScroll = true;
                 loadIntoPanel2(new Shedule().getContainer());
                 currLinkLabel = shedule_lbl;
             }
@@ -113,7 +115,8 @@ namespace CourseWork
             if (currLinkLabel != homework_lbl)
             {
                 //loadIntoPanel2(new HomeworkPuple(wrapper).getContainer());
-                //currLinkLabel = homework_lbl;                
+                //currLinkLabel = homework_lbl;    
+                wrapper.AutoScroll = true;
                 loadIntoPanel2(new HomeworkTeacher(wrapper).getContainer());
                 currLinkLabel = homework_lbl;
             }
@@ -123,14 +126,20 @@ namespace CourseWork
         {
             //loadIntoPanel2(new AcademicPerformance(wrapper).getContainer());
             //currLinkLabel = acadPerform_lbl;
-            loadIntoPanel2(new GradingTeacher(wrapper).getContainer());
-            currLinkLabel = acadPerform_lbl;
+            if (currLinkLabel != acadPerform_lbl) {
+                wrapper.AutoScroll = true;
+                loadIntoPanel2(new GradingTeacher(wrapper).getContainer());
+                currLinkLabel = acadPerform_lbl;
+            }
         }
 
         private void messages_lbl_LinkClicked(object sender, EventArgs e)
         {
-            loadIntoPanel2(new Messages(wrapper).getContainer());
-            currLinkLabel = messages_lbl;
+            if (currLinkLabel != messages_lbl) {
+                wrapper.AutoScroll = false;
+                loadIntoPanel2(new Messages(wrapper).getContainer());
+                currLinkLabel = messages_lbl;
+            }
         }
 
         private void logOut_lbl_LinkClicked(object sender, EventArgs e)
@@ -155,12 +164,14 @@ namespace CourseWork
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
         {
-            currForm.SuspendLayout();
+            if (currForm != null)
+                currForm.SuspendLayout();
         }
 
         private void MainForm_ResizeEnd(object sender, EventArgs e)
         {
-            currForm.ResumeLayout();
+            if (currForm != null)
+                currForm.ResumeLayout();
         }
 
         

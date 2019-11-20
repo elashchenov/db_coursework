@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CourseWork.CustomControls;
 
 namespace CourseWork
 {
     public partial class ChatButton : UserControl
     {
+
         public ChatButton()
         {
             InitializeComponent();
@@ -47,6 +49,13 @@ namespace CourseWork
         private void deleteChat_btn_Click(object sender, MouseEventArgs e)
         {
             MessageBox.Show("delete clicked");
+        }
+
+        private void mainChatLayout_tbl_Click(object sender, EventArgs e)
+        {
+           
+            Messages.instance_.chatButton_Click(sender, e);
+
         }
     }
 }
