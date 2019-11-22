@@ -112,6 +112,12 @@
     <Compile Include="CustomControls\UnreadIcon.Designer.cs">
       <DependentUpon>UnreadIcon.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBClasses\ClassesDB.cs" />
+    <Compile Include="DBClasses\ParentDB.cs" />
+    <Compile Include="DBClasses\PupleDB.cs" />
+    <Compile Include="DBClasses\SubjectDB.cs" />
+    <Compile Include="DBClasses\TeacherDB.cs" />
+    <Compile Include="DBClasses\UsersDB.cs" />
     <Compile Include="GradeCreating.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,12 @@
     <Compile Include="CustomControls\CustomPanel.Designer.cs">
       <DependentUpon>CustomPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserRegistration.Designer.cs">
+      <DependentUpon>UserRegistration.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AcademicPerformance.resx">
       <DependentUpon>AcademicPerformance.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +250,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserRegistration.resx">
+      <DependentUpon>UserRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

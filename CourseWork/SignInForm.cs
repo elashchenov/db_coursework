@@ -14,9 +14,11 @@ namespace CourseWork
 {
     public partial class SignInForm : Form
     {
+        public static SignInForm instance_ { get; private set; }
         public SignInForm()
         {
             InitializeComponent();
+            instance_ = this;
         }
 
         private void signIn_btn_Click(object sender, EventArgs e)
@@ -41,7 +43,7 @@ namespace CourseWork
             //command.Parameters.Add("@up", OleDbType.VarChar).Value = passUser;
             adapter.SelectCommand = command;
             //dataset.Tables.Add(table);
-            adapter.Fill(table);
+            //adapter.Fill(table);
             //WHERE login = loginUser AND password = passUser
 
             try

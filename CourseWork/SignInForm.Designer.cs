@@ -35,7 +35,7 @@
             this.login_label = new System.Windows.Forms.Label();
             this.signIn_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.signUp_lbl = new System.Windows.Forms.Label();
             this.logPswTable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,22 +125,23 @@
             this.label1.Text = "Вход в учетную запись";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // signUp_lbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(118, 222);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Еще нет аккаунта ?";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.signUp_lbl.AutoSize = true;
+            this.signUp_lbl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signUp_lbl.Location = new System.Drawing.Point(118, 222);
+            this.signUp_lbl.Name = "signUp_lbl";
+            this.signUp_lbl.Size = new System.Drawing.Size(107, 13);
+            this.signUp_lbl.TabIndex = 3;
+            this.signUp_lbl.Text = "Еще нет аккаунта ?";
+            this.signUp_lbl.Click += new System.EventHandler(this.label2_Click);
             // 
             // SignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 266);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.signUp_lbl);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.signIn_btn);
             this.Controls.Add(this.logPswTable);
@@ -150,6 +151,7 @@
             this.MinimizeBox = false;
             this.Name = "SignInForm";
             this.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Вход";
             this.Load += new System.EventHandler(this.SignInForm_Load);
             this.logPswTable.ResumeLayout(false);
@@ -168,7 +170,7 @@
         private System.Windows.Forms.TextBox pass_tb;
         private System.Windows.Forms.Button signIn_btn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label signUp_lbl;
     }
 }
 

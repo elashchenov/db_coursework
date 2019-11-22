@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.loginBox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.NameBox = new System.Windows.Forms.TextBox();
-            this.passBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.mainContainer_tbl = new System.Windows.Forms.TableLayoutPanel();
+            this.userMainInfo_tbl = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -68,8 +63,13 @@
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.login_tb = new System.Windows.Forms.TextBox();
+            this.password_tb = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.next_btn = new System.Windows.Forms.Button();
+            this.user_type_cb = new System.Windows.Forms.ComboBox();
+            this.fio_tb = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -88,8 +88,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.mainContainer_tbl.SuspendLayout();
+            this.userMainInfo_tbl.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
@@ -119,123 +119,66 @@
             // 
             // label1
             // 
+            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(878, 101);
+            this.label1.Size = new System.Drawing.Size(884, 90);
             this.label1.TabIndex = 0;
             this.label1.Text = "Регистрация";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // mainContainer_tbl
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(571, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 60);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Далее";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.mainContainer_tbl.ColumnCount = 1;
+            this.mainContainer_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainContainer_tbl.Controls.Add(this.userMainInfo_tbl, 0, 1);
+            this.mainContainer_tbl.Controls.Add(this.label1, 0, 0);
+            this.mainContainer_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainContainer_tbl.Location = new System.Drawing.Point(0, 0);
+            this.mainContainer_tbl.Margin = new System.Windows.Forms.Padding(0);
+            this.mainContainer_tbl.Name = "mainContainer_tbl";
+            this.mainContainer_tbl.RowCount = 2;
+            this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainContainer_tbl.Size = new System.Drawing.Size(884, 565);
+            this.mainContainer_tbl.TabIndex = 12;
             // 
-            // loginBox
+            // userMainInfo_tbl
             // 
-            this.loginBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.loginBox.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginBox.Location = new System.Drawing.Point(412, 28);
-            this.loginBox.Multiline = true;
-            this.loginBox.Name = "loginBox";
-            this.loginBox.Size = new System.Drawing.Size(269, 60);
-            this.loginBox.TabIndex = 3;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ученик",
-            "Учитель",
-            "Родитель"});
-            this.comboBox1.Location = new System.Drawing.Point(3, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 53);
-            this.comboBox1.TabIndex = 9;
-            // 
-            // NameBox
-            // 
-            this.NameBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameBox.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameBox.Location = new System.Drawing.Point(3, 31);
-            this.NameBox.Multiline = true;
-            this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(684, 60);
-            this.NameBox.TabIndex = 5;
-            // 
-            // passBox
-            // 
-            this.passBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.passBox.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passBox.Location = new System.Drawing.Point(71, 28);
-            this.passBox.Multiline = true;
-            this.passBox.Name = "passBox";
-            this.passBox.Size = new System.Drawing.Size(267, 60);
-            this.passBox.TabIndex = 4;
-            this.passBox.UseSystemPasswordChar = true;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.93478F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.06522F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 565);
-            this.tableLayoutPanel1.TabIndex = 12;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox7, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox6, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox5, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox4, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.NameBox, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 3, 3);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(97, 130);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.30302F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.30304F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.30304F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(690, 405);
-            this.tableLayoutPanel2.TabIndex = 12;
+            this.userMainInfo_tbl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userMainInfo_tbl.ColumnCount = 4;
+            this.userMainInfo_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.userMainInfo_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
+            this.userMainInfo_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
+            this.userMainInfo_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
+            this.userMainInfo_tbl.Controls.Add(this.tableLayoutPanel7, 3, 2);
+            this.userMainInfo_tbl.Controls.Add(this.tableLayoutPanel6, 2, 2);
+            this.userMainInfo_tbl.Controls.Add(this.groupBox7, 3, 1);
+            this.userMainInfo_tbl.Controls.Add(this.groupBox6, 2, 1);
+            this.userMainInfo_tbl.Controls.Add(this.groupBox5, 3, 0);
+            this.userMainInfo_tbl.Controls.Add(this.groupBox4, 2, 0);
+            this.userMainInfo_tbl.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.userMainInfo_tbl.Controls.Add(this.tableLayoutPanel4, 0, 2);
+            this.userMainInfo_tbl.Controls.Add(this.fio_tb, 0, 0);
+            this.userMainInfo_tbl.Controls.Add(this.groupBox1, 1, 1);
+            this.userMainInfo_tbl.Controls.Add(this.groupBox2, 1, 0);
+            this.userMainInfo_tbl.Controls.Add(this.tableLayoutPanel5, 1, 2);
+            this.userMainInfo_tbl.Controls.Add(this.label3, 1, 3);
+            this.userMainInfo_tbl.Controls.Add(this.label4, 2, 3);
+            this.userMainInfo_tbl.Controls.Add(this.label5, 3, 3);
+            this.userMainInfo_tbl.Location = new System.Drawing.Point(97, 125);
+            this.userMainInfo_tbl.Name = "userMainInfo_tbl";
+            this.userMainInfo_tbl.RowCount = 4;
+            this.userMainInfo_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.30302F));
+            this.userMainInfo_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.30304F));
+            this.userMainInfo_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.30304F));
+            this.userMainInfo_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.userMainInfo_tbl.Size = new System.Drawing.Size(690, 405);
+            this.userMainInfo_tbl.TabIndex = 14;
             // 
             // tableLayoutPanel7
             // 
@@ -275,7 +218,6 @@
             this.button6.TabIndex = 27;
             this.button6.Text = "Назад";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // groupBox9
             // 
@@ -366,7 +308,6 @@
             this.button4.TabIndex = 26;
             this.button4.Text = "Назад";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -717,15 +658,15 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.passBox, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.loginBox, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.login_tb, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.password_tb, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.pictureBox2, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 125);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 116F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(684, 116);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
@@ -739,6 +680,27 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // login_tb
+            // 
+            this.login_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.login_tb.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.login_tb.Location = new System.Drawing.Point(71, 32);
+            this.login_tb.Name = "login_tb";
+            this.login_tb.Size = new System.Drawing.Size(267, 52);
+            this.login_tb.TabIndex = 4;
+            this.login_tb.TextChanged += new System.EventHandler(this.login_tb_TextChanged);
+            // 
+            // password_tb
+            // 
+            this.password_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.password_tb.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.password_tb.Location = new System.Drawing.Point(412, 32);
+            this.password_tb.Name = "password_tb";
+            this.password_tb.Size = new System.Drawing.Size(269, 52);
+            this.password_tb.TabIndex = 3;
+            this.password_tb.UseSystemPasswordChar = true;
+            this.password_tb.TextChanged += new System.EventHandler(this.Fields_Validating);
             // 
             // pictureBox2
             // 
@@ -758,8 +720,8 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.859375F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33889F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33556F));
-            this.tableLayoutPanel4.Controls.Add(this.button1, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox1, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.next_btn, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.user_type_cb, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 247);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -767,6 +729,47 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(684, 116);
             this.tableLayoutPanel4.TabIndex = 7;
+            // 
+            // next_btn
+            // 
+            this.next_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.next_btn.Enabled = false;
+            this.next_btn.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.next_btn.Location = new System.Drawing.Point(571, 3);
+            this.next_btn.Name = "next_btn";
+            this.next_btn.Size = new System.Drawing.Size(110, 60);
+            this.next_btn.TabIndex = 8;
+            this.next_btn.Text = "Далее";
+            this.next_btn.UseVisualStyleBackColor = true;
+            this.next_btn.Click += new System.EventHandler(this.next_btn_Click);
+            // 
+            // user_type_cb
+            // 
+            this.user_type_cb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.user_type_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.user_type_cb.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.user_type_cb.FormattingEnabled = true;
+            this.user_type_cb.Items.AddRange(new object[] {
+            "Учитель",
+            "Ученик",
+            "Родитель"});
+            this.user_type_cb.Location = new System.Drawing.Point(3, 3);
+            this.user_type_cb.Name = "user_type_cb";
+            this.user_type_cb.Size = new System.Drawing.Size(180, 53);
+            this.user_type_cb.TabIndex = 9;
+            this.user_type_cb.SelectedIndexChanged += new System.EventHandler(this.Fields_Validating);
+            // 
+            // NameBox
+            // 
+            this.fio_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.fio_tb.BackColor = System.Drawing.SystemColors.Window;
+            this.fio_tb.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fio_tb.Location = new System.Drawing.Point(3, 35);
+            this.fio_tb.Name = "NameBox";
+            this.fio_tb.Size = new System.Drawing.Size(684, 52);
+            this.fio_tb.TabIndex = 5;
+            this.fio_tb.TextChanged += new System.EventHandler(this.Fields_Validating);
             // 
             // groupBox1
             // 
@@ -991,7 +994,6 @@
             this.button2.TabIndex = 26;
             this.button2.Text = "Назад";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -1015,7 +1017,6 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Авторизоваться";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // label4
             // 
@@ -1028,7 +1029,6 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Авторизоваться";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -1041,7 +1041,6 @@
             this.label5.TabIndex = 28;
             this.label5.Text = "Авторизоваться";
             this.label5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // RegistrationForm
             // 
@@ -1049,14 +1048,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(884, 565);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.mainContainer_tbl);
             this.MaximumSize = new System.Drawing.Size(1500, 900);
             this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "RegistrationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegistrationForm_FormClosing);
+            this.mainContainer_tbl.ResumeLayout(false);
+            this.mainContainer_tbl.PerformLayout();
+            this.userMainInfo_tbl.ResumeLayout(false);
+            this.userMainInfo_tbl.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.flowLayoutPanel7.ResumeLayout(false);
@@ -1089,26 +1091,20 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox loginBox;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox NameBox;
-        private System.Windows.Forms.TextBox passBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.FlowLayoutPanel birthday_flowPanel;
-        private System.Windows.Forms.ComboBox birthDay_cb;
-        private System.Windows.Forms.ComboBox birthMonth_cb;
-        private System.Windows.Forms.ComboBox birthYear_cb;
+        private System.Windows.Forms.TableLayoutPanel mainContainer_tbl;
+        private System.Windows.Forms.TableLayoutPanel userMainInfo_tbl;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        private System.Windows.Forms.ComboBox comboBox16;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.ComboBox comboBox15;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
         private System.Windows.Forms.ComboBox comboBox13;
@@ -1127,24 +1123,30 @@
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox login_tb;
+        private System.Windows.Forms.TextBox password_tb;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button next_btn;
+        private System.Windows.Forms.ComboBox user_type_cb;
+        private System.Windows.Forms.TextBox fio_tb;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.FlowLayoutPanel birthday_flowPanel;
+        private System.Windows.Forms.ComboBox birthDay_cb;
+        private System.Windows.Forms.ComboBox birthMonth_cb;
+        private System.Windows.Forms.ComboBox birthYear_cb;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-        private System.Windows.Forms.ComboBox comboBox16;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.ComboBox comboBox15;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

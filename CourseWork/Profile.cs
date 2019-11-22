@@ -162,8 +162,10 @@ namespace CourseWork
         void personData_cb_Enter(object sender, EventArgs e)
         {
             ComboBox focusedComboBox = (ComboBox)sender;
-            personDataPrevVal = (string)focusedComboBox.SelectedItem;
-            //MessageBox.Show("selected text is " + personDataPrevVal);
+            if (focusedComboBox.SelectedItem != null)
+                personDataPrevVal = focusedComboBox.SelectedItem.ToString();
+            else
+                personDataPrevVal = (string)focusedComboBox.SelectedItem;
         }
 
         private void personData_cb_SelectedValueChanged(object sender, EventArgs e)
