@@ -9,10 +9,87 @@ using System.Data.SqlClient;
 
 namespace CourseWork.DBClasses
 {
-    class ParentDB : UserDB
+    public class ParentDB : UserDB
     {
-        public int parent_id { get; private set; }
-        public List<PupleDB> puples { get; private set; }
+        public int parent_id { get; set; }
+        public List<PupleDB> puples { get; set; } = new List<PupleDB>();
+
+        public ParentDB() { }
+
+        public ParentDB(UserDB userDB) : base(userDB)
+        {
+            loadParentByUserId();
+        }
+
+        public void updateParentInDB(List<PupleDB> puplesForDelete, List<PupleDB> puplesForAdd)
+        {
+            UpdateUserInDB();
+            string idForDelete = string.Empty;
+            foreach (PupleDB puple in puplesForDelete) {
+                puples.Remove(puple);
+                idForDelete += puple.puple_id + ", ";
+            }
+            sqlConnection.Open();
+
+            if (idForDelete.Count() != 0) {
+                idForDelete = idForDelete.Substring(0, idForDelete.Count() - 2);
+                
+                string sqlQuery = "delete from puples_parents " +
+                    "where parentId='" + parent_id + "' and pupleId in (" + idForDelete + ")";
+                SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+                cmd.ExecuteNonQuery();
+            }
+
+            string valuesForAdd = string.Empty;
+            foreach (PupleDB puple in puplesForAdd) {
+                puples.Add(puple);
+                valuesForAdd += "('" + puple.puple_id + "', '" + parent_id + "'),";
+            }
+            if (valuesForAdd.Count() != 0) {
+                valuesForAdd = valuesForAdd.Substring(0, valuesForAdd.Count() - 1);
+                string sqlQuery = "insert into puples_parents " +
+                    "values" + valuesForAdd;
+                SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+                cmd.ExecuteNonQuery();
+            }
+
+            sqlConnection.Close();
+        }
+
+        private void loadParentByUserId()
+        {
+            DataTable table = new DataTable();
+            sqlConnection.Open();
+
+            string sqlQuery = "select parents.id from parents " +
+                "where parents.userId='" + user_id +"'";
+            using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
+                table.Load(command.ExecuteReader());
+                SqlDataReader dr = command.ExecuteReader();
+                if (dr.Read() == false) {
+                    sqlConnection.Close();
+                    throw new Exception("Такого родителя не существует");
+                }
+                this.parent_id = Convert.ToInt32(dr[0]);
+            }
+
+            table = new DataTable();
+            sqlQuery = "select puples.userId, puples.id from puples_parents, puples " +
+                "where puples_parents.parentId='" + parent_id + "' and puples_parents.pupleId=puples.id";
+            using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
+                table.Load(command.ExecuteReader());
+                SqlDataReader dr = command.ExecuteReader();
+                while (dr.Read()) {
+                    int userId = Convert.ToInt32(dr[0]);
+                    PupleDB puple = new PupleDB();
+                    puple.loadByUserId(userId);
+                    puple.puple_id = Convert.ToInt32(dr[1]);
+                    puples.Add(puple);
+                }
+            }
+
+            sqlConnection.Close();
+        }
 
         public void addNewParentIntoDB(string login, string password, string fio,
         string sex, DateTime age, string internal_mail, List<PupleDB> puples)

@@ -8,13 +8,17 @@ using System.Data.SqlClient;
 
 namespace CourseWork.DBClasses
 {
-    class ClassDB
+    public class ClassDB
     {
-        public int class_id { get; private set; }
-        public int classTeacherId { get; private set; }
-        public int quantity { get; private set; }
-        public int year { get; private set; }
-        public char letter { get; private set; }
+        public int class_id { get; set; }
+        public int classTeacherId { get; set; }
+        public int quantity { get; set; }
+        public int year { get; set; }
+        public char letter { get; set; }
+
+        public ClassDB()
+        {
+        }
 
         protected static SqlConnection sqlConnection = new SqlConnection(
             "Server=(local);" +

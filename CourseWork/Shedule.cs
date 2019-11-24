@@ -70,7 +70,11 @@ namespace CourseWork
                             break;
                     }
 
-                    OleDbCommand command = new OleDbCommand("select subjects.name from puples, shedules, subjects where puples.classId = shedules.classId and shedules.subjectId = subjects.id and shedules.day = '" + day + "' and puples.id = 5 and shedules.subjectNumber = '" + lessIdx + "'", connection);
+                    OleDbCommand command = new OleDbCommand("select subjects.name from puples, shedules, subjects " +
+                        "where puples.classId = shedules.classId " +
+                        "and shedules.subjectId = subjects.id " +
+                        "and shedules.day = '" + day + "' " +
+                        "and puples.id = 5 and shedules.subjectOrdinal = '" + lessIdx + "'", connection);
                     adapter.SelectCommand = command;
                     adapter.Fill(table);
 
@@ -78,7 +82,6 @@ namespace CourseWork
                     {
                         string name = row["name"].ToString();
                         newTextBox.Text = name;
-
                     }
 
                     Control controlForDelete = shedule_table.GetControlFromPosition(lessIdx, dayIdx);

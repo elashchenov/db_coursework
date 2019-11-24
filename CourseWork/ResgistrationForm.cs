@@ -63,6 +63,7 @@ namespace CourseWork
         {
             userMainInfo_tbl.Hide();
             userRegistration_.chooseUserType(user_type_cb.SelectedIndex);
+            userRegistration_.fields_Validating(null, null);
             userRegistration_.getContainer().Show();
         }
 
@@ -83,6 +84,8 @@ namespace CourseWork
         public void signUp_btn_Click(UserRegistration ur)
         {
             try {
+
+                //MessageBox.Show(ur.gender_cb.Text);
                 DateTime age = new DateTime(
                     (int)ur.birthYear_cb.SelectedItem,
                     ur.birthMonth_cb.SelectedIndex + 1,

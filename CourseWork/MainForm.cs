@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CourseWork.DBClasses;
 
 namespace CourseWork
 {
@@ -15,14 +16,16 @@ namespace CourseWork
         private SignInForm parentForm;
         private Panel currForm;
         private LinkLabel currLinkLabel = null;
+        private UserDB user_;
 
         public MainForm()
         {
             InitializeComponent();
         }
 
-        public MainForm(SignInForm f)
+        public MainForm(SignInForm f, UserDB user)
         {
+            this.user_ = user;
             InitializeComponent();
             //wrapper.BackColor = Color.FromArgb(0, Color.Black);
             //user_split.BackColor = Color.FromArgb(0, Color.Black);
@@ -95,7 +98,7 @@ namespace CourseWork
             if (currLinkLabel != profile_lbl)
             {
                 wrapper.AutoScroll = true;
-                loadIntoPanel2(new Profile(wrapper).getContainer());
+                loadIntoPanel2(new Profile(wrapper, user_).getContainer());
                 currLinkLabel = profile_lbl;
             }
         }

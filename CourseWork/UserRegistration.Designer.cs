@@ -36,18 +36,18 @@
             this.personData_lbl = new System.Windows.Forms.Label();
             this.class_tbl = new System.Windows.Forms.TableLayoutPanel();
             this.class_lbl = new System.Windows.Forms.Label();
+            this.class_cb = new CourseWork.CustomComboBox();
             this.internalMail_tbl = new System.Windows.Forms.TableLayoutPanel();
             this.internalMail_lbl = new System.Windows.Forms.Label();
             this.internalMail_tb = new System.Windows.Forms.TextBox();
             this.birth_tbl = new System.Windows.Forms.TableLayoutPanel();
             this.birth_lbl = new System.Windows.Forms.Label();
             this.birth_flp = new System.Windows.Forms.FlowLayoutPanel();
-            this.gender_tbl = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.class_cb = new CourseWork.CustomComboBox();
             this.birthDay_cb = new CourseWork.CustomComboBox();
             this.birthMonth_cb = new CourseWork.CustomComboBox();
             this.birthYear_cb = new CourseWork.CustomComboBox();
+            this.gender_tbl = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.gender_cb = new CourseWork.CustomComboBox();
             this.mainContainer_tbl.SuspendLayout();
             this.userRegistration_tbl.SuspendLayout();
@@ -68,10 +68,10 @@
             this.mainContainer_tbl.Location = new System.Drawing.Point(0, 0);
             this.mainContainer_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.mainContainer_tbl.Name = "mainContainer_tbl";
-            this.mainContainer_tbl.Padding = new System.Windows.Forms.Padding(0, 0, 14, 0);
+            this.mainContainer_tbl.Padding = new System.Windows.Forms.Padding(0, 0, 9, 0);
             this.mainContainer_tbl.RowCount = 1;
             this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.mainContainer_tbl.Size = new System.Drawing.Size(1200, 692);
+            this.mainContainer_tbl.Size = new System.Drawing.Size(800, 450);
             this.mainContainer_tbl.TabIndex = 3;
             // 
             // userRegistration_tbl
@@ -88,9 +88,9 @@
             this.userRegistration_tbl.Controls.Add(this.internalMail_tbl, 0, 2);
             this.userRegistration_tbl.Controls.Add(this.birth_tbl, 0, 1);
             this.userRegistration_tbl.Controls.Add(this.gender_tbl, 0, 0);
-            this.userRegistration_tbl.Location = new System.Drawing.Point(203, 15);
-            this.userRegistration_tbl.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.userRegistration_tbl.MinimumSize = new System.Drawing.Size(780, 474);
+            this.userRegistration_tbl.Location = new System.Drawing.Point(135, 10);
+            this.userRegistration_tbl.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.userRegistration_tbl.MinimumSize = new System.Drawing.Size(520, 308);
             this.userRegistration_tbl.Name = "userRegistration_tbl";
             this.userRegistration_tbl.RowCount = 7;
             this.userRegistration_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -100,7 +100,7 @@
             this.userRegistration_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.userRegistration_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.userRegistration_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.userRegistration_tbl.Size = new System.Drawing.Size(780, 609);
+            this.userRegistration_tbl.Size = new System.Drawing.Size(520, 425);
             this.userRegistration_tbl.TabIndex = 3;
             this.userRegistration_tbl.Resize += new System.EventHandler(this.userRegistration_tbl_Resize);
             // 
@@ -109,11 +109,11 @@
             this.back_btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.back_btn.AutoSize = true;
             this.back_btn.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.back_btn.Location = new System.Drawing.Point(308, 524);
-            this.back_btn.Margin = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.back_btn.Location = new System.Drawing.Point(205, 370);
+            this.back_btn.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.back_btn.Name = "back_btn";
-            this.back_btn.Size = new System.Drawing.Size(164, 77);
-            this.back_btn.TabIndex = 7;
+            this.back_btn.Size = new System.Drawing.Size(109, 50);
+            this.back_btn.TabIndex = 101;
             this.back_btn.Text = "Назад";
             this.back_btn.UseVisualStyleBackColor = true;
             this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
@@ -124,11 +124,11 @@
             this.signUp_btn.AutoSize = true;
             this.signUp_btn.Enabled = false;
             this.signUp_btn.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.signUp_btn.Location = new System.Drawing.Point(160, 439);
-            this.signUp_btn.Margin = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.signUp_btn.Location = new System.Drawing.Point(106, 315);
+            this.signUp_btn.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.signUp_btn.Name = "signUp_btn";
-            this.signUp_btn.Size = new System.Drawing.Size(460, 77);
-            this.signUp_btn.TabIndex = 6;
+            this.signUp_btn.Size = new System.Drawing.Size(307, 50);
+            this.signUp_btn.TabIndex = 100;
             this.signUp_btn.Text = "Зарегистрироваться";
             this.signUp_btn.UseVisualStyleBackColor = true;
             this.signUp_btn.Click += new System.EventHandler(this.signUp_btn_Click);
@@ -142,13 +142,13 @@
             this.personData_tbl.Controls.Add(this.personDataAdd_lbl, 0, 1);
             this.personData_tbl.Controls.Add(this.personData_lbl, 0, 0);
             this.personData_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.personData_tbl.Location = new System.Drawing.Point(0, 362);
+            this.personData_tbl.Location = new System.Drawing.Point(0, 262);
             this.personData_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.personData_tbl.Name = "personData_tbl";
             this.personData_tbl.RowCount = 2;
             this.personData_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.personData_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.personData_tbl.Size = new System.Drawing.Size(780, 77);
+            this.personData_tbl.Size = new System.Drawing.Size(520, 53);
             this.personData_tbl.TabIndex = 4;
             // 
             // personDataAdd_lbl
@@ -159,11 +159,11 @@
             this.personDataAdd_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.personDataAdd_lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.personDataAdd_lbl.LinkColor = System.Drawing.SystemColors.Highlight;
-            this.personDataAdd_lbl.Location = new System.Drawing.Point(4, 38);
-            this.personDataAdd_lbl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 15);
+            this.personDataAdd_lbl.Location = new System.Drawing.Point(3, 26);
+            this.personDataAdd_lbl.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.personDataAdd_lbl.Name = "personDataAdd_lbl";
-            this.personDataAdd_lbl.Size = new System.Drawing.Size(90, 24);
-            this.personDataAdd_lbl.TabIndex = 14;
+            this.personDataAdd_lbl.Size = new System.Drawing.Size(62, 17);
+            this.personDataAdd_lbl.TabIndex = 99;
             this.personDataAdd_lbl.TabStop = true;
             this.personDataAdd_lbl.Text = "Добавить";
             this.personDataAdd_lbl.VisitedLinkColor = System.Drawing.SystemColors.Highlight;
@@ -177,7 +177,7 @@
             this.personData_lbl.Location = new System.Drawing.Point(0, 0);
             this.personData_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.personData_lbl.Name = "personData_lbl";
-            this.personData_lbl.Size = new System.Drawing.Size(258, 33);
+            this.personData_lbl.Size = new System.Drawing.Size(170, 23);
             this.personData_lbl.TabIndex = 0;
             this.personData_lbl.Text = "Добавьте родителей:";
             // 
@@ -190,13 +190,13 @@
             this.class_tbl.Controls.Add(this.class_lbl, 0, 0);
             this.class_tbl.Controls.Add(this.class_cb, 0, 1);
             this.class_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.class_tbl.Location = new System.Drawing.Point(0, 273);
+            this.class_tbl.Location = new System.Drawing.Point(0, 197);
             this.class_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.class_tbl.Name = "class_tbl";
             this.class_tbl.RowCount = 2;
             this.class_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.class_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.class_tbl.Size = new System.Drawing.Size(780, 89);
+            this.class_tbl.Size = new System.Drawing.Size(520, 65);
             this.class_tbl.TabIndex = 3;
             // 
             // class_lbl
@@ -207,9 +207,27 @@
             this.class_lbl.Location = new System.Drawing.Point(0, 0);
             this.class_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.class_lbl.Name = "class_lbl";
-            this.class_lbl.Size = new System.Drawing.Size(237, 33);
+            this.class_lbl.Size = new System.Drawing.Size(158, 23);
             this.class_lbl.TabIndex = 0;
             this.class_lbl.Text = "Укажите ваш класс:";
+            // 
+            // class_cb
+            // 
+            this.class_cb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.class_cb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.class_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.class_cb.FormattingEnabled = true;
+            this.class_cb.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.class_cb.ItemHeight = 24;
+            this.class_cb.Location = new System.Drawing.Point(0, 23);
+            this.class_cb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.class_cb.Name = "class_cb";
+            this.class_cb.Size = new System.Drawing.Size(500, 32);
+            this.class_cb.TabIndex = 6;
+            this.class_cb.SelectedIndexChanged += new System.EventHandler(this.fields_Validating);
+            this.class_cb.TextUpdate += new System.EventHandler(this.comboBox_TextUpdate);
+            this.class_cb.Enter += new System.EventHandler(this.comboBox_Enter);
+            this.class_cb.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // internalMail_tbl
             // 
@@ -220,13 +238,13 @@
             this.internalMail_tbl.Controls.Add(this.internalMail_lbl, 0, 0);
             this.internalMail_tbl.Controls.Add(this.internalMail_tb, 0, 1);
             this.internalMail_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.internalMail_tbl.Location = new System.Drawing.Point(0, 178);
+            this.internalMail_tbl.Location = new System.Drawing.Point(0, 130);
             this.internalMail_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.internalMail_tbl.Name = "internalMail_tbl";
             this.internalMail_tbl.RowCount = 2;
             this.internalMail_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.internalMail_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.internalMail_tbl.Size = new System.Drawing.Size(780, 95);
+            this.internalMail_tbl.Size = new System.Drawing.Size(520, 67);
             this.internalMail_tbl.TabIndex = 2;
             // 
             // internalMail_lbl
@@ -237,18 +255,18 @@
             this.internalMail_lbl.Location = new System.Drawing.Point(0, 0);
             this.internalMail_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.internalMail_lbl.Name = "internalMail_lbl";
-            this.internalMail_lbl.Size = new System.Drawing.Size(352, 33);
+            this.internalMail_lbl.Size = new System.Drawing.Size(236, 23);
             this.internalMail_lbl.TabIndex = 0;
             this.internalMail_lbl.Text = "Создайте внутреннюю почту:";
             // 
             // internalMail_tb
             // 
             this.internalMail_tb.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.internalMail_tb.Location = new System.Drawing.Point(0, 33);
-            this.internalMail_tb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.internalMail_tb.Location = new System.Drawing.Point(0, 23);
+            this.internalMail_tb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.internalMail_tb.Name = "internalMail_tb";
-            this.internalMail_tb.Size = new System.Drawing.Size(748, 47);
-            this.internalMail_tb.TabIndex = 1;
+            this.internalMail_tb.Size = new System.Drawing.Size(500, 34);
+            this.internalMail_tb.TabIndex = 5;
             this.internalMail_tb.TextChanged += new System.EventHandler(this.internalMail_tb_TextChanged);
             // 
             // birth_tbl
@@ -260,13 +278,13 @@
             this.birth_tbl.Controls.Add(this.birth_lbl, 0, 0);
             this.birth_tbl.Controls.Add(this.birth_flp, 0, 1);
             this.birth_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.birth_tbl.Location = new System.Drawing.Point(0, 89);
+            this.birth_tbl.Location = new System.Drawing.Point(0, 65);
             this.birth_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.birth_tbl.Name = "birth_tbl";
             this.birth_tbl.RowCount = 2;
             this.birth_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.birth_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.birth_tbl.Size = new System.Drawing.Size(780, 89);
+            this.birth_tbl.Size = new System.Drawing.Size(520, 65);
             this.birth_tbl.TabIndex = 1;
             // 
             // birth_lbl
@@ -277,7 +295,7 @@
             this.birth_lbl.Location = new System.Drawing.Point(0, 0);
             this.birth_lbl.Margin = new System.Windows.Forms.Padding(0);
             this.birth_lbl.Name = "birth_lbl";
-            this.birth_lbl.Size = new System.Drawing.Size(287, 33);
+            this.birth_lbl.Size = new System.Drawing.Size(193, 23);
             this.birth_lbl.TabIndex = 0;
             this.birth_lbl.Text = "Задайте дату рождения:";
             // 
@@ -288,60 +306,12 @@
             this.birth_flp.Controls.Add(this.birthDay_cb);
             this.birth_flp.Controls.Add(this.birthMonth_cb);
             this.birth_flp.Controls.Add(this.birthYear_cb);
-            this.birth_flp.Location = new System.Drawing.Point(0, 33);
+            this.birth_flp.Location = new System.Drawing.Point(0, 23);
             this.birth_flp.Margin = new System.Windows.Forms.Padding(0);
             this.birth_flp.Name = "birth_flp";
-            this.birth_flp.Size = new System.Drawing.Size(746, 56);
+            this.birth_flp.Size = new System.Drawing.Size(500, 42);
             this.birth_flp.TabIndex = 1;
             this.birth_flp.WrapContents = false;
-            // 
-            // gender_tbl
-            // 
-            this.gender_tbl.AutoSize = true;
-            this.gender_tbl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gender_tbl.ColumnCount = 1;
-            this.gender_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.gender_tbl.Controls.Add(this.label2, 0, 0);
-            this.gender_tbl.Controls.Add(this.gender_cb, 0, 1);
-            this.gender_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gender_tbl.Location = new System.Drawing.Point(0, 0);
-            this.gender_tbl.Margin = new System.Windows.Forms.Padding(0);
-            this.gender_tbl.Name = "gender_tbl";
-            this.gender_tbl.RowCount = 2;
-            this.gender_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.gender_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.gender_tbl.Size = new System.Drawing.Size(780, 89);
-            this.gender_tbl.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 33);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Укажите пол:";
-            // 
-            // class_cb
-            // 
-            this.class_cb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.class_cb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.class_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.class_cb.FormattingEnabled = true;
-            this.class_cb.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.class_cb.ItemHeight = 33;
-            this.class_cb.Location = new System.Drawing.Point(0, 33);
-            this.class_cb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.class_cb.Name = "class_cb";
-            this.class_cb.Size = new System.Drawing.Size(748, 41);
-            this.class_cb.TabIndex = 1;
-            this.class_cb.SelectedIndexChanged += new System.EventHandler(this.fields_Validating);
-            this.class_cb.TextUpdate += new System.EventHandler(this.comboBox_TextUpdate);
-            this.class_cb.Enter += new System.EventHandler(this.comboBox_Enter);
-            this.class_cb.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // birthDay_cb
             // 
@@ -351,9 +321,9 @@
             this.birthDay_cb.FormattingEnabled = true;
             this.birthDay_cb.IntegralHeight = false;
             this.birthDay_cb.Location = new System.Drawing.Point(0, 0);
-            this.birthDay_cb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.birthDay_cb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.birthDay_cb.Name = "birthDay_cb";
-            this.birthDay_cb.Size = new System.Drawing.Size(186, 41);
+            this.birthDay_cb.Size = new System.Drawing.Size(125, 32);
             this.birthDay_cb.TabIndex = 2;
             this.birthDay_cb.SelectedIndexChanged += new System.EventHandler(this.fields_Validating);
             // 
@@ -377,10 +347,10 @@
             "Октябрь",
             "Ноябрь",
             "Декабрь"});
-            this.birthMonth_cb.Location = new System.Drawing.Point(194, 0);
-            this.birthMonth_cb.Margin = new System.Windows.Forms.Padding(8, 0, 8, 15);
+            this.birthMonth_cb.Location = new System.Drawing.Point(130, 0);
+            this.birthMonth_cb.Margin = new System.Windows.Forms.Padding(5, 0, 5, 10);
             this.birthMonth_cb.Name = "birthMonth_cb";
-            this.birthMonth_cb.Size = new System.Drawing.Size(358, 41);
+            this.birthMonth_cb.Size = new System.Drawing.Size(240, 32);
             this.birthMonth_cb.TabIndex = 3;
             this.birthMonth_cb.SelectedIndexChanged += new System.EventHandler(this.fields_Validating);
             this.birthMonth_cb.SelectedValueChanged += new System.EventHandler(this.birthMonth_cb_SelectedValueChanged);
@@ -392,12 +362,42 @@
             this.birthYear_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.birthYear_cb.FormattingEnabled = true;
             this.birthYear_cb.IntegralHeight = false;
-            this.birthYear_cb.Location = new System.Drawing.Point(560, 0);
-            this.birthYear_cb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.birthYear_cb.Location = new System.Drawing.Point(375, 0);
+            this.birthYear_cb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.birthYear_cb.Name = "birthYear_cb";
-            this.birthYear_cb.Size = new System.Drawing.Size(186, 41);
+            this.birthYear_cb.Size = new System.Drawing.Size(125, 32);
             this.birthYear_cb.TabIndex = 4;
             this.birthYear_cb.SelectedValueChanged += new System.EventHandler(this.fields_Validating);
+            // 
+            // gender_tbl
+            // 
+            this.gender_tbl.AutoSize = true;
+            this.gender_tbl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gender_tbl.ColumnCount = 1;
+            this.gender_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.gender_tbl.Controls.Add(this.label2, 0, 0);
+            this.gender_tbl.Controls.Add(this.gender_cb, 0, 1);
+            this.gender_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gender_tbl.Location = new System.Drawing.Point(0, 0);
+            this.gender_tbl.Margin = new System.Windows.Forms.Padding(0);
+            this.gender_tbl.Name = "gender_tbl";
+            this.gender_tbl.RowCount = 2;
+            this.gender_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.gender_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.gender_tbl.Size = new System.Drawing.Size(520, 65);
+            this.gender_tbl.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Укажите пол:";
             // 
             // gender_cb
             // 
@@ -407,21 +407,20 @@
             this.gender_cb.Items.AddRange(new object[] {
             "Мужской",
             "Женский"});
-            this.gender_cb.Location = new System.Drawing.Point(0, 33);
-            this.gender_cb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.gender_cb.Location = new System.Drawing.Point(0, 23);
+            this.gender_cb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.gender_cb.Name = "gender_cb";
-            this.gender_cb.Size = new System.Drawing.Size(748, 41);
+            this.gender_cb.Size = new System.Drawing.Size(500, 32);
             this.gender_cb.TabIndex = 1;
             this.gender_cb.TextUpdate += new System.EventHandler(this.fields_Validating);
             this.gender_cb.SelectedValueChanged += new System.EventHandler(this.fields_Validating);
             // 
             // UserRegistration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.mainContainer_tbl);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserRegistration";
             this.Text = "UserRegistration";
             this.mainContainer_tbl.ResumeLayout(false);

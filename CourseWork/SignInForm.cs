@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CourseWork.DBClasses;
 
 
 namespace CourseWork
@@ -26,48 +27,31 @@ namespace CourseWork
 
             String loginUser = login_tb.Text;
             String passUser = pass_tb.Text;
+            UserDB user = new UserDB();
 
-
-            OleDbConnection connection = new OleDbConnection("Provider = SQLNCLI11; Data Source = localhost; Persist Security Info = True; Password = sa; User ID = sa; Initial Catalog = school");
-            OleDbDataAdapter adapter = new OleDbDataAdapter();
-            DataTable table = new DataTable();
-            //DataSet dataset = new DataSet();
-
-            OleDbCommand command = new OleDbCommand("Select * FROM logins Where login = '" + loginUser + "' AND password ='" + passUser + "'", connection);
-            //command.Parameters.Add("@ul",OleDbType.VarChar).Value=loginUser;
-
-            //OleDbParameter nameParam = new OleDbParameter("@ul", loginUser);
-
-            //command.Parameters.Add(nameParam);
-
-            //command.Parameters.Add("@up", OleDbType.VarChar).Value = passUser;
-            adapter.SelectCommand = command;
-            //dataset.Tables.Add(table);
-            //adapter.Fill(table);
-            //WHERE login = loginUser AND password = passUser
-
-            try
-            {
-                connection.Open();
-                //MessageBox.Show("Coonected!");
+            try {
+                user.loadByLoginAndPassword(loginUser, passUser);
+                switch (user.user_type) {
+                    case 0:
+                        user = new TeacherDB(user);
+                        break;
+                    case 1:
+                        user = new PupleDB(user);
+                        break;
+                    case 2:
+                        user = new ParentDB(user);
+                        break;
+                }
+                //MessageBox.Show(user.fio);
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Coonected failed!");
+            catch (Exception exception) {
+                MessageBox.Show("Conection failed: " + exception.Message);
+                return;
             }
 
-            if (/*table.Rows.Count > 0*/true)
-            {
-                this.Hide();
-                MainForm mainForm = new MainForm(this);
-                mainForm.Show();
-            }
-            else MessageBox.Show("Нет такого пользователя !");
-
-
-
-
-            connection.Close();
+            this.Hide();
+            MainForm mainForm = new MainForm(this, user);
+            mainForm.Show();
 
         }
 
@@ -82,9 +66,9 @@ namespace CourseWork
             RegistrationForm registerForm = new RegistrationForm();
             registerForm.Show();
 
-            
+
         }
 
-        
+
     }
 }

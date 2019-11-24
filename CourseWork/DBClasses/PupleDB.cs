@@ -5,15 +5,104 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace CourseWork.DBClasses
 {
-    class PupleDB : UserDB
+    public class PupleDB : UserDB
     {
-        public int puple_id { get; private set; }
-        public ClassDB classDB { get; private set; }
-        public List<ParentDB> parents { get; private set; }
+        public int puple_id { get; set; }
+        public ClassDB classDB { get; set; }
+        public List<ParentDB> parents { get; set; } = new List<ParentDB>();
+
+        public PupleDB() { }
+
+        public PupleDB(UserDB userDB) : base(userDB)
+        {
+            loadPupleByUserId();
+        }
+
+        public void updatePupleInDB(List<ParentDB> parentsForDelete, List<ParentDB> parentsForAdd)
+        {
+            UpdateUserInDB();
+            string idForDelete = string.Empty;
+            foreach (ParentDB parent in parentsForDelete) {
+                parents.Remove(parent);
+                idForDelete += parent.parent_id + ", ";
+            }
+            sqlConnection.Open();
+
+            if (idForDelete.Count() != 0) {
+
+                idForDelete = idForDelete.Substring(0, idForDelete.Count() - 2);
+
+                string sqlQuery = "delete from puples_parents " +
+                    "where pupleId='" + puple_id + "' and parentId in (" + idForDelete + ")";
+                SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+                cmd.ExecuteNonQuery();
+            }
+
+            string valuesForAdd = string.Empty;
+            foreach (ParentDB parent in parentsForAdd) {
+                parents.Add(parent);
+                valuesForAdd += "('" + puple_id + "', '" + parent.parent_id + "'),";
+            }
+            if (valuesForAdd.Count() != 0) {
+
+                valuesForAdd = valuesForAdd.Substring(0, valuesForAdd.Count() - 1);
+                string sqlQuery = "insert into puples_parents " +
+                    "values" + valuesForAdd;
+                SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+                cmd.ExecuteNonQuery();
+            }
+
+            sqlConnection.Close();
+        }
+
+        private void loadPupleByUserId()
+        {
+            DataTable table = new DataTable();
+            sqlConnection.Open();
+
+            string sqlQuery = "select puples.id, classes.id, classes.classTeacherId," +
+                "classes.quantity, classes.year, classes.letter" +
+                " from puples, classes " +
+                "where puples.classId=classes.id and puples.userId='" + user_id +"'";
+            using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
+                table.Load(command.ExecuteReader());
+                SqlDataReader dr = command.ExecuteReader();
+                if (dr.Read() == false) {
+                    sqlConnection.Close();
+                    throw new Exception("Такого ученика не существует");
+                }
+                this.puple_id = Convert.ToInt32(dr[0]);
+                ClassDB classDB = new ClassDB();
+                classDB.class_id = Convert.ToInt32(dr[1]);
+                classDB.classTeacherId = Convert.ToInt32(dr[2]);
+                classDB.quantity = Convert.ToInt32(dr[3]);
+                classDB.year = Convert.ToInt32(dr[4]);
+                classDB.letter = Convert.ToChar(dr[5]);
+                this.classDB = classDB;
+            }
+
+            table = new DataTable();
+            sqlQuery = "select parents.userId, parents.id from puples_parents, parents " +
+                "where puples_parents.pupleId='" + puple_id + "' and puples_parents.parentId=parents.id";
+            using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
+                table.Load(command.ExecuteReader());
+                SqlDataReader dr = command.ExecuteReader();
+                while (dr.Read()) {
+                    int userId = Convert.ToInt32(dr[0]);
+                    ParentDB parent = new ParentDB();
+                    parent.loadByUserId(userId);
+                    parent.parent_id = Convert.ToInt32(dr[1]);
+                    parents.Add(parent);
+                }
+            }
+
+            sqlConnection.Close();
+        }
 
         public void addNewPupleIntoDB(string login, string password, string fio,
         string sex, DateTime age, string internal_mail, ClassDB classDB, List<ParentDB> parents)

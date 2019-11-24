@@ -52,7 +52,6 @@
             this.homework_lbl = new System.Windows.Forms.Label();
             this.subject_lbl = new System.Windows.Forms.Label();
             this.subject_tb = new System.Windows.Forms.TextBox();
-            this.pupleNote_rtb = new CourseWork.CustomRichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.createHomeworkLayout_tbl = new System.Windows.Forms.TableLayoutPanel();
             this.createHomework_gb = new System.Windows.Forms.GroupBox();
@@ -66,6 +65,7 @@
             this.homeworkDescr_rtb = new CourseWork.CustomRichTextBox();
             this.title_lbl = new System.Windows.Forms.Label();
             this.mainContainer_tbl = new System.Windows.Forms.TableLayoutPanel();
+            this.pupleNote_rtb = new CourseWork.CustomRichTextBox();
             this.homeworkList_cm.SuspendLayout();
             this.homework_tc.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -396,25 +396,13 @@
             this.subject_tb.Size = new System.Drawing.Size(320, 26);
             this.subject_tb.TabIndex = 13;
             // 
-            // pupleNote_rtb
-            // 
-            this.pupleNote_rtb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pupleNote_rtb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pupleNote_rtb.Location = new System.Drawing.Point(174, 83);
-            this.pupleNote_rtb.Name = "pupleNote_rtb";
-            this.pupleNote_rtb.ReadOnly = true;
-            this.pupleNote_rtb.Size = new System.Drawing.Size(320, 114);
-            this.pupleNote_rtb.TabIndex = 16;
-            this.pupleNote_rtb.Text = "";
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.createHomeworkLayout_tbl);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(822, 933);
+            this.tabPage2.Size = new System.Drawing.Size(839, 572);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Задать домашнее задание";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -429,7 +417,7 @@
             this.createHomeworkLayout_tbl.Name = "createHomeworkLayout_tbl";
             this.createHomeworkLayout_tbl.RowCount = 1;
             this.createHomeworkLayout_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.createHomeworkLayout_tbl.Size = new System.Drawing.Size(822, 933);
+            this.createHomeworkLayout_tbl.Size = new System.Drawing.Size(839, 572);
             this.createHomeworkLayout_tbl.TabIndex = 0;
             // 
             // createHomework_gb
@@ -437,7 +425,7 @@
             this.createHomework_gb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.createHomework_gb.Controls.Add(this.selectHomework_tbl);
             this.createHomework_gb.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.createHomework_gb.Location = new System.Drawing.Point(146, 30);
+            this.createHomework_gb.Location = new System.Drawing.Point(154, 30);
             this.createHomework_gb.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.createHomework_gb.MaximumSize = new System.Drawing.Size(530, 270);
             this.createHomework_gb.MinimumSize = new System.Drawing.Size(530, 270);
@@ -582,6 +570,18 @@
             this.mainContainer_tbl.TabIndex = 0;
             this.mainContainer_tbl.Resize += new System.EventHandler(this.mainContainer_tbl_Resize);
             // 
+            // pupleNote_rtb
+            // 
+            this.pupleNote_rtb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pupleNote_rtb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pupleNote_rtb.Location = new System.Drawing.Point(174, 83);
+            this.pupleNote_rtb.Name = "pupleNote_rtb";
+            this.pupleNote_rtb.ReadOnly = true;
+            this.pupleNote_rtb.Size = new System.Drawing.Size(320, 114);
+            this.pupleNote_rtb.TabIndex = 16;
+            this.pupleNote_rtb.Text = "";
+            // 
             // HomeworkTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -648,10 +648,10 @@
         private System.Windows.Forms.TableLayoutPanel mainContainer_tbl;
         private CustomListBox homeworkList_lb;
         private System.Windows.Forms.TextBox subject_tb;
-        private CustomRichTextBox pupleNote_rtb;
         private CustomRichTextBox markComment_rtb;
         private CustomComboBox mark_cb;
         private CustomComboBox subjectCreate_cb;
         private CustomRichTextBox homeworkDescr_rtb;
+        private CustomRichTextBox pupleNote_rtb;
     }
 }

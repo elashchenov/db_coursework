@@ -11,7 +11,7 @@ using CourseWork.DBClasses;
 
 namespace CourseWork
 {
-    
+
     public partial class UserRegistration : Form
     {
         private List<FlowLayoutPanel> personDataList_flp = new List<FlowLayoutPanel>();
@@ -41,7 +41,7 @@ namespace CourseWork
 
             birthMonth_cb.SelectedIndex = 0;
             birthDay_cb.SelectedIndex = 0;
-            birthYear_cb.SelectedIndex = 99;
+            birthYear_cb.SelectedIndex = 100;
 
             //puples = PupleDB.loadPuples();
             //parents = ParentDB.loadParents();
@@ -52,7 +52,7 @@ namespace CourseWork
             }
             this.classes = ClassDB.loadClasses();
             class_cb.Items.AddRange(classes.ToArray());
-            
+
         }
 
         public TableLayoutPanel getContainer()
@@ -64,12 +64,12 @@ namespace CourseWork
         {
             if (userType_ != userType) {
                 //MessageBox.Show(personDataList_flp.Count().ToString());
-                for (int i = personDataList_flp.Count() - 1; i >=0 ; i--) {
+                for (int i = personDataList_flp.Count() - 1; i >= 0; i--) {
                     removePersonDataRow(personDataList_flp[i]);
                 }
             }
             userType_ = userType;
-            switch(userType) {
+            switch (userType) {
                 case 0:
                     class_tbl.Show();
                     personData_lbl.Text = "Добавьте преподаваемые предметы:";
@@ -113,6 +113,7 @@ namespace CourseWork
                     items = PupleDB.loadPuples().ToArray();
                     break;
             }
+
             comboBox.Items.AddRange(items);
             comboBox.Font = new Font("Comic Sans MS", 14);
             comboBox.TextUpdate += new EventHandler(comboBox_TextUpdate);
@@ -134,19 +135,16 @@ namespace CourseWork
             FlowLayoutPanel flowLayout = new FlowLayoutPanel();
             flowLayout.AutoSize = true;
             flowLayout.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            //flowLayout.BorderStyle = BorderStyle.FixedSingle;
             flowLayout.Margin = new Padding(0, 0, 0, 10);
             flowLayout.Padding = new Padding(0);
             flowLayout.Width = 500;
             flowLayout.WrapContents = false;
-
 
             personData_tbl.Controls.Add(flowLayout, 0, 1 + personDataList_flp.Count);
             flowLayout.Controls.Add(comboBox);
             flowLayout.Controls.Add(closeBtn);
             personDataList_cb.Add(comboBox);
             personDataList_flp.Add(flowLayout);
-
         }
 
         private void removePersonDataRow(FlowLayoutPanel flowLayoutRow)
@@ -156,12 +154,11 @@ namespace CourseWork
             personDataList_flp.Remove(flowLayoutRow);
             personData_tbl.Controls.Remove(flowLayoutRow);
             flowLayoutRow.Dispose();
-            
+
             personData_tbl.RowStyles.RemoveAt(idxRowForDelete);
 
             personData_tbl.RowCount--;
             resizePersonalInfoTableHeight(-44);
-
         }
 
         private void resizePersonalInfoTableHeight(int onHeight)
@@ -170,7 +167,6 @@ namespace CourseWork
             userRegistration_tbl.MaximumSize = new Size(userRegistration_tbl.Width, userRegistration_tbl.Height + onHeight);
             mainContainer_tbl.AutoScroll = false;
             mainContainer_tbl.AutoScrollMinSize = new Size(0, userRegistration_tbl.Height + 10);
-            
         }
 
         void comboBox_TextUpdate(object sender, EventArgs e)
@@ -192,7 +188,7 @@ namespace CourseWork
             else
                 personDataPrevVal = (string)focusedComboBox.SelectedItem;
         }
-        
+
 
         private void comboBox_Validating(object sender, CancelEventArgs e)
         {
@@ -279,7 +275,7 @@ namespace CourseWork
                 birthDay_cb.SelectedIndex = selectedDay;
         }
 
-        private void fields_Validating(object sender, EventArgs e)
+        public void fields_Validating(object sender, EventArgs e)
         {
             if (gender_cb.SelectedIndex == -1 ||
                 birthDay_cb.SelectedIndex == -1 ||
@@ -287,7 +283,7 @@ namespace CourseWork
                 birthYear_cb.SelectedIndex == -1 ||
                 internalMail_tb.Text.Count() == 0 ||
                 internalMailWrong ||
-                class_cb.SelectedIndex == -1 && userType_ != 2)
+                class_cb.Text.Count() == 0 && userType_ == 1)
                 signUp_btn.Enabled = false;
             else
                 signUp_btn.Enabled = true;
@@ -295,7 +291,7 @@ namespace CourseWork
 
         private void internalMail_tb_TextChanged(object sender, EventArgs e)
         {
-            if (internalMails.Any(s => s.Contains(internalMail_tb.Text) && internalMail_tb.Text.Count() == s.Trim().Length) 
+            if (internalMails.Any(s => s.Contains(internalMail_tb.Text) && internalMail_tb.Text.Count() == s.Trim().Length)
                 && (internalMail_tb.Text.Count() != 0)) {
                 signUp_btn.Enabled = false;
                 internalMail_tb.BackColor = Color.Salmon;

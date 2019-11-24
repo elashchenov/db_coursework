@@ -8,11 +8,11 @@ using System.Data.SqlClient;
 
 namespace CourseWork.DBClasses
 {
-    
-    class SubjectDB
+
+    public class SubjectDB
     {
-        public int subject_id { get; private set; }
-        public string name { get; private set; }
+        public int subject_id { get; set; }
+        public string name { get; set; }
         protected static SqlConnection sqlConnection = new SqlConnection(
             "Server=(local);" +
             "User ID=sa;" +
