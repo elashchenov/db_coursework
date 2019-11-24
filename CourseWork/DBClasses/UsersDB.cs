@@ -104,7 +104,11 @@ namespace CourseWork.DBClasses
         public void loadByLoginAndPassword(string login, string password)
         {
             DataTable table = new DataTable();
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             string sqlQuery = "select * from users where users.login='" + login + "' and users.password='" + password + "'";
             using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
@@ -123,14 +127,19 @@ namespace CourseWork.DBClasses
                 this.age = Convert.ToDateTime(dr[6]);
                 this.internal_mail = Convert.ToString(dr[7]);
             }
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         public static List<UserDB> loadUsers()
         {
             List<UserDB> users = new List<UserDB>();
             DataTable table = new DataTable();
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             using (SqlCommand command = new SqlCommand("SELECT * FROM users", sqlConnection)) {
                 table.Load(command.ExecuteReader());
@@ -149,7 +158,8 @@ namespace CourseWork.DBClasses
                 }
 
             }
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
             return users;
         }
 

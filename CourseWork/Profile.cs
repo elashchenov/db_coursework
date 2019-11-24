@@ -82,7 +82,8 @@ namespace CourseWork
                     class_lbl.Text = "Ваш класс:";
                     personData_lbl.Text = "Предметы:";
                     personDataItems = SubjectDB.loadSubjects().ToArray();
-                    class_tb.Text = ((TeacherDB)user).classDB.ToString();
+                    if (((TeacherDB)user).classDB != null)
+                        class_tb.Text = ((TeacherDB)user).classDB.ToString();
                     foreach (SubjectDB subject in ((TeacherDB)user).subjects) {
                         addPersonDataRow(subject, personDataItems);
                     }

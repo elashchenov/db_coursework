@@ -77,7 +77,8 @@ namespace CourseWork.DBClasses
             using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
                 table.Load(command.ExecuteReader());
                 SqlDataReader dr = command.ExecuteReader();
-                dr.Read();
+                if (!dr.Read())
+                    return;
                 ClassDB classDB = new ClassDB();
                 classDB.class_id = Convert.ToInt32(dr[0]);
                 classDB.classTeacherId = Convert.ToInt32(dr[1]);
