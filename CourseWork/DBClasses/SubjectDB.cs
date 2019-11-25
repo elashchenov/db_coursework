@@ -40,6 +40,42 @@ namespace CourseWork.DBClasses
             return subjects;
         }
 
+        public static List<TeacherDB> loadTeachersBySubjectId(int subjectId)
+        {
+            DataTable table = new DataTable();
+            List<ClassDB> classes = ClassDB.loadClasses();
+            sqlConnection.Open();
+            List<TeacherDB> teachers = new List<TeacherDB>();
+
+            string sqlQuery = "select user_id, login, password, user_type," +
+                " fio, sex, age, internal_mail, teacher_id " +
+                "from TeachersFullTable, teachers_subjects " +
+                "where teachers_subjects.subjectId='" + subjectId + "'" +
+                " and TeachersFullTable.teacher_id=teachers_subjects.teacherId";
+            using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
+                table.Load(command.ExecuteReader());
+                SqlDataReader dr = command.ExecuteReader();
+                while (dr.Read()) {
+                    TeacherDB teacher = new TeacherDB();
+                    teacher.user_id = Convert.ToInt32(dr[0]);
+                    teacher.login = Convert.ToString(dr[1]);
+                    teacher.password = Convert.ToString(dr[2]);
+                    teacher.user_type = Convert.ToInt32(dr[3]);
+                    teacher.fio = Convert.ToString(dr[4]);
+                    teacher.sex = Convert.ToString(dr[5]);
+                    teacher.age = Convert.ToDateTime(dr[6]);
+                    teacher.internal_mail = Convert.ToString(dr[7]);
+                    teacher.teacher_id = Convert.ToInt32(dr[8]);
+                    teacher.classDB = classes.Find(c => c.class_id == teacher.teacher_id); ;
+                    teachers.Add(teacher);
+                }
+            }
+
+            sqlConnection.Close();
+
+            return teachers;
+        }
+
         public override string ToString()
         {
             return name;

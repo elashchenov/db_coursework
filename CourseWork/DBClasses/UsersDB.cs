@@ -45,7 +45,11 @@ namespace CourseWork.DBClasses
         protected void addNewUserIntoDB(string login, string password, int user_type, string fio,
         string sex, DateTime age, string internal_mail)
         {
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             SqlCommand cmd = new SqlCommand("AddNewUser", sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -61,7 +65,8 @@ namespace CourseWork.DBClasses
             cmd.ExecuteNonQuery();
 
             this.user_id = Convert.ToInt32(cmd.Parameters["@userId"].Value);
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
             this.login = login;
             this.password = password;
             this.user_type = user_type;

@@ -16,7 +16,7 @@ namespace CourseWork
         private SignInForm parentForm;
         private Panel currForm;
         private LinkLabel currLinkLabel = null;
-        private UserDB user_;
+        private UserDB user;
 
         public MainForm()
         {
@@ -25,15 +25,17 @@ namespace CourseWork
 
         public MainForm(SignInForm f, UserDB user)
         {
-            this.user_ = user;
+            this.user = user;
             InitializeComponent();
-            //wrapper.BackColor = Color.FromArgb(0, Color.Black);
-            //user_split.BackColor = Color.FromArgb(0, Color.Black);
-
-            //panel2Size = new Size(
-            //    wrapper.Size.Width,
-            //    wrapper.Size.Height
-            //    );
+            switch(this.user.user_type) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    homework_lbl.Hide();
+                    break;
+            }
 
             parentForm = f;
             f.Hide();
@@ -98,7 +100,7 @@ namespace CourseWork
             if (currLinkLabel != profile_lbl)
             {
                 wrapper.AutoScroll = true;
-                loadIntoPanel2(new Profile(wrapper, user_).getContainer());
+                loadIntoPanel2(new Profile(wrapper, user).getContainer());
                 currLinkLabel = profile_lbl;
             }
         }
@@ -117,11 +119,15 @@ namespace CourseWork
         {
             if (currLinkLabel != homework_lbl)
             {
-                //loadIntoPanel2(new HomeworkPuple(wrapper).getContainer());
-                //currLinkLabel = homework_lbl;    
-                wrapper.AutoScroll = true;
-                loadIntoPanel2(new HomeworkTeacher(wrapper).getContainer());
-                currLinkLabel = homework_lbl;
+                if(user.user_type == 1) {
+                    loadIntoPanel2(new HomeworkPuple(wrapper, (PupleDB)user).getContainer());
+                    currLinkLabel = homework_lbl;
+                } else {
+                    loadIntoPanel2(new HomeworkTeacher(wrapper, (TeacherDB)user).getContainer());
+                    currLinkLabel = homework_lbl;
+                }
+
+                
             }
         }
 

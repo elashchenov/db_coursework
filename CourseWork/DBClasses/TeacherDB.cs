@@ -11,9 +11,9 @@ namespace CourseWork.DBClasses
 {
     public class TeacherDB : UserDB
     {
-        public int teacher_id { get; private set; }
-        public ClassDB classDB { get; private set; }
-        public List<SubjectDB> subjects { get; private set; } = new List<SubjectDB>();
+        public int teacher_id { get; set; }
+        public ClassDB classDB { get; set; }
+        public List<SubjectDB> subjects { get; set; } = new List<SubjectDB>();
 
         public TeacherDB(UserDB userDB) : base(userDB)
         {
@@ -28,7 +28,7 @@ namespace CourseWork.DBClasses
             string idForDelete = string.Empty;
             foreach (SubjectDB subject in subjectsForDelete) {
                 subjects.Remove(subject);
-                idForDelete +=  subject.subject_id + ", ";
+                idForDelete += subject.subject_id + ", ";
             }
             sqlConnection.Open();
 
@@ -122,7 +122,7 @@ namespace CourseWork.DBClasses
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("ID", typeof(int)));
             foreach (SubjectDB sbj in subjects)
-                dt.Rows.Add(new object[]{sbj.subject_id});
+                dt.Rows.Add(new object[] { sbj.subject_id });
             var param = cmd.Parameters.AddWithValue("@subjectId", dt);
             param.SqlDbType = SqlDbType.Structured;
 
@@ -137,6 +137,8 @@ namespace CourseWork.DBClasses
         {
             List<TeacherDB> teachers = new List<TeacherDB>();
             DataTable table = new DataTable();
+            List<ClassDB> classes = ClassDB.loadClasses();
+
             sqlConnection.Open();
 
             using (SqlCommand command = new SqlCommand("SELECT * FROM TeachersFullTable", sqlConnection)) {
@@ -153,7 +155,7 @@ namespace CourseWork.DBClasses
                     teacher.age = Convert.ToDateTime(dr[6]);
                     teacher.internal_mail = Convert.ToString(dr[7]);
                     teacher.teacher_id = Convert.ToInt32(dr[8]);
-                    teacher.classDB = ClassDB.loadClasses().Find(c => c.class_id == Convert.ToInt32(dr[9])); ;
+                    teacher.classDB = classes.Find(c => c.classTeacherId == teacher.teacher_id);
                     teachers.Add(teacher);
                 }
 

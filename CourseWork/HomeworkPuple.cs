@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CourseWork.DBClasses;
 
 namespace CourseWork
 {
@@ -14,16 +15,22 @@ namespace CourseWork
     {
         Panel parentPanel_;
         string prevValue;
+        private List<SubjectDB> subjects = SubjectDB.loadSubjects();
         private List<FlowLayoutPanel> attachedFileList_flp = new List<FlowLayoutPanel>();
         private List<Label> attachedFileList_cb = new List<Label>();
+        private List<string> filePaths = new List<string>();
+        private List<string> fileNames = new List<string>();
+        private PupleDB puple;
 
-        public HomeworkPuple(Panel parentPanel)
+        public HomeworkPuple(Panel parentPanel, PupleDB puple)
         {
+            this.puple = puple;
             parentPanel_ = parentPanel;
             InitializeComponent();
-
             mainContainer_tbl.AutoScroll = false;
             mainContainer_tbl.MinimumSize = new Size(0, mainContainer_tbl.GetRowHeights().Sum());
+
+            subject_cb.Items.AddRange(subjects.ToArray());
         }
 
         public TableLayoutPanel getContainer()
@@ -33,14 +40,14 @@ namespace CourseWork
 
         void comboBox_TextUpdate(object sender, EventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            if (comboBox.FindString(comboBox.Text) == -1)
-            {
-                comboBox.TextUpdate -= new EventHandler(comboBox_TextUpdate);
-                comboBox.Text = comboBox.Text.Substring(0, comboBox.Text.Length - 1);
-                comboBox.Select(comboBox.Text.Length, 0);
-                comboBox.TextUpdate += new EventHandler(comboBox_TextUpdate);
-            }
+            //ComboBox comboBox = (ComboBox)sender;
+            //if (comboBox.FindString(comboBox.Text) == -1)
+            //{
+            //    comboBox.TextUpdate -= new EventHandler(comboBox_TextUpdate);
+            //    comboBox.Text = comboBox.Text.Substring(0, comboBox.Text.Length - 1);
+            //    comboBox.Select(comboBox.Text.Length, 0);
+            //    comboBox.TextUpdate += new EventHandler(comboBox_TextUpdate);
+            //}
         }
 
         void comboBox_Enter(object sender, EventArgs e)
@@ -56,8 +63,7 @@ namespace CourseWork
         private void comboBox_Validating(object sender, CancelEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            if (comboBox.FindStringExact(comboBox.Text) == -1)
-            {
+            if (comboBox.FindStringExact(comboBox.Text) == -1) {
                 comboBox.TextUpdate -= new EventHandler(comboBox_TextUpdate);
                 comboBox.SelectedItem = prevValue;
                 comboBox.Text = prevValue;
@@ -82,8 +88,7 @@ namespace CourseWork
             mainContainer_tbl.RowStyles[2].Height += onHeight;
             sendHomework_tbl.Height += onHeight;
             int sum = 0;
-            for (int i = 0; i < mainContainer_tbl.RowCount; i++)
-            {
+            for (int i = 0; i < mainContainer_tbl.RowCount; i++) {
                 sum += (int)mainContainer_tbl.RowStyles[i].Height;
             }
             parentPanel_.AutoScrollMinSize = new Size(0, sum);
@@ -141,23 +146,21 @@ namespace CourseWork
             int idxRowForDelete = sendHomework_tbl.GetRow(flowLayoutRow);
             attachedFileList_cb.Remove((Label)flowLayoutRow.Controls[0]);
             attachedFileList_flp.Remove(flowLayoutRow);
+            filePaths.RemoveAt(idxRowForDelete);
+            fileNames.RemoveAt(idxRowForDelete);
             sendHomework_tbl.Controls.Remove(flowLayoutRow);
             flowLayoutRow.Dispose();
 
-            if (idxRowForDelete == 0)
-            {
+            if (idxRowForDelete == 0) {
                 //MessageBox.Show("here");
                 idxRowForDelete++;
                 sendHomework_tbl.SetRow(attachLink_lbl, sendHomework_tbl.GetRow(attachLink_lbl) - 1);
             }
 
-            for (int i = idxRowForDelete + 1; i < sendHomework_tbl.RowCount; i++)
-            {
-                for (int j = 0; j < sendHomework_tbl.ColumnCount; j++)
-                {
+            for (int i = idxRowForDelete + 1; i < sendHomework_tbl.RowCount; i++) {
+                for (int j = 0; j < sendHomework_tbl.ColumnCount; j++) {
                     var control = sendHomework_tbl.GetControlFromPosition(j, i);
-                    if (control != null)
-                    {
+                    if (control != null) {
                         sendHomework_tbl.SetRow(control, i - 1);
                         sendHomework_tbl.RowStyles[i - 1].Height = sendHomework_tbl.RowStyles[i].Height;
                     }
@@ -176,13 +179,18 @@ namespace CourseWork
         private void attachLink_lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Word|*.doc*|";//your filter
+            open.Filter = "Word|*.doc*|All|*.*";//your filter
             open.FilterIndex = 1;
             DialogResult result = open.ShowDialog();
-            if (result == DialogResult.OK)
-            {
+            if (result == DialogResult.OK) {
                 string filename = open.SafeFileName;
                 string path = open.FileName;
+                if (filePaths.Any(s => s == path)) {
+                    MessageBox.Show("Этот файл уже прикреплен");
+                    return;
+                }
+                filePaths.Add(path);
+                fileNames.Add(filename);
                 addAttachedFileRow(filename);
             }
 
@@ -206,6 +214,66 @@ namespace CourseWork
         {
             PictureBox pictureBox = (PictureBox)sender;
             removePersonDataRow((FlowLayoutPanel)pictureBox.Parent);
+        }
+
+        private void subject_cb_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (subject_cb.SelectedIndex != -1) {
+                teacher_cb.Items.Clear();
+                teacher_cb.Items.AddRange(
+                    SubjectDB.loadTeachersBySubjectId(((SubjectDB)subject_cb.SelectedItem).subject_id).ToArray()
+                    );
+                homework_cb.Items.Clear();
+                homework_cb.Items.AddRange(
+                    HomeworkDB.loadHomeworks((SubjectDB)subject_cb.SelectedItem, puple.classDB).ToArray()
+                    );
+            }
+        }
+
+        private void homework_cb_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (homework_cb.SelectedIndex != -1)
+                homeworkDescr_rtb.Text = ((HomeworkDB)homework_cb.SelectedItem).description;
+        }
+
+        private void send_btn_Click(object sender, EventArgs e)
+        {
+            if (teacher_cb.SelectedIndex == -1) {
+                MessageBox.Show("Выберите учителя!");
+                return;
+            }
+            if (filePaths.Count() == 0) {
+                MessageBox.Show("Прикрепите файлы!");
+                return;
+            }
+            try {
+                new AnswerDB().addNewAnswer(
+                    (TeacherDB)teacher_cb.SelectedItem,
+                    (SubjectDB)subject_cb.SelectedItem,
+                    puple,
+                    (HomeworkDB)homework_cb.SelectedItem,
+                    note_rtb.Text,
+                    filePaths, fileNames
+                    );
+            } catch (Exception exception) {
+                MessageBox.Show(exception.Message);
+                return;
+            }
+            MessageBox.Show("Домашнее задание отправлено!");
+            clearForm();
+        }
+
+        private void clearForm()
+        {
+            note_rtb.Clear();
+            for (int i = attachedFileList_flp.Count() - 1; i >= 0; i--) {
+                removePersonDataRow(attachedFileList_flp[i]);
+            }
+            homeworkDescr_rtb.Clear();
+            homework_cb.Items.Clear();
+            teacher_cb.Items.Clear();
+            teacher_cb.Text = string.Empty;
+            subject_cb.SelectedIndex = -1;
         }
     }
 }

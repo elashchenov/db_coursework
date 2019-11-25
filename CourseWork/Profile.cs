@@ -172,7 +172,6 @@ namespace CourseWork
             comboBox.Font = new Font("Comic Sans MS", 10);
             comboBox.TextUpdate += new EventHandler(personData_cb_TextUpdate);
             comboBox.Enter += new EventHandler(personData_cb_Enter);
-            comboBox.SelectedValueChanged += new EventHandler(personData_cb_SelectedValueChanged);
             comboBox.Validating += new CancelEventHandler(personData_cb_Validating);
             comboBox.TabIndex = 7 + personDataList_cb.Count();
 
@@ -219,13 +218,13 @@ namespace CourseWork
 
         void personData_cb_TextUpdate(object sender, EventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            if (comboBox.FindString(comboBox.Text) == -1) {
-                comboBox.TextUpdate -= new EventHandler(personData_cb_TextUpdate);
-                comboBox.Text = comboBox.Text.Substring(0, comboBox.Text.Length - 1);
-                comboBox.Select(comboBox.Text.Length, 0);
-                comboBox.TextUpdate += new EventHandler(personData_cb_TextUpdate);
-            }
+            //ComboBox comboBox = (ComboBox)sender;
+            //if (comboBox.FindString(comboBox.Text) == -1) {
+            //    comboBox.TextUpdate -= new EventHandler(personData_cb_TextUpdate);
+            //    comboBox.Text = comboBox.Text.Substring(0, comboBox.Text.Length - 1);
+            //    comboBox.Select(comboBox.Text.Length, 0);
+            //    comboBox.TextUpdate += new EventHandler(personData_cb_TextUpdate);
+            //}
         }
 
         void personData_cb_Enter(object sender, EventArgs e)
@@ -235,18 +234,6 @@ namespace CourseWork
                 personDataPrevVal = focusedComboBox.SelectedItem.ToString();
             else
                 personDataPrevVal = (string)focusedComboBox.SelectedItem;
-        }
-
-        private void personData_cb_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //MessageBox.Show("selected idx is " + ((ComboBox)sender).SelectedIndex);
-            //ComboBox comboBox = (ComboBox)sender;
-            //if (comboBox.FindStringExact(comboBox.Text) == -1)
-            //{
-            //    comboBox.TextUpdate -= new EventHandler(personData_cb_TextUpdate);
-            //    comboBox.SelectedValue = personDataPrevVal;
-            //    comboBox.TextUpdate += new EventHandler(personData_cb_TextUpdate);
-            //}
         }
 
         private void personData_cb_Validating(object sender, CancelEventArgs e)

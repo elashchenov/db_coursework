@@ -93,6 +93,7 @@
             // 
             this.actionsMenu_table.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.actionsMenu_table.AutoSize = true;
             this.actionsMenu_table.ColumnCount = 1;
             this.actionsMenu_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.actionsMenu_table.Controls.Add(this.messages_lbl, 0, 4);
@@ -105,12 +106,12 @@
             this.actionsMenu_table.Margin = new System.Windows.Forms.Padding(0);
             this.actionsMenu_table.Name = "actionsMenu_table";
             this.actionsMenu_table.RowCount = 6;
-            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.actionsMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.actionsMenu_table.Size = new System.Drawing.Size(169, 180);
             this.actionsMenu_table.TabIndex = 1;
             // 
@@ -126,6 +127,7 @@
             this.messages_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.messages_lbl.Location = new System.Drawing.Point(0, 120);
             this.messages_lbl.Margin = new System.Windows.Forms.Padding(0);
+            this.messages_lbl.MinimumSize = new System.Drawing.Size(0, 30);
             this.messages_lbl.Name = "messages_lbl";
             this.messages_lbl.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.messages_lbl.Size = new System.Drawing.Size(169, 30);
@@ -151,6 +153,7 @@
             this.logOut_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.logOut_lbl.Location = new System.Drawing.Point(0, 150);
             this.logOut_lbl.Margin = new System.Windows.Forms.Padding(0);
+            this.logOut_lbl.MinimumSize = new System.Drawing.Size(0, 30);
             this.logOut_lbl.Name = "logOut_lbl";
             this.logOut_lbl.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.logOut_lbl.Size = new System.Drawing.Size(169, 30);
@@ -174,6 +177,7 @@
             this.acadPerform_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.acadPerform_lbl.Location = new System.Drawing.Point(0, 90);
             this.acadPerform_lbl.Margin = new System.Windows.Forms.Padding(0);
+            this.acadPerform_lbl.MinimumSize = new System.Drawing.Size(0, 30);
             this.acadPerform_lbl.Name = "acadPerform_lbl";
             this.acadPerform_lbl.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.acadPerform_lbl.Size = new System.Drawing.Size(169, 30);
@@ -198,6 +202,7 @@
             this.profile_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.profile_lbl.Location = new System.Drawing.Point(0, 0);
             this.profile_lbl.Margin = new System.Windows.Forms.Padding(0);
+            this.profile_lbl.MinimumSize = new System.Drawing.Size(0, 30);
             this.profile_lbl.Name = "profile_lbl";
             this.profile_lbl.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.profile_lbl.Size = new System.Drawing.Size(169, 30);
@@ -222,6 +227,7 @@
             this.shedule_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.shedule_lbl.Location = new System.Drawing.Point(0, 30);
             this.shedule_lbl.Margin = new System.Windows.Forms.Padding(0);
+            this.shedule_lbl.MinimumSize = new System.Drawing.Size(0, 30);
             this.shedule_lbl.Name = "shedule_lbl";
             this.shedule_lbl.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.shedule_lbl.Size = new System.Drawing.Size(169, 30);
@@ -246,6 +252,7 @@
             this.homework_lbl.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.homework_lbl.Location = new System.Drawing.Point(0, 60);
             this.homework_lbl.Margin = new System.Windows.Forms.Padding(0);
+            this.homework_lbl.MinimumSize = new System.Drawing.Size(0, 30);
             this.homework_lbl.Name = "homework_lbl";
             this.homework_lbl.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.homework_lbl.Size = new System.Drawing.Size(169, 30);
@@ -262,7 +269,6 @@
             // wrapper
             // 
             this.wrapper.AutoScroll = true;
-            this.wrapper.AutoSize = true;
             this.wrapper.Controls.Add(this.menu_btn);
             this.wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wrapper.Location = new System.Drawing.Point(0, 0);
@@ -299,10 +305,10 @@
             this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
             this.user_split.Panel1.ResumeLayout(false);
             this.user_split.Panel2.ResumeLayout(false);
-            this.user_split.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.user_split)).EndInit();
             this.user_split.ResumeLayout(false);
             this.userMenu_wrapper.ResumeLayout(false);
+            this.userMenu_wrapper.PerformLayout();
             this.actionsMenu_table.ResumeLayout(false);
             this.actionsMenu_table.PerformLayout();
             this.wrapper.ResumeLayout(false);

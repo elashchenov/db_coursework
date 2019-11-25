@@ -27,18 +27,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainContainer_tbl = new System.Windows.Forms.TableLayoutPanel();
             this.title_lbl = new System.Windows.Forms.Label();
             this.pupleSelection_flp = new System.Windows.Forms.FlowLayoutPanel();
             this.puple_lbl = new System.Windows.Forms.Label();
+            this.puple_cb = new CourseWork.CustomComboBox();
             this.marks_tbl = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.puple_cb = new CourseWork.CustomComboBox();
-            this.markLabel1 = new CourseWork.MarkLabel('2', flowLayoutPanel1, 1);
-            this.markLabel2 = new CourseWork.MarkLabel('3', flowLayoutPanel1, 1);
-            this.markLabel3 = new CourseWork.MarkLabel('4', flowLayoutPanel1, 1);
-            this.markLabel4 = new CourseWork.MarkLabel('5', flowLayoutPanel1, 1);
+            this.markLabel1 = new CourseWork.MarkLabel();
+            this.markLabel2 = new CourseWork.MarkLabel();
+            this.markLabel3 = new CourseWork.MarkLabel();
+            this.markLabel4 = new CourseWork.MarkLabel();
             this.mainContainer_tbl.SuspendLayout();
             this.pupleSelection_flp.SuspendLayout();
             this.marks_tbl.SuspendLayout();
@@ -58,7 +59,7 @@
             this.mainContainer_tbl.Name = "mainContainer_tbl";
             this.mainContainer_tbl.RowCount = 3;
             this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.mainContainer_tbl.Size = new System.Drawing.Size(800, 450);
             this.mainContainer_tbl.TabIndex = 0;
@@ -99,6 +100,17 @@
             this.puple_lbl.Size = new System.Drawing.Size(59, 16);
             this.puple_lbl.TabIndex = 0;
             this.puple_lbl.Text = "Ученик:";
+            // 
+            // puple_cb
+            // 
+            this.puple_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.puple_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.puple_cb.FormattingEnabled = true;
+            this.puple_cb.Location = new System.Drawing.Point(65, 3);
+            this.puple_cb.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.puple_cb.Name = "puple_cb";
+            this.puple_cb.Size = new System.Drawing.Size(200, 24);
+            this.puple_cb.TabIndex = 1;
             // 
             // marks_tbl
             // 
@@ -142,17 +154,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(597, 30);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // puple_cb
-            // 
-            this.puple_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.puple_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.puple_cb.FormattingEnabled = true;
-            this.puple_cb.Location = new System.Drawing.Point(65, 3);
-            this.puple_cb.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.puple_cb.Name = "puple_cb";
-            this.puple_cb.Size = new System.Drawing.Size(200, 24);
-            this.puple_cb.TabIndex = 1;
             // 
             // markLabel1
             // 
