@@ -163,6 +163,7 @@
             this.logOut_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logOut_lbl.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
             this.logOut_lbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.logOut_lbl_LinkClicked);
+            this.logOut_lbl.Click += new System.EventHandler(this.logOut_lbl_LinkClicked);
             this.logOut_lbl.MouseEnter += new System.EventHandler(this.mainMenuLable_MouseEnter);
             this.logOut_lbl.MouseLeave += new System.EventHandler(this.mainMenuLable_MouseLeave);
             // 

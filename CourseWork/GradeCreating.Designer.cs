@@ -30,17 +30,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.title_lbl = new System.Windows.Forms.Label();
             this.gradeCreate_tbl = new System.Windows.Forms.TableLayoutPanel();
-            this.puple_lbl = new System.Windows.Forms.Label();
-            this.workType_lbl = new System.Windows.Forms.Label();
-            this.mark_lbl = new System.Windows.Forms.Label();
             this.markComment_lbl = new System.Windows.Forms.Label();
+            this.workType_lbl = new System.Windows.Forms.Label();
+            this.puple_lbl = new System.Windows.Forms.Label();
             this.confirm_btn = new System.Windows.Forms.Button();
+            this.mark_lbl = new System.Windows.Forms.Label();
+            this.workName = new System.Windows.Forms.Label();
+            this.workName_tb = new System.Windows.Forms.TextBox();
             this.puple_cb = new CourseWork.CustomComboBox();
             this.workType_cb = new CourseWork.CustomComboBox();
-            this.mark_cb = new CourseWork.CustomComboBox();
             this.markComment_rtb = new CourseWork.CustomRichTextBox();
-            this.workName = new System.Windows.Forms.Label();
-            this.workName_cb = new CourseWork.CustomComboBox();
+            this.mark_cb = new CourseWork.CustomComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.gradeCreate_tbl.SuspendLayout();
             this.SuspendLayout();
@@ -90,9 +90,9 @@
             this.gradeCreate_tbl.Controls.Add(this.mark_lbl, 0, 3);
             this.gradeCreate_tbl.Controls.Add(this.workName, 0, 2);
             this.gradeCreate_tbl.Controls.Add(this.mark_cb, 1, 3);
-            this.gradeCreate_tbl.Controls.Add(this.workName_cb, 1, 2);
+            this.gradeCreate_tbl.Controls.Add(this.workName_tb, 1, 2);
             this.gradeCreate_tbl.Location = new System.Drawing.Point(0, 60);
-            this.gradeCreate_tbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.gradeCreate_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.gradeCreate_tbl.Name = "gradeCreate_tbl";
             this.gradeCreate_tbl.RowCount = 6;
             this.gradeCreate_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -103,39 +103,6 @@
             this.gradeCreate_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.gradeCreate_tbl.Size = new System.Drawing.Size(530, 320);
             this.gradeCreate_tbl.TabIndex = 9;
-            // 
-            // puple_lbl
-            // 
-            this.puple_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.puple_lbl.AutoSize = true;
-            this.puple_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.puple_lbl.Location = new System.Drawing.Point(110, 11);
-            this.puple_lbl.Name = "puple_lbl";
-            this.puple_lbl.Size = new System.Drawing.Size(55, 18);
-            this.puple_lbl.TabIndex = 1;
-            this.puple_lbl.Text = "Ученик:";
-            // 
-            // workType_lbl
-            // 
-            this.workType_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.workType_lbl.AutoSize = true;
-            this.workType_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.workType_lbl.Location = new System.Drawing.Point(79, 51);
-            this.workType_lbl.Name = "workType_lbl";
-            this.workType_lbl.Size = new System.Drawing.Size(86, 18);
-            this.workType_lbl.TabIndex = 16;
-            this.workType_lbl.Text = "Тип работы:";
-            // 
-            // mark_lbl
-            // 
-            this.mark_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.mark_lbl.AutoSize = true;
-            this.mark_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.mark_lbl.Location = new System.Drawing.Point(108, 131);
-            this.mark_lbl.Name = "mark_lbl";
-            this.mark_lbl.Size = new System.Drawing.Size(57, 18);
-            this.mark_lbl.TabIndex = 18;
-            this.mark_lbl.Text = "Оценка:";
             // 
             // markComment_lbl
             // 
@@ -148,6 +115,28 @@
             this.markComment_lbl.Size = new System.Drawing.Size(154, 18);
             this.markComment_lbl.TabIndex = 21;
             this.markComment_lbl.Text = "Комментарий к работе:";
+            // 
+            // workType_lbl
+            // 
+            this.workType_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.workType_lbl.AutoSize = true;
+            this.workType_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.workType_lbl.Location = new System.Drawing.Point(79, 51);
+            this.workType_lbl.Name = "workType_lbl";
+            this.workType_lbl.Size = new System.Drawing.Size(86, 18);
+            this.workType_lbl.TabIndex = 16;
+            this.workType_lbl.Text = "Тип работы:";
+            // 
+            // puple_lbl
+            // 
+            this.puple_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.puple_lbl.AutoSize = true;
+            this.puple_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.puple_lbl.Location = new System.Drawing.Point(110, 11);
+            this.puple_lbl.Name = "puple_lbl";
+            this.puple_lbl.Size = new System.Drawing.Size(55, 18);
+            this.puple_lbl.TabIndex = 1;
+            this.puple_lbl.Text = "Ученик:";
             // 
             // confirm_btn
             // 
@@ -163,13 +152,46 @@
             this.confirm_btn.UseVisualStyleBackColor = true;
             this.confirm_btn.Click += new System.EventHandler(this.confirm_btn_Click);
             // 
+            // mark_lbl
+            // 
+            this.mark_lbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.mark_lbl.AutoSize = true;
+            this.mark_lbl.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mark_lbl.Location = new System.Drawing.Point(108, 131);
+            this.mark_lbl.Name = "mark_lbl";
+            this.mark_lbl.Size = new System.Drawing.Size(57, 18);
+            this.mark_lbl.TabIndex = 18;
+            this.mark_lbl.Text = "Оценка:";
+            // 
+            // workName
+            // 
+            this.workName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.workName.AutoSize = true;
+            this.workName.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.workName.Location = new System.Drawing.Point(45, 91);
+            this.workName.Name = "workName";
+            this.workName.Size = new System.Drawing.Size(120, 18);
+            this.workName.TabIndex = 23;
+            this.workName.Text = "Название работы:";
+            // 
+            // workName_tb
+            // 
+            this.workName_tb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.workName_tb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.workName_tb.Location = new System.Drawing.Point(171, 87);
+            this.workName_tb.Name = "workName_tb";
+            this.workName_tb.Size = new System.Drawing.Size(320, 26);
+            this.workName_tb.TabIndex = 24;
+            // 
             // puple_cb
             // 
             this.puple_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.puple_cb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.puple_cb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.puple_cb.DropDownHeight = 200;
             this.puple_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.puple_cb.FormattingEnabled = true;
+            this.puple_cb.IntegralHeight = false;
             this.puple_cb.Location = new System.Drawing.Point(171, 7);
             this.puple_cb.Name = "puple_cb";
             this.puple_cb.Size = new System.Drawing.Size(320, 26);
@@ -196,6 +218,17 @@
             this.workType_cb.Size = new System.Drawing.Size(320, 26);
             this.workType_cb.TabIndex = 17;
             // 
+            // markComment_rtb
+            // 
+            this.markComment_rtb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.markComment_rtb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.markComment_rtb.Location = new System.Drawing.Point(171, 163);
+            this.markComment_rtb.Name = "markComment_rtb";
+            this.markComment_rtb.Size = new System.Drawing.Size(320, 114);
+            this.markComment_rtb.TabIndex = 20;
+            this.markComment_rtb.Text = "";
+            // 
             // mark_cb
             // 
             this.mark_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -211,46 +244,6 @@
             this.mark_cb.Name = "mark_cb";
             this.mark_cb.Size = new System.Drawing.Size(320, 26);
             this.mark_cb.TabIndex = 19;
-            // 
-            // markComment_rtb
-            // 
-            this.markComment_rtb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.markComment_rtb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.markComment_rtb.Location = new System.Drawing.Point(171, 163);
-            this.markComment_rtb.Name = "markComment_rtb";
-            this.markComment_rtb.Size = new System.Drawing.Size(320, 114);
-            this.markComment_rtb.TabIndex = 20;
-            this.markComment_rtb.Text = "";
-            // 
-            // workName
-            // 
-            this.workName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.workName.AutoSize = true;
-            this.workName.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.workName.Location = new System.Drawing.Point(45, 91);
-            this.workName.Name = "workName";
-            this.workName.Size = new System.Drawing.Size(120, 18);
-            this.workName.TabIndex = 23;
-            this.workName.Text = "Название работы:";
-            // 
-            // workName_cb
-            // 
-            this.workName_cb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.workName_cb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.workName_cb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.workName_cb.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.workName_cb.FormattingEnabled = true;
-            this.workName_cb.Items.AddRange(new object[] {
-            "Ответ на уроке",
-            "Контрольная работа",
-            "Самостоятельная работа",
-            "Домашняя работа",
-            "Тест"});
-            this.workName_cb.Location = new System.Drawing.Point(171, 87);
-            this.workName_cb.Name = "workName_cb";
-            this.workName_cb.Size = new System.Drawing.Size(320, 26);
-            this.workName_cb.TabIndex = 24;
             // 
             // GradeCreating
             // 
@@ -286,6 +279,6 @@
         private System.Windows.Forms.Label markComment_lbl;
         private System.Windows.Forms.Button confirm_btn;
         private System.Windows.Forms.Label workName;
-        private CustomComboBox workName_cb;
+        private System.Windows.Forms.TextBox workName_tb;
     }
 }

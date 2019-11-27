@@ -23,8 +23,11 @@ namespace CourseWork.DBClasses
         {
             List<SubjectDB> subjects = new List<SubjectDB>();
             DataTable table = new DataTable();
-            sqlConnection.Open();
-
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             using (SqlCommand command = new SqlCommand("SELECT * FROM subjects", sqlConnection)) {
                 table.Load(command.ExecuteReader());
                 SqlDataReader dr = command.ExecuteReader();
@@ -36,15 +39,19 @@ namespace CourseWork.DBClasses
                 }
 
             }
-            sqlConnection.Close();
-            return subjects;
+            if (!opened)
+                sqlConnection.Close(); return subjects;
         }
 
         public static List<TeacherDB> loadTeachersBySubjectId(int subjectId)
         {
             DataTable table = new DataTable();
             List<ClassDB> classes = ClassDB.loadClasses();
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             List<TeacherDB> teachers = new List<TeacherDB>();
 
             string sqlQuery = "select user_id, login, password, user_type," +
@@ -71,8 +78,8 @@ namespace CourseWork.DBClasses
                 }
             }
 
-            sqlConnection.Close();
-
+            if (!opened)
+                sqlConnection.Close();
             return teachers;
         }
 

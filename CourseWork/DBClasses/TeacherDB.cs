@@ -30,7 +30,11 @@ namespace CourseWork.DBClasses
                 subjects.Remove(subject);
                 idForDelete += subject.subject_id + ", ";
             }
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             if (idForDelete.Count() != 0) {
                 idForDelete = idForDelete.Substring(0, idForDelete.Count() - 2);
@@ -53,13 +57,18 @@ namespace CourseWork.DBClasses
                 SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
                 cmd.ExecuteNonQuery();
             }
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         private void loadTeacherByUserId()
         {
             DataTable table = new DataTable();
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             string sqlQuery = "select id from teachers where teachers.userId='" + user_id + "'";
             using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
@@ -104,14 +113,45 @@ namespace CourseWork.DBClasses
                 }
             }
 
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
+
+        //public static List<SubjectDB> loadSubjectsByTeacherId(int teacherId)
+        //{
+        //    DataTable table = new DataTable();
+        //    sqlConnection.Open();
+        //    List<SubjectDB> subjects = new List<SubjectDB>();
+
+        //    string sqlQuery = "select id, name " +
+        //        "from subjects, teachers_subjects " +
+        //        "where teachers_subjects.teacherId='" + teacherId + "'" +
+        //        " and subjects.id=teachers_subjects.subjectId";
+        //    using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
+        //        table.Load(command.ExecuteReader());
+        //        SqlDataReader dr = command.ExecuteReader();
+        //        while (dr.Read()) {
+        //            SubjectDB subject = new SubjectDB();
+        //            subject.subject_id = Convert.ToInt32(dr[0]);
+        //            subject.name = Convert.ToString(dr[1]);
+        //            subjects.Add(subject);
+        //        }
+        //    }
+
+        //    sqlConnection.Close();
+
+        //    return subjects;
+        //}
 
         public void addNewTeacherIntoDB(string login, string password, string fio,
         string sex, DateTime age, string internal_mail, ClassDB classDB, List<SubjectDB> subjects)
         {
             addNewUserIntoDB(login, password, 0, fio, sex, age, internal_mail);
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             SqlCommand cmd = new SqlCommand("AddNewTeacher", sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -128,7 +168,8 @@ namespace CourseWork.DBClasses
 
             cmd.ExecuteNonQuery();
             this.teacher_id = Convert.ToInt32(cmd.Parameters["@teacherId"].Value);
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
             this.classDB = classDB;
             this.subjects = subjects;
         }
@@ -139,7 +180,11 @@ namespace CourseWork.DBClasses
             DataTable table = new DataTable();
             List<ClassDB> classes = ClassDB.loadClasses();
 
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             using (SqlCommand command = new SqlCommand("SELECT * FROM TeachersFullTable", sqlConnection)) {
                 table.Load(command.ExecuteReader());
@@ -161,7 +206,8 @@ namespace CourseWork.DBClasses
 
             }
 
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
             return teachers;
         }
 

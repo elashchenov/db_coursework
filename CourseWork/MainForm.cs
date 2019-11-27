@@ -27,7 +27,7 @@ namespace CourseWork
         {
             this.user = user;
             InitializeComponent();
-            switch(this.user.user_type) {
+            switch (this.user.user_type) {
                 case 0:
                     break;
                 case 1:
@@ -93,13 +93,11 @@ namespace CourseWork
             Application.Exit();
 
         }
-        
+
 
         private void profile_lbl_LinkClicked(object sender, EventArgs e)
         {
-            if (currLinkLabel != profile_lbl)
-            {
-                wrapper.AutoScroll = true;
+            if (currLinkLabel != profile_lbl) {
                 loadIntoPanel2(new Profile(wrapper, user).getContainer());
                 currLinkLabel = profile_lbl;
             }
@@ -107,38 +105,36 @@ namespace CourseWork
 
         private void shedule_lbl_LinkClicked(object sender, EventArgs e)
         {
-            if (currLinkLabel != shedule_lbl)
-            {
-                wrapper.AutoScroll = true;
-                loadIntoPanel2(new Shedule().getContainer());
+            if (currLinkLabel != shedule_lbl) {
+                loadIntoPanel2(new Shedule(wrapper, user).getContainer());
                 currLinkLabel = shedule_lbl;
             }
         }
 
         private void homework_lbl_LinkClicked(object sender, EventArgs e)
         {
-            if (currLinkLabel != homework_lbl)
-            {
-                if(user.user_type == 1) {
+            if (currLinkLabel != homework_lbl) {
+                if (user.user_type == 1) {
                     loadIntoPanel2(new HomeworkPuple(wrapper, (PupleDB)user).getContainer());
                     currLinkLabel = homework_lbl;
                 } else {
                     loadIntoPanel2(new HomeworkTeacher(wrapper, (TeacherDB)user).getContainer());
                     currLinkLabel = homework_lbl;
                 }
-
-                
             }
         }
 
         private void acadPerform_lbl_LinkClicked(object sender, EventArgs e)
         {
-            //loadIntoPanel2(new AcademicPerformance(wrapper).getContainer());
-            //currLinkLabel = acadPerform_lbl;
+
             if (currLinkLabel != acadPerform_lbl) {
-                wrapper.AutoScroll = true;
-                loadIntoPanel2(new GradingTeacher(wrapper).getContainer());
-                currLinkLabel = acadPerform_lbl;
+                if (user.user_type == 0) {
+                    loadIntoPanel2(new GradingTeacher(wrapper, (TeacherDB)user).getContainer());
+                    currLinkLabel = acadPerform_lbl;
+                } else {
+                    loadIntoPanel2(new AcademicPerformance(wrapper, user).getContainer());
+                    currLinkLabel = acadPerform_lbl;
+                }
             }
         }
 
@@ -183,6 +179,6 @@ namespace CourseWork
                 currForm.ResumeLayout();
         }
 
-        
+
     }
 }

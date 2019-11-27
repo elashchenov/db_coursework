@@ -31,7 +31,11 @@ namespace CourseWork.DBClasses
             List<ClassDB> classes = new List<ClassDB>();
 
             DataTable table = new DataTable();
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             using (SqlCommand command = new SqlCommand("SELECT * FROM classes", sqlConnection)) {
                 table.Load(command.ExecuteReader());
@@ -47,7 +51,8 @@ namespace CourseWork.DBClasses
                 }
             }
 
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
             return classes;
         }
 

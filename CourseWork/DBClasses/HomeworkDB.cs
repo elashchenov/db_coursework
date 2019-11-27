@@ -28,8 +28,11 @@ namespace CourseWork.DBClasses
         {
             List<HomeworkDB> homeworks = new List<HomeworkDB>();
             DataTable table = new DataTable();
-            sqlConnection.Open();
-
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             string sqlQuery = "SELECT * FROM homeworks where homeworks.subjectId='" + subject.subject_id + "' and " +
                 "homeworks.classId='" + classDB.class_id + "'";
             using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
@@ -46,8 +49,8 @@ namespace CourseWork.DBClasses
                 }
 
             }
-            sqlConnection.Close();
-            return homeworks;
+            if (!opened)
+                sqlConnection.Close(); return homeworks;
         }
 
         public static List<HomeworkDB> loadHomeworks()
@@ -57,8 +60,11 @@ namespace CourseWork.DBClasses
             List<ClassDB> classes = ClassDB.loadClasses();
 
             DataTable table = new DataTable();
-            sqlConnection.Open();
-
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             string sqlQuery = "SELECT * FROM homeworks";
             using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
                 table.Load(command.ExecuteReader());
@@ -74,8 +80,8 @@ namespace CourseWork.DBClasses
                 }
 
             }
-            sqlConnection.Close();
-            return homeworks;
+            if (!opened)
+                sqlConnection.Close(); return homeworks;
         }
 
         public void addNewHomeworkIntoDB(SubjectDB subject, ClassDB classDB, string name, string description)

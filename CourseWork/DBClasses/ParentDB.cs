@@ -29,8 +29,11 @@ namespace CourseWork.DBClasses
                 puples.Remove(puple);
                 idForDelete += puple.puple_id + ", ";
             }
-            sqlConnection.Open();
-
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             if (idForDelete.Count() != 0) {
                 idForDelete = idForDelete.Substring(0, idForDelete.Count() - 2);
                 
@@ -53,14 +56,20 @@ namespace CourseWork.DBClasses
                 cmd.ExecuteNonQuery();
             }
 
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         private void loadParentByUserId()
         {
             DataTable table = new DataTable();
-            sqlConnection.Open();
+            List<ClassDB> classes = ClassDB.loadClasses();
 
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             string sqlQuery = "select parents.id from parents " +
                 "where parents.userId='" + user_id +"'";
             using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
@@ -74,7 +83,7 @@ namespace CourseWork.DBClasses
             }
 
             table = new DataTable();
-            sqlQuery = "select puples.userId, puples.id from puples_parents, puples " +
+            sqlQuery = "select puples.userId, puples.id, puples.classId from puples_parents, puples " +
                 "where puples_parents.parentId='" + parent_id + "' and puples_parents.pupleId=puples.id";
             using (SqlCommand command = new SqlCommand(sqlQuery, sqlConnection)) {
                 table.Load(command.ExecuteReader());
@@ -84,18 +93,24 @@ namespace CourseWork.DBClasses
                     PupleDB puple = new PupleDB();
                     puple.loadByUserId(userId);
                     puple.puple_id = Convert.ToInt32(dr[1]);
+                    puple.classDB = classes.Find(p => p.class_id == Convert.ToInt32(dr[2]));
                     puples.Add(puple);
                 }
             }
 
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         public void addNewParentIntoDB(string login, string password, string fio,
         string sex, DateTime age, string internal_mail, List<PupleDB> puples)
         {
             addNewUserIntoDB(login, password, 2, fio, sex, age, internal_mail);
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             SqlCommand cmd = new SqlCommand("AddNewParent", sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -111,16 +126,19 @@ namespace CourseWork.DBClasses
 
             cmd.ExecuteNonQuery();
             this.parent_id = Convert.ToInt32(cmd.Parameters["@parentId"].Value);
-            sqlConnection.Close();
-            this.puples = puples;
+            if (!opened)
+                sqlConnection.Close(); this.puples = puples;
         }
 
         public static List<ParentDB> loadParents()
         {
             List<ParentDB> parents = new List<ParentDB>();
             DataTable table = new DataTable();
-            sqlConnection.Open();
-
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             using (SqlCommand command = new SqlCommand("SELECT * FROM ParentsFullTable", sqlConnection)) {
                 table.Load(command.ExecuteReader());
                 SqlDataReader dr = command.ExecuteReader();
@@ -140,8 +158,8 @@ namespace CourseWork.DBClasses
 
             }
 
-            sqlConnection.Close();
-            return parents;
+            if (!opened)
+                sqlConnection.Close(); return parents;
         }
 
         public override bool Equals(object obj)

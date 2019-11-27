@@ -29,7 +29,7 @@ namespace CourseWork
             String passUser = pass_tb.Text;
             UserDB user = new UserDB();
 
-            try {
+            //try {
                 user.loadByLoginAndPassword(loginUser, passUser);
                 switch (user.user_type) {
                     case 0:
@@ -43,11 +43,11 @@ namespace CourseWork
                         break;
                 }
                 //MessageBox.Show(user.fio);
-            }
-            catch (Exception exception) {
-                MessageBox.Show("Conection failed: " + exception.Message);
-                return;
-            }
+            //}
+            //catch (Exception exception) {
+            //    MessageBox.Show("Conection failed: " + exception.Message);
+            //    return;
+            //}
 
             this.Hide();
             MainForm mainForm = new MainForm(this, user);

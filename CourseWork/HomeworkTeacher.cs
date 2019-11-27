@@ -221,7 +221,7 @@ namespace CourseWork
                 MessageBox.Show("Поставьте оценку");
             }
             AnswerDB answer = (AnswerDB)answerList_lb.SelectedItem;
-            new MarkDB().addNewMark(answer.puple, answer.subject, "Домашняя работа", Convert.ToInt32(mark_cb.SelectedItem), markComment_rtb.Text);
+            new MarkDB().addNewMark(answer.puple, answer.subject, "Домашняя работа", answer.homework.name, Convert.ToInt32(mark_cb.SelectedItem), markComment_rtb.Text);
             MessageBox.Show("Работа успешно оценена!");
             deleteMenuItem_Click(sender, e);
             clearForm();

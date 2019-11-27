@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using CourseWork.DBClasses;
 
 namespace CourseWork
 {
@@ -16,19 +17,21 @@ namespace CourseWork
     {
         [Browsable(true)]
         public Color _BackColor { get; set; }
-        private char mark_;
-        private string teacherNote_;
-        private Panel parentLayout_;
+        public ToolTip toolTip { get; set; } = new ToolTip();
+        public MarkDB mark { get; set; }
+        private List<FlowLayoutPanel> pupleLayouts;
+        private List<PupleDB> puplesInClass;
         private int changeMode_;
 
-        private Dictionary<char, Color> markColors = new Dictionary<char, Color>
+
+        private Dictionary<int, Color> markColors = new Dictionary<int, Color>
         {
-            { '2', Color.FromArgb(255, 34, 0) },
-            { '3', Color.FromArgb(255, 187, 0) },
-            { '4', Color.FromArgb(170, 255, 0) },
-            { '5', Color.FromArgb(85, 255, 68) }
+            { 2, Color.FromArgb(255, 34, 0) },
+            { 3, Color.FromArgb(255, 187, 0) },
+            { 4, Color.FromArgb(170, 255, 0) },
+            { 5, Color.FromArgb(85, 255, 68) }
         };
-        
+
         private void myContextMenuStrip_Opening(object sender, CancelEventArgs e)
         {
             if (changeMode_ == 0)
@@ -51,44 +54,48 @@ namespace CourseWork
 
         private void myContextMenuStrip_Click(object sender, EventArgs e)
         {
-            GradeCreating gradeCreating = new GradeCreating();
+            PupleDB pupleBeforeChange = mark.puple;
+            GradeCreating gradeCreating = new GradeCreating(mark, puplesInClass);
             gradeCreating.ShowDialog();
-            if (gradeCreating.getMark().Count() != 0) {
-                _BackColor = markColors[gradeCreating.getMark()[0]];
-                mark_ = gradeCreating.getMark()[0];
-                Text = gradeCreating.getMark();
+            _BackColor = markColors[mark.mark];
+            Text = mark.mark.ToString();
+            if (pupleBeforeChange != mark.puple) {
+                pupleLayouts[puplesInClass.IndexOf(pupleBeforeChange)].Controls.Remove(this);
+                pupleLayouts[puplesInClass.IndexOf(mark.puple)].Controls.Add(this);
             }
+            toolTip.SetToolTip(this, mark.workName);
+            toolTip.ToolTipTitle = mark.workType;
             Refresh();
         }
 
-        private void deleteMark(object sender, EventArgs e)
+        public void deleteMark(object sender, EventArgs e)
         {
-            parentLayout_.Controls.Remove(this);
+            pupleLayouts[puplesInClass.IndexOf(mark.puple)].Controls.Remove(this);
+            mark.deleteMark();
             this.Dispose();
         }
 
-        public MarkLabel() : this('3', null, 0)
-        {
-        }
-
-        public MarkLabel(char mark, Panel parentLayout, int changeMode)
+        public MarkLabel(MarkDB mark, List<FlowLayoutPanel> pupleLayouts, int changeMode)
         {
             InitializeComponent();
-            mark_ = mark;
+            this.mark = mark;
             changeMode_ = changeMode;
-            parentLayout_ = parentLayout;
+            this.pupleLayouts = pupleLayouts;
             this.DoubleBuffered = true;
             ForeColor = SystemColors.Window;
-            _BackColor = markColors[mark];
-            Text = mark.ToString();
+            _BackColor = markColors[mark.mark];
+            //MessageBox.Show(mark.mark.ToString());
+            Text = Convert.ToString(mark.mark);
             Size = new Size(20, 20);
             ContextMenuStrip = getContextMenu();
             Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             Anchor = System.Windows.Forms.AnchorStyles.Left;
             Margin = new Padding(4, 5, 0, 0);
-            ToolTip ToolTip1 = new ToolTip();
-            ToolTip1.SetToolTip(this, "Hello");
-            ToolTip1.ToolTipTitle = "Title";
+
+            puplesInClass = PupleDB.loadPuples().FindAll(
+                    p => p.classDB.class_id == mark.puple.classDB.class_id
+                    );
+            puplesInClass.Sort((p1, p2) => string.Compare(p1.fio, p2.fio));
         }
 
 

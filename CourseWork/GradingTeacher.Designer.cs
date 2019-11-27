@@ -33,13 +33,10 @@
             this.subject_lbl = new System.Windows.Forms.Label();
             this.subject_cb = new CourseWork.CustomComboBox();
             this.class_lbl = new System.Windows.Forms.Label();
-            this.puple_cb = new CourseWork.CustomComboBox();
+            this.class_cb = new CourseWork.CustomComboBox();
             this.marks_tbl = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mainContainer_tbl.SuspendLayout();
             this.pupleSelection_flp.SuspendLayout();
-            this.marks_tbl.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainContainer_tbl
@@ -52,11 +49,12 @@
             this.mainContainer_tbl.Controls.Add(this.marks_tbl, 0, 2);
             this.mainContainer_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer_tbl.Location = new System.Drawing.Point(0, 0);
+            this.mainContainer_tbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.mainContainer_tbl.Name = "mainContainer_tbl";
             this.mainContainer_tbl.RowCount = 3;
             this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainContainer_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.mainContainer_tbl.Size = new System.Drawing.Size(800, 450);
             this.mainContainer_tbl.TabIndex = 1;
             // 
@@ -79,7 +77,7 @@
             this.pupleSelection_flp.Controls.Add(this.subject_lbl);
             this.pupleSelection_flp.Controls.Add(this.subject_cb);
             this.pupleSelection_flp.Controls.Add(this.class_lbl);
-            this.pupleSelection_flp.Controls.Add(this.puple_cb);
+            this.pupleSelection_flp.Controls.Add(this.class_cb);
             this.pupleSelection_flp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pupleSelection_flp.Location = new System.Drawing.Point(0, 70);
             this.pupleSelection_flp.Margin = new System.Windows.Forms.Padding(0);
@@ -109,6 +107,7 @@
             this.subject_cb.Name = "subject_cb";
             this.subject_cb.Size = new System.Drawing.Size(190, 24);
             this.subject_cb.TabIndex = 3;
+            this.subject_cb.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
             // 
             // class_lbl
             // 
@@ -122,19 +121,17 @@
             this.class_lbl.TabIndex = 0;
             this.class_lbl.Text = "Класс:";
             // 
-            // puple_cb
+            // class_cb
             // 
-            this.puple_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.puple_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.puple_cb.FormattingEnabled = true;
-            this.puple_cb.Items.AddRange(new object[] {
-            "11 А",
-            "9 В"});
-            this.puple_cb.Location = new System.Drawing.Point(337, 3);
-            this.puple_cb.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.puple_cb.Name = "puple_cb";
-            this.puple_cb.Size = new System.Drawing.Size(70, 24);
-            this.puple_cb.TabIndex = 1;
+            this.class_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.class_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.class_cb.FormattingEnabled = true;
+            this.class_cb.Location = new System.Drawing.Point(337, 3);
+            this.class_cb.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.class_cb.Name = "class_cb";
+            this.class_cb.Size = new System.Drawing.Size(70, 24);
+            this.class_cb.TabIndex = 1;
+            this.class_cb.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
             // 
             // marks_tbl
             // 
@@ -144,37 +141,14 @@
             this.marks_tbl.ColumnCount = 2;
             this.marks_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.marks_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.marks_tbl.Controls.Add(this.label1, 0, 0);
-            this.marks_tbl.Controls.Add(this.flowLayoutPanel1, 1, 0);
             this.marks_tbl.Location = new System.Drawing.Point(0, 100);
             this.marks_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.marks_tbl.Name = "marks_tbl";
-            this.marks_tbl.RowCount = 2;
-            this.marks_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.marks_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.marks_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.marks_tbl.Size = new System.Drawing.Size(800, 60);
+            this.marks_tbl.RowCount = 1;
+            this.marks_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.marks_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.marks_tbl.Size = new System.Drawing.Size(800, 30);
             this.marks_tbl.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(4, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Иванова Варвара Ивановна";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(252, 1);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(547, 30);
-            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // GradingTeacher
             // 
@@ -188,8 +162,6 @@
             this.mainContainer_tbl.PerformLayout();
             this.pupleSelection_flp.ResumeLayout(false);
             this.pupleSelection_flp.PerformLayout();
-            this.marks_tbl.ResumeLayout(false);
-            this.marks_tbl.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -200,10 +172,8 @@
         private System.Windows.Forms.Label title_lbl;
         private System.Windows.Forms.FlowLayoutPanel pupleSelection_flp;
         private System.Windows.Forms.Label class_lbl;
-        private CustomComboBox puple_cb;
+        private CustomComboBox class_cb;
         private System.Windows.Forms.TableLayoutPanel marks_tbl;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label subject_lbl;
         private CustomComboBox subject_cb;
     }

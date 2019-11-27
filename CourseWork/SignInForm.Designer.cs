@@ -49,7 +49,7 @@
             this.logPswTable.Controls.Add(this.pass_tb, 1, 1);
             this.logPswTable.Controls.Add(this.login_label, 0, 0);
             this.logPswTable.Location = new System.Drawing.Point(48, 52);
-            this.logPswTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logPswTable.Margin = new System.Windows.Forms.Padding(2);
             this.logPswTable.Name = "logPswTable";
             this.logPswTable.RowCount = 2;
             this.logPswTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -146,7 +146,7 @@
             this.Controls.Add(this.signIn_btn);
             this.Controls.Add(this.logPswTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SignInForm";

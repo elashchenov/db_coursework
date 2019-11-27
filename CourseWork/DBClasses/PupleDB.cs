@@ -31,7 +31,11 @@ namespace CourseWork.DBClasses
                 parents.Remove(parent);
                 idForDelete += parent.parent_id + ", ";
             }
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             if (idForDelete.Count() != 0) {
 
@@ -57,13 +61,18 @@ namespace CourseWork.DBClasses
                 cmd.ExecuteNonQuery();
             }
 
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         private void loadPupleByUserId()
         {
             DataTable table = new DataTable();
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             string sqlQuery = "select puples.id, classes.id, classes.classTeacherId," +
                 "classes.quantity, classes.year, classes.letter" +
@@ -101,14 +110,19 @@ namespace CourseWork.DBClasses
                 }
             }
 
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         public void addNewPupleIntoDB(string login, string password, string fio,
         string sex, DateTime age, string internal_mail, ClassDB classDB, List<ParentDB> parents)
         {
             addNewUserIntoDB(login, password, 1, fio, sex, age, internal_mail);
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             SqlCommand cmd = new SqlCommand("AddNewPuple", sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -125,7 +139,8 @@ namespace CourseWork.DBClasses
 
             cmd.ExecuteNonQuery();
             this.puple_id = Convert.ToInt32(cmd.Parameters["@pupleId"].Value);
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
             this.classDB = classDB;
             this.parents = parents;
         }
@@ -134,7 +149,12 @@ namespace CourseWork.DBClasses
         {
             List<PupleDB> puples = new List<PupleDB>();
             DataTable table = new DataTable();
-            sqlConnection.Open();
+
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
 
             using (SqlCommand command = new SqlCommand("SELECT * FROM PuplesFullTable", sqlConnection)) {
                 table.Load(command.ExecuteReader());
@@ -156,7 +176,8 @@ namespace CourseWork.DBClasses
 
             }
 
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
             return puples;
         }
 

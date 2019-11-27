@@ -68,7 +68,11 @@ namespace CourseWork.DBClasses
 
         public void deleteAnswer()
         {
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             string sqlQuery = "delete from homework_attachments where answerId='" + answer_id + "'";
             using (var sqlWrite = new SqlCommand(sqlQuery, sqlConnection)) {
                 sqlWrite.ExecuteNonQuery();
@@ -78,7 +82,8 @@ namespace CourseWork.DBClasses
             using (var sqlWrite = new SqlCommand(sqlQuery, sqlConnection)) {
                 sqlWrite.ExecuteNonQuery();
             }
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         public void databaseFilePut(string varFilePath, string filename)
@@ -89,19 +94,28 @@ namespace CourseWork.DBClasses
                     file = reader.ReadBytes((int)stream.Length);
                 }
             }
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             string sqlQuery = "INSERT INTO homework_attachments " +
                 "Values('"+ answer_id + "', '" + filename +"', '" + Path.GetExtension(varFilePath) + "', @File)";
             using (var sqlWrite = new SqlCommand(sqlQuery, sqlConnection)) {
                 sqlWrite.Parameters.Add("@File", SqlDbType.VarBinary, file.Length).Value = file;
                 sqlWrite.ExecuteNonQuery();
             }
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         public void databaseFileRead(string varPathToNewLocation)
         {
-            sqlConnection.Open();
+            bool opened = true;
+            if (sqlConnection.State == ConnectionState.Closed) {
+                sqlConnection.Open();
+                opened = false;
+            }
             using (var sqlQuery = new SqlCommand(@"SELECT attached_file FROM homework_attachments WHERE answerId='" + answer_id + "'", sqlConnection)) {
                 sqlQuery.Parameters.AddWithValue("@answerId", answer_id);
                 using (var sqlQueryResult = sqlQuery.ExecuteReader())
@@ -113,7 +127,8 @@ namespace CourseWork.DBClasses
                             fs.Write(blob, 0, blob.Length);
                     }
             }
-            sqlConnection.Close();
+            if (!opened)
+                sqlConnection.Close();
         }
 
         public static List<AnswerDB> loadAnswers()
