@@ -273,6 +273,7 @@
             this.wrapper.Controls.Add(this.menu_btn);
             this.wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wrapper.Location = new System.Drawing.Point(0, 0);
+            this.wrapper.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.wrapper.Name = "wrapper";
             this.wrapper.Size = new System.Drawing.Size(654, 441);
             this.wrapper.TabIndex = 1;

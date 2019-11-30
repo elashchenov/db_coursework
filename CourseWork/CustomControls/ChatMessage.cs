@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CourseWork.DBClasses;
 
 namespace CourseWork.CustomControls
 {
@@ -37,10 +38,11 @@ namespace CourseWork.CustomControls
             CheckForIllegalCrossThreadCalls = false;
         }
 
-        public ChatMessage(string[] lines, int senderType) : this()
+        public ChatMessage(MessageDB message, int senderType) : this()
         {
             _senderType = senderType;
-            text_rtb.Lines = lines;
+            time_lbl.Text = message.time.ToString();
+            text_rtb.Text = message.message;
             if (_senderType == 0) {
                 _BackColor = Color.FromArgb(43, 82, 121);
                 text_rtb.BackColor = Color.FromArgb(43, 82, 121);

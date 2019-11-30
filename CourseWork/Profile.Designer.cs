@@ -77,6 +77,7 @@
             this.userProfile_tbl.Controls.Add(this.title_lbl, 0, 0);
             this.userProfile_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userProfile_tbl.Location = new System.Drawing.Point(0, 0);
+            this.userProfile_tbl.Margin = new System.Windows.Forms.Padding(0);
             this.userProfile_tbl.Name = "userProfile_tbl";
             this.userProfile_tbl.RowCount = 4;
             this.userProfile_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));

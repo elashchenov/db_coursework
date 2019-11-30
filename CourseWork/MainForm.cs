@@ -141,8 +141,8 @@ namespace CourseWork
         private void messages_lbl_LinkClicked(object sender, EventArgs e)
         {
             if (currLinkLabel != messages_lbl) {
-                wrapper.AutoScroll = false;
-                loadIntoPanel2(new Messages(wrapper).getContainer());
+                //wrapper.AutoScroll = false;
+                loadIntoPanel2(new Messages(wrapper, menu_btn, user).getContainer());
                 currLinkLabel = messages_lbl;
             }
         }

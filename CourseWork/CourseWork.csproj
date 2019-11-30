@@ -116,6 +116,7 @@
     <Compile Include="DBClasses\ClassesDB.cs" />
     <Compile Include="DBClasses\HomeworkDB.cs" />
     <Compile Include="DBClasses\MarkDB.cs" />
+    <Compile Include="DBClasses\MessageDB.cs" />
     <Compile Include="DBClasses\ParentDB.cs" />
     <Compile Include="DBClasses\PupleDB.cs" />
     <Compile Include="DBClasses\SheduleDB.cs" />

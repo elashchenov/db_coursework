@@ -77,6 +77,7 @@
             this.deleteChat_btn.TabIndex = 4;
             this.deleteChat_btn.TabStop = false;
             this.deleteChat_btn.WaitOnLoad = true;
+            this.deleteChat_btn.Click += new System.EventHandler(this.deleteChat_btn_Click);
             this.deleteChat_btn.MouseEnter += new System.EventHandler(this.deleteChat_btn_MouseEnter);
             this.deleteChat_btn.MouseLeave += new System.EventHandler(this.deleteChat_btn_MouseLeave);
             // 
@@ -178,7 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mainChatLayout_tbl);
-            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(500, 60);
             this.Name = "ChatButton";
             this.Size = new System.Drawing.Size(500, 60);
