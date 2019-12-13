@@ -255,7 +255,8 @@ namespace CourseWork
                     note_rtb.Text,
                     filePaths, fileNames
                     );
-            } catch (Exception exception) {
+            }
+            catch (Exception exception) {
                 MessageBox.Show(exception.Message);
                 return;
             }

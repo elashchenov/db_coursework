@@ -14,6 +14,7 @@ namespace CourseWork.DBClasses
         public int homework_id { get; set; }
         public SubjectDB subject { get; set; }
         public ClassDB classDB { get; set; }
+        public TeacherDB teacher { get; set; }
         public string name { get; set; }
         public string description { get; set; }
 
@@ -27,6 +28,7 @@ namespace CourseWork.DBClasses
         public static List<HomeworkDB> loadHomeworks(SubjectDB subject, ClassDB classDB)
         {
             List<HomeworkDB> homeworks = new List<HomeworkDB>();
+            List<TeacherDB> teachers = TeacherDB.loadTeachers();
             DataTable table = new DataTable();
             bool opened = true;
             if (sqlConnection.State == ConnectionState.Closed) {
@@ -43,8 +45,9 @@ namespace CourseWork.DBClasses
                     homework.homework_id = Convert.ToInt32(dr[0]);
                     homework.subject = subject;
                     homework.classDB = classDB;
-                    homework.name = Convert.ToString(dr[3]);
-                    homework.description = Convert.ToString(dr[4]);
+                    homework.teacher = teachers.Find(c => c.teacher_id == Convert.ToInt32(dr[3]));
+                    homework.name = Convert.ToString(dr[4]);
+                    homework.description = Convert.ToString(dr[5]);
                     homeworks.Add(homework);
                 }
 
@@ -58,6 +61,7 @@ namespace CourseWork.DBClasses
             List<HomeworkDB> homeworks = new List<HomeworkDB>();
             List<SubjectDB> subjects = SubjectDB.loadSubjects();
             List<ClassDB> classes = ClassDB.loadClasses();
+            List<TeacherDB> teachers = TeacherDB.loadTeachers();
 
             DataTable table = new DataTable();
             bool opened = true;
@@ -74,8 +78,9 @@ namespace CourseWork.DBClasses
                     homework.homework_id = Convert.ToInt32(dr[0]);
                     homework.subject = subjects.Find(c => c.subject_id == Convert.ToInt32(dr[1]));
                     homework.classDB = classes.Find(c => c.class_id == Convert.ToInt32(dr[2]));
-                    homework.name = Convert.ToString(dr[3]);
-                    homework.description = Convert.ToString(dr[4]);
+                    homework.teacher = teachers.Find(c => c.teacher_id == Convert.ToInt32(dr[3]));
+                    homework.name = Convert.ToString(dr[4]);
+                    homework.description = Convert.ToString(dr[5]);
                     homeworks.Add(homework);
                 }
 
@@ -84,7 +89,7 @@ namespace CourseWork.DBClasses
                 sqlConnection.Close(); return homeworks;
         }
 
-        public void addNewHomeworkIntoDB(SubjectDB subject, ClassDB classDB, string name, string description)
+        public void addNewHomeworkIntoDB(SubjectDB subject, ClassDB classDB, TeacherDB teacher, string name, string description)
         {
             bool opened = true;
             if (sqlConnection.State == ConnectionState.Closed) {
@@ -96,6 +101,7 @@ namespace CourseWork.DBClasses
 
             cmd.Parameters.Add(new SqlParameter("@subjectId", subject.subject_id));
             cmd.Parameters.Add(new SqlParameter("@classId", classDB.class_id));
+            cmd.Parameters.Add(new SqlParameter("@teacherId", teacher.teacher_id));
             cmd.Parameters.Add(new SqlParameter("@name", name));
             cmd.Parameters.Add(new SqlParameter("@description", description));
             cmd.Parameters.Add(new SqlParameter("@homeworkId", SqlDbType.Int)).Direction = ParameterDirection.Output;
@@ -107,6 +113,7 @@ namespace CourseWork.DBClasses
                 sqlConnection.Close();
             this.subject = subject;
             this.classDB = classDB;
+            this.teacher = teacher;
             this.name = name;
             this.description = description;
         }

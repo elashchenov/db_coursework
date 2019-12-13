@@ -113,6 +113,7 @@ namespace CourseWork
             homework.addNewHomeworkIntoDB(
                 (SubjectDB)subjectCreate_cb.SelectedItem,
                 (ClassDB)classCreate_cb.SelectedItem,
+                (TeacherDB) teacher,
                 homeworkCreate_tb.Text.Trim(),
                 homeworkDescr_rtb.Text.Trim());
             MessageBox.Show("Домашнее задание опубликовано!");
